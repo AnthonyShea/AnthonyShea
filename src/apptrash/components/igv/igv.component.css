@@ -1,0 +1,140 @@
+.igv{
+    width: 100%;
+    padding-top: 10px;
+}
+
+.flex-container {
+    display: flex;
+    margin-bottom: 4px;
+}
+
+.flex-child {
+    flex: 1;
+} 
+
+.legend {
+    display: flex;
+    justify-content: center;
+    background-color: #f0f0f0; /* Adjust the background color as needed */
+    padding: 0px; /* Add padding for spacing */
+  }
+
+  .legend span {
+    margin: 10px; /* Adjust the right margin as needed */
+    font-weight: 700;
+    font-size: 20;
+  }
+  
+
+.button{
+    min-height: 35px;
+    background-color: #D8C385;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 3px #999;
+    margin: 2px;
+    width: 10%;
+}
+
+.center-button {
+    text-align: center;
+    width: 25%;
+    margin: 2px auto;
+    min-height: 35px;
+    background-color: #D8C385;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 3px #999;
+  }
+
+.get-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+.button:active {
+    background-color: #CEB464;
+    transform: translateY(4px);
+  }
+
+  .button:hover{
+    background-color: #CEB464;
+  }
+
+  .search-results {
+    position: relative;
+}
+
+.search-results.searching {
+    pointer-events: none; /* Prevent clicks on elements underneath */
+}
+
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 999;
+  padding-top: 20px;
+  font-size: 50px;
+}
+
+.selectbox-title{
+  color: #E98074;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  margin: 5px;
+}
+
+.content-wrapper {
+  position: relative; /* Establishes a reference point for absolute positioning */
+  /* Optional: ensure this container takes up the full viewport height if needed */
+  min-height: 100vh;
+}
+
+.loading-overlay {
+  position: absolute;  /* Positioned relative to the content-wrapper */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;    /* Center the loading message */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;    /* Ensure it covers all content within the content-wrapper */
+}
+
+/* Define pulsing animation */
+@keyframes pulse {
+  0% {
+      opacity: 1;
+  }
+  50% {
+      opacity: 0.5;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+/* Loading message style */
+.loading-message {
+  color: #fff;      /* White text */
+  font-size: 40px;   /* Larger text */
+  font-weight: bold;
+  animation: pulse 1.5s infinite; /* Apply the pulsing animation */
+}

@@ -1,0 +1,86 @@
+.buttongroups-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid green;
+}
+
+.map-box{
+  background: linear-gradient(to bottom, #FFFFFF, #F0F0F0);
+  outline: 2px solid black;
+}
+
+.buttongroups-container:first-child {
+  margin-top: 120px;
+  margin-bottom: 40px;
+}
+
+.multiple-selection-styling-mode {
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-color: #ddd;
+}
+
+.study-meta {
+  text-align: center;
+}
+
+.scalawag-meta {
+  text-align: center;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.flex-child {
+  flex-basis: 48%;
+  text-align: center; /* Center the text within flex-child */
+}
+
+.flex-child b {
+  text-align: center; /* Center the text inside the b tag */
+}
+
+.flex-child2 {
+  flex-basis: 100%;
+}
+
+.pval-label {
+  text-align: center; /* Center the text within the label */
+}
+
+.pval-value {
+  font-size: 40px;
+}
+
+.lfc-label {
+  text-align: center; /* Center the text within the label */
+}
+
+.lfc-value {
+  font-size: 40px;
+}
+
+.negative-value {
+  color: lightcoral;
+}
+
+.positive-value {
+  color: forestgreen;
+}
+
+.memo {
+  font-size: medium;
+  font-Family: 'RobotoCondensed';
+  text-align: center;
+  display: inline-block;
+}

@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild, ElementRef, OnDestroy} from '@angular/core';
-import * as igv from 'igv'
+//import * as igv from 'igv'
+import igv from 'node_modules/igv/dist/igv.esm.min.js'
 import { Positions } from 'src/app/models/positions.model';
 import { DatabaseService } from 'src/app/services/database.service';
 import {ChartComponent,ApexAxisChartSeries,ApexChart,ApexPlotOptions,ApexXAxis, ApexTitleSubtitle} from "ng-apexcharts";
@@ -31,8 +32,8 @@ export class IgvComponent implements AfterViewInit, OnDestroy {
    browser: any;
    trackUrl = 'https://www.encodeproject.org/files/ENCFF356YES/@@download/ENCFF356YES.bigWig'
    options = {
-      genome: "hg38",
-      locus: 'chr10:1000000-2000000'
+      genome: "mm39",
+      locus: 'chr8:5727233-17181696'
    };
 
    //Chart Variables
@@ -126,7 +127,7 @@ export class IgvComponent implements AfterViewInit, OnDestroy {
 
     if(loci != null){
       this.options = {
-        genome: "hg38",
+        genome: "mm39",
         locus: loci
      };
      this.lociService.setLocus(null)
@@ -168,7 +169,7 @@ export class IgvComponent implements AfterViewInit, OnDestroy {
    this.gene_names = this.display!.map((obj)=>obj.en_id!)
    const convertedList: number[] = this.gene_names.map((str) => {
     // Remove 'ENSG' from the beginning of each string
-    const strippedString = str.replace('ENSG', '');
+    const strippedString = str.replace('ENSMUSG', '');
     // Convert the remaining string to a number
     return parseInt(strippedString, 10);
     });
@@ -178,10 +179,10 @@ export class IgvComponent implements AfterViewInit, OnDestroy {
        next: (data) => {
          this.original_genes = data;
          this.genes = data;
-         this.original_grouped_genes = this.convertDiffExpData(this.original_genes)
-         console.log(this.original_grouped_genes)
+         this.original_grouped_genes = this.convertDiffExpData(this.original_genes)         
          this.subsetCorrectCellAndTissueTypes()
          console.log(this.grouped_genes)
+
         //this.original_genes = this.assignGeneNames(this.original_genes)
         //this.genes = this.assignGeneNames(this.genes)
         // this.original_genes = this.prettyOrderer(this.original_genes)
@@ -206,7 +207,7 @@ export class IgvComponent implements AfterViewInit, OnDestroy {
       for(let i = 0; i < gene_list.length; i++){
          let original_name = gene_list[i].gene
          let temp_string = "00000000000" +original_name.toString()
-         let gene_name = "ENSG" + temp_string.slice(-11)
+         let gene_name = "ENSMUSG" + temp_string.slice(-11)
          gene_list[i].gene = gene_name
       }
       let groupedLists: { [gene: string]: DiffExp[] } = gene_list.reduce((acc, obj) => {
@@ -230,8 +231,6 @@ export class IgvComponent implements AfterViewInit, OnDestroy {
             selected_pmids.push(...this.pmid_tissue_dist[key]);
         }
     }
-    console.log(selected_pmids);
-
     for (let i = this.grouped_genes.length - 1; i >= 0; i--) {
         let geneset = this.grouped_genes[i];
         for (let j = geneset.length - 1; j >= 0; j--) {

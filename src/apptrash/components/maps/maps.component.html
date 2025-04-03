@@ -1,0 +1,72 @@
+<div>
+    <dx-button-group
+        [items]="maps"
+        stylingMode="outlined"
+        [selectedItemKeys]="['left']"
+        (onItemClick)="onItemSelected($event)"
+    ></dx-button-group>
+</div>
+<div class = map-box>
+    <p style="font-size: 24px; font-weight: bold; text-align: center; margin: 0%;">{{selected_info.cell_type}}</p>
+
+    <img class = "image" *ngIf="display=='UMAP'" id="myimage" [src]='this.umap'  width="85%" height="85%"/>
+    <img class = "image" *ngIf="display === 'TSNE' && this.tsne !== null" id="myimage" [src]="this.tsne" width="85%" height="85%" />
+    <div *ngIf="display === 'tsne' && this.tsne === null" id="myimage" width="85%" height="85%">
+        <p style="text-align: center; color: red;">
+            TSNE not available for this study
+        </p>
+    </div>
+    
+    <div *ngIf="display=='Model Visualization'" width="85%" height="100%">
+        <apx-chart
+        [series]="linReg_chart_options.series!"
+        [chart]="linReg_chart_options.chart!"
+        [plotOptions]="linReg_chart_options.plotOptions!"
+        [markers]="linReg_chart_options.markers!"
+        [xaxis]="linReg_chart_options.xaxis!"
+        [yaxis]="linReg_chart_options.yaxis!"
+        [title]="linReg_chart_options.title!"
+        [tooltip]="linReg_chart_options.tooltip!"
+        [annotations]="linReg_chart_options.annotations!"
+        ></apx-chart>
+        <a class = 'memo'>Non-binomial Mixed Model (NBMM) calculated using all cells in cluster, only a maximum of 500 cells displayed above. Visualization is of linear representation of NBMM</a>
+    </div>
+    <div *ngIf="display=='Meta Info'">
+        <div class = 'study-meta'>
+            <h3>Study Information</h3>
+            <p>
+                Title: <a target="_blank" href="https://pubmed.ncbi.nlm.nih.gov/{{selected_info.pmid}}/">{{title}}</a>
+            </p>
+            <p>
+                First Author: <b>{{author}}</b>
+            </p>
+            <p>
+                Year Published: <b>{{year}}</b>
+            </p>
+        </div>
+        <div class="scalawag-meta">
+            <h3>SCALIWAG Information</h3>
+    
+            <div class="flex-container">
+                <div class="flex-row">
+                    <div class="flex-child2">
+                        <p>Other Possible Cell Types:</p>
+                        <b>{{ selected_info.cell_type2 }} {{ selected_info.cell_type3 }}</b>
+                    </div>
+                </div>
+                <div class="flex-row">
+                    <div class="flex-child">
+                        <p class="pval-label">P-Value:</p>
+                        <b class="pval-value">{{selected_info.pvalue.toExponential(2)}}</b>
+                    </div>
+                    <div class="flex-child">
+                        <p class="lfc-label">10 year change:</p>
+                        <b class="lfc-value" [ngClass]="{'negative-value': decade_change < 0, 'positive-value': decade_change >= 0}">
+                            {{ decade_change + '%' }}
+                        </b>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>    
+</div>

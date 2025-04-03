@@ -1,0 +1,98 @@
+
+.dx-field-label{
+    color: #E98074;
+    font-size: 30px;
+    font-weight: 700;
+    text-align: right;
+    width: 30%;
+}
+
+.dx-field{
+    width: 100%;
+}
+.dx-field-value{
+    float: left;
+}
+.dx-tag-box{
+    position: absolute;
+    height: 100%;
+    width: inherit;
+    font-size: 20px;
+}
+
+.dx-text-box{
+    position: absolute;
+    height: 100%;
+    width: inherit;
+    font-size: 20px
+}
+
+.form{
+    flex: 1 0 auto;
+    width: 65%;
+}
+
+.graphs{
+    flex: 1 0 auto;
+    width: 35%;
+    max-height: 100%;
+}
+
+.flex-container {
+    display:flex;
+    flex-wrap: nowrap;
+}
+
+
+
+.test {
+    color: #E98074;
+    font-weight: bold;
+    font-size: 16px;
+    height: 40px;
+    border: solid #8E8D8A 2px;  
+    margin-right: 5px;
+}
+
+::ng-deep .dx-button-text {
+    font-weight: bold;
+    color: #E98074;
+}
+
+.sampletable{
+    background-color: #E98074;
+}
+
+.searchbutton{
+    color: #E98074;
+    font-weight: bold;
+    font-size: 16px;
+    height: 40px;
+    border: solid #8E8D8A 2px;  
+    margin-left: 80px;
+    margin-right: 5px;
+}
+.downloadInfo{
+    font-size: 20px;
+    margin: 3px;
+    text-align: center;
+    color: #8E8D8A;
+}
+
+/* Adjust the size of the button group */
+.large-button-group {
+    height: 100%;
+    font-size: 50px;
+}
+
+/* Center the button group horizontally and vertically */
+.button-group-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px; /* Adjust the height of the container as needed */
+}
+/* Custom CSS with increased specificity and !important */
+::ng-deep .button-group-container .dx-button-content .dx-button-text {
+    font-size: 25px !important;
+}

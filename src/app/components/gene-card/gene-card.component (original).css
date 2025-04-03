@@ -1,0 +1,52 @@
+.flex-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width:100%;
+    height:100%;
+}
+
+
+.flex-child1 {
+    flex-grow: 1;
+    /* flex: 1 1 auto; */
+    /* overflow:auto; */
+    /* height: 100%; */
+    height: 100%;
+}
+.flex-child2 {
+    flex: 1 1 auto;
+    overflow:auto;
+    height: 100%;
+}    
+
+.title {
+    text-align: center;
+}
+
+.test-container {
+    flex: 1;
+}
+
+.test {
+    flex: 1 1 auto;
+    /* width:33%; */
+    overflow:auto;
+    height: 100%;
+    width: 100%;
+}
+
+.gene-title {
+    flex: 1 1 auto;
+    text-align: left;
+}
+.gene-info {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center; 
+}
+
+.scaled {
+    height: 350px;
+}

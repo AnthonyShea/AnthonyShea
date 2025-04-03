@@ -1,0 +1,37 @@
+/* You can add global styles to this file, and also import other style files */
+nav a.activate{
+    color: #039be5;
+    background-color: #CFD8DC;
+}
+html, body {
+     height: 100%;
+     background-color: #E0DCCC;
+     /*Bone: E0DCCC*/
+     }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+@font-face {
+    font-family: 'Kameron-Bold';
+    src: url('src/assets/Kameron-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'RobotoCondensed-Bold';
+    src: url('src/assets/RobotoCondensed-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'RobotoCondensed-BoldItalic';
+    src: url('src/assets/RobotoCondensed-BoldItalic.ttf');
+}
+
+@font-face {
+    font-family: 'RobotoCondensed-Italic';
+    src: url('src/assets/RobotoCondensed-Italic.ttf');
+}
+
+@font-face {
+    font-family: 'RobotoCondensed-Regular';
+    src: url('src/assets/RobotoCondensed-Regular.ttf');
+}

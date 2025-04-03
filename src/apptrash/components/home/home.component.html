@@ -1,0 +1,98 @@
+<!-- <img src="{{logo.url}}" class="image" width="100%"> -->
+
+<!-- <dx-vector-map
+  id="map-container"
+  [bounds]="[-180, 85, 180, -75]"
+>
+</dx-vector-map> -->
+<div *ngIf="is_https" class="http-alert-container">
+Warning
+  <div class="http-alert-message">
+    SCALIWAG is designed to be served over <i>HTTP</i>, but it is currently being served over <i>HTTPS</i>. This may cause issues when connecting to the backend database. To properly use SCALIWAG
+    please use Safari, Firefox, or an incognito browser if using Google Chrome. 
+  </div>
+</div>
+
+<div class="flex-container">
+  <div id="tissue_chart" *ngIf="charts_ready" class="pie-chart1">
+    <apx-chart
+      [series]="tissue_chart_options.series!"
+      [chart]="tissue_chart_options.chart!"
+      [labels]="tissue_chart_options.labels!"
+      [legend]="tissue_chart_options.legend!"
+      [responsive]="tissue_chart_options.responsive!"
+      [dataLabels]="tissue_chart_options.data_labels!"
+      [plotOptions]="tissue_chart_options.options!"
+      [theme]="tissue_chart_options.theme!"
+      [stroke]="tissue_chart_options.stroke!"
+    ></apx-chart>
+  </div>
+  <div class="middle-divs">
+    <div class = 'scaliwag-title'>SCALIWAG</div>
+    <div class='scaliwag-subtitle'>
+      <b>S</b>ingle<span style="margin-right: 5px;"></span>
+      <b>C</b>ell<span style="margin-right: 5px;"></span>
+      <b>A</b>ging<span style="margin-right: 5px;"></span>
+      <b>Li</b>brary<span style="margin-right: 5px;"></span>
+    </div> 
+    <div class='scaliwag-subtitle'>
+      <b>W</b>ith<span style="margin-right: 5px;"></span>
+      <b>A</b><span style="margin-right: 5px;"></span>
+      <b>G</b>enome Browser
+    </div>    
+    <div class="cell-total">
+       <p class = 'center'>
+        <a class="title">Total Cells</a>
+        <br>  
+        <a class="value">{{cell_total}}</a>
+        <br> 
+        <a class="subtitle">{{prettify(selected_age_group)}}</a>
+        <br>
+        <br>
+        <a class="hint" *ngIf="selected_age_group == 'all ages'">Select An Age Below to Explore in More Detail</a>
+      </p>
+    </div>
+  </div>
+  <div id="sex_chart" *ngIf="charts_ready" class="pie-chart2">
+    <apx-chart
+      [series]="sex_chart_options.series!"
+      [chart]="sex_chart_options.chart!"
+      [labels]="sex_chart_options.labels!"
+      [legend]="sex_chart_options.legend!"
+      [responsive]="sex_chart_options.responsive!"
+      [dataLabels]="sex_chart_options.data_labels!"
+      [plotOptions]="sex_chart_options.options!"
+      [theme]="sex_chart_options.theme!"
+      [stroke]="sex_chart_options.stroke!"
+    ></apx-chart>
+  </div>
+</div>
+
+<div class="flex-container">
+  <div *ngFor="let image of logo_list">
+    <button class="container2" (click)="test(image.name)" id = {{image.name}}>
+      <img [src]="image.url" alt="Image not found" class = "silloette">
+      <div class="overlay">
+        <div class="overlay-age">{{prettify(image.name)}}</div>
+      </div>
+    </button>
+  </div>
+</div>
+
+<dx-tab-panel
+  #tabPanel
+  [dataSource]="options"
+  [selectedIndex]="0"
+  [loop]="false"
+  [animationEnabled]="true"
+  [swipeEnabled]="true"
+>
+  <div *dxTemplate="let options of 'title'" class="footer-widget">
+    <span class="footer-title">{{ options.title }}</span>
+  </div>
+  <div *dxTemplate="let options of 'item'">
+    <div class="tabpanel-item">
+      <a>{{options.text}}</a>
+    </div>
+  </div>
+</dx-tab-panel>

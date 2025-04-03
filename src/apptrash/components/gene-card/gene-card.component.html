@@ -1,0 +1,52 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div>
+   <dx-accordion
+    #accordion
+    [dataSource]="temp"
+    [collapsible]="true"
+    [animationDuration]="0"
+    [selectedIndex]="-1"
+    id="accordion-container"
+  >
+    <div *dxTemplate="let gene of 'title'" class="flex-container">
+      <h1 class="gene-title">
+         {{en_id}}
+      </h1>
+      <apx-chart
+        [series]="meta_chart_options.series!"
+        [chart]="meta_chart_options.chart!"
+        [plotOptions]="meta_chart_options.plotOptions!"
+        [xaxis]="meta_chart_options.xaxis!"
+        [colors]="meta_chart_options.colors!"
+        >
+      </apx-chart>
+      <h2 class="gene-info">
+        Clusters Detected: {{gene_list.length}}
+        <br>
+        Studies Detected: {{num_studies}}
+      </h2>
+    </div>
+    <div *dxTemplate="let gene of 'item'">
+      <div id="chart" class="flex-container">
+          <div class="flex-child1">
+              <apx-chart
+                  [series]="model_chart_options.series!"
+                  [chart]="model_chart_options.chart!"
+                  [plotOptions]="model_chart_options.plotOptions!"
+                  [markers]="model_chart_options.markers!"
+                  [xaxis]="model_chart_options.xaxis!"
+                  [yaxis]="model_chart_options.yaxis!"
+                  [title]="model_chart_options.title!"
+                  [tooltip]="model_chart_options.tooltip!"
+                  [annotations]="model_chart_options.annotations!"
+              ></apx-chart>
+          </div>
+          <div class="test-container">
+              <div class="test" *ngIf="model_selected">
+                  <app-maps [selected_info]="to_map" [en_id]="en_id" class="scaled"></app-maps>
+              </div>
+          </div>
+      </div>
+    </div>  
+  </dx-accordion>
+</div>

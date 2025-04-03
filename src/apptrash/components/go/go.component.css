@@ -1,0 +1,240 @@
+.content-wrapper {
+    position: relative; /* Establishes a reference point for absolute positioning */
+    /* Ensure this container takes up the full viewport height if needed */
+    min-height: 100vh;
+}
+
+.loading-overlay {
+    position: absolute;  /* Positioned relative to the content-wrapper */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;    /* Center the loading message */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;    /* Ensure it covers all content within the content-wrapper */
+}
+
+/* Example CSS for the container if needed */
+.container {
+    position: relative; /* Ensure this doesn't affect the overlay */
+}
+
+
+.loading-overlay {
+    position: absolute;  /* Positioned relative to the parent component */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;    /* Center the loading message */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;    /* Ensure it covers all content within the parent component */
+}
+
+/* Define pulsing animation */
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Loading message style */
+.loading-message {
+    color: #fff;      /* White text */
+    font-size: 2em;   /* Larger text */
+    font-weight: bold;
+    animation: pulse 1.5s infinite; /* Apply the pulsing animation */
+}
+
+
+.container {
+    display: flex;
+    height: 100vh; /* Full viewport height */
+    width: 100%;
+
+  }
+  
+  .center-panel {
+    flex: 2; /* Take up twice the space compared to the side panels */
+    max-width: 50%; /* Restrict width to 50% of the container */
+
+}
+
+.side-panel {
+    width: 25%; /* Make sure it only takes up 25% of the width */
+    display: flex; /* Use Flexbox to arrange child elements horizontally */
+    flex-direction: row; /* Arrange children in a row */
+    padding: 10px; /* Optional: Add padding to the side-panel */
+    box-sizing: border-box; /* Include padding in the element's total width and height */
+    
+}
+
+.side-panel.left {
+    width: 25%; /* Ensure it takes up only a specific width */
+    padding: 10px;
+    box-sizing: border-box; /* Include padding in the width/height calculations */
+    height: 100vh; /* Make sure it takes full viewport height or specific height */
+    overflow: hidden; /* Hide overflow to prevent content from spilling out */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+
+}
+  
+
+.termDetails {
+padding: 10px;
+}
+
+.pathwayDetail {
+padding: 10px;
+border-left: 1px solid #ccc; /* Add a border between panels */
+}
+
+.pathway-name {
+    font-size: 25px;
+}
+.pathway-description {
+    font-style: italic;
+}
+
+/* Optional: Remove border from the last panel */
+.side-panel.right {
+border-left: none; /* Remove border on the right side panel */
+}
+
+.list-container {
+    flex: 1; /* Each list container takes up equal space */
+    margin-right: 10px; /* Add spacing between the lists */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden; /* Hide any overflowed content */
+
+}
+.selected-list-container{
+    overflow: hidden; /* Allow scrolling if content exceeds container size */
+    height: 100%; /* Adjust height based on your needs */
+    max-width: 100%; /* Ensure it does not exceed the parent's width */
+    box-sizing: border-box; /* Include padding and border in the 
+}
+
+.list-container:last-child {
+    margin-right: 0; /* Remove margin from the last list container */
+}
+
+.gene-list{
+  text-align: center; /* Center the text */
+  font-weight: bold; /* Make the text bold */
+  height: 100%;
+  
+}
+
+.noTermSelected {
+    display: flex;
+    justify-content: center;  /* Horizontally center */
+    align-items: center;      /* Vertically center */
+    height: 100%;             /* Make sure it takes the full height of the parent container */
+    text-align: center;       /* Center the text itself */
+    font-size: 3em;         /* Optional: Increase the font size for better visibility */
+}
+
+.pathway-info {
+    display: flex;
+    flex-direction: column; /* Stack the text vertically */
+    align-items: center;     /* Horizontally center the text */
+    text-align: center;      /* Center the text itself */
+    font-size: 1.2em;        /* Optional: Increase font size for better visibility */
+}
+
+.dx-field {
+    display: flex;            
+    align-items: center;      
+    width: 80%;
+}
+
+.dx-field-label {
+    color: #8E8D8A;
+    font-size: 25px;
+    font-weight: 700;
+    text-align: right;
+    width: 30%;
+}
+
+.dx-field-value {
+    float: left;              
+    flex: 1;    
+}
+
+::ng-deep .dx-button-text {
+    font-weight: bold;
+    color: #E98074;
+}
+
+.button-container {
+    display: flex;              /* Use flexbox for centering */
+    justify-content: center;    /* Center horizontally */
+    align-items: center;        /* Center vertically (if needed) */
+    margin-top: 20px;           /* Optional: Add margin for spacing */
+}
+
+.searchbutton {
+    display: flex;               /* Use flexbox for alignment */
+    justify-content: center;     /* Center text horizontally */
+    align-items: center;         /* Center text vertically */
+    text-align: center;          /* Center text within the button */
+    width: 25%;
+    margin: 2px auto;
+    min-height: 35px;
+    background-color: #D8C385;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 3px #999;
+    padding: 0 10px;             /* Add horizontal padding if needed */
+    box-sizing: border-box;      /* Include padding in the element's total width and height */
+}
+
+
+.centered-heading {
+    text-align: center; /* Center align the text */
+    text-decoration: underline; /* Underline the text */
+}
+
+.arrow-box {
+    background-color: rgba(0, 0, 0, 0.5) !important; /* Semi-transparent black background */
+    color: #fff !important; /* White text color */
+    padding: 10px !important; /* Padding inside the tooltip */
+    border-radius: 4px !important; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3) !important; /* Optional: shadow for better visibility */
+    font-size: 14px !important; /* Font size */
+  }
+
+
+  .field-container {
+    display: flex; /* Use flexbox to arrange child elements horizontally */
+    align-items: center; /* Vertically align items in the center */
+  }
+  
+  .autocomplete-container {
+    width: 100%; /* Make sure the autocomplete takes up full width of its container */
+  }
+  
+  .search-mode-select-box {
+    width: 15%; /* Set a fixed width for the select box */
+    margin-left: 10px;
+ }
+  
+ .cluster-info{
+    display: block;
+    font-size: 18px;
+ }
