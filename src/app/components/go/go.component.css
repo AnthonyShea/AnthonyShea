@@ -238,3 +238,8 @@ border-left: none; /* Remove border on the right side panel */
     display: block;
     font-size: 18px;
  }
+
+ .input-group-text.emphasize {
+    background: var(--bs-warning);
+
+}

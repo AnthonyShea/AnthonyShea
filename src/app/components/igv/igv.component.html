@@ -64,7 +64,7 @@
     </div>
   </div>
 
-  <div class="search-results" [class.searching]="loading">
+  <div class="row g-2" [class.searching]="loading">
     <div *ngFor="let gene_list of this.grouped_genes">
       <app-gene-card [gene_list]="gene_list" [indices]="selected_indices"></app-gene-card>
     </div>

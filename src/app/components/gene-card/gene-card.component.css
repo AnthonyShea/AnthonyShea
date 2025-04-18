@@ -145,6 +145,26 @@ apx-chart {
     overflow: visible !important;
 }
 
+.dx-accordion-item-title {
+    padding: 0px !important;
+}
+
+.dx-state-focused.dx-accordion-item, .dx-state-focused.dx-item-selected.dx-accordion-item-opened {
+    border: 0px !important;
+}
+
+.dx-accordion {
+    background-color: transparent;
+}
+
+.dx-accordion-item {
+    border: none !important;
+}
+
+.dx-accordion-item-body {
+    padding: .5rem 0;
+}
+
 .dx-accordion-item-body {
     height: auto !important;
     /* min-height: 1000px;  /* Adjust as needed for your charts */

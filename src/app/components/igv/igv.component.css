@@ -138,3 +138,11 @@
   font-weight: bold;
   animation: pulse 1.5s infinite; /* Apply the pulsing animation */
 }
+
+.dx-accordion-item-title {
+  padding: 0px !important;
+}
+
+.dx-state-focused.dx-accordion-item, .dx-state-focused.dx-item-selected.dx-accordion-item-opened {
+  border: 0px !important;
+}
