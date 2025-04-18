@@ -146,3 +146,8 @@
 .dx-state-focused.dx-accordion-item, .dx-state-focused.dx-item-selected.dx-accordion-item-opened {
   border: 0px !important;
 }
+
+.input-group-text.emphasize {
+  background: var(--bs-warning);
+
+}

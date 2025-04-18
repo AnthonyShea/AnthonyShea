@@ -17,31 +17,31 @@ export class NavbarComponent implements OnInit {
     this.tabs = [
       {
         id: 0,
-        text: 'SCALIWAG',
+        text: 'Home',
         path: 'home',
         customClass: '.nav-link', // Add custom class identifier.
       },
       {
         id: 1,
-        text: 'GENOME BROWSER',
+        text: 'Genome Browser',
         icon: 'verticalaligntop',
         path: 'igv',
       },
       {
         id: 2,
-        text: 'GO TERM ENRICHMENT ',
+        text: 'Go Term Enrichment',
         icon: 'columnfield',
         path: 'go',
       },
       {
         id: 3,
-        text: 'SEARCH AND DOWNLOAD',
+        text: 'Search & Download',
         icon: 'find',
         path: 'search',
       },
       {
         id: 4,
-        text: 'DOCUMENTATION',
+        text: 'Documentation',
         icon: 'file',
         path: 'documentation',
       },

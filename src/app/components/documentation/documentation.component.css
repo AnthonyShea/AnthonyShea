@@ -117,3 +117,7 @@
     filter: brightness(110%) contrast(90%) saturate(100%); /* Apply color shift */
 }
   
+.card-doc, .card-doc * {
+  text-decoration: none !important;
+  cursor: pointer;
+}

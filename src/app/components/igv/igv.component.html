@@ -18,7 +18,7 @@
       <div class="row g-2">
         <div class="col-md-6 col-sm-12">
           <div class="input-group">
-            <span *ngIf="this.genes.length > 0" class="input-group-text">Selected Tissues:</span>
+            <span *ngIf="this.genes.length > 0" class="input-group-text emphasize">Selected Tissues:</span>
             <dx-tag-box *ngIf="this.genes.length > 0" style="width: 100%; flex: 1;" [items]="tissue_types" [width]="100"
               [searchEnabled]="true" [hideSelectedItems]="true" placeholder="Select Tissue(s)"
               (onValueChanged)="onTissuesChanged($event)" [showClearButton]="true" [showSelectionControls]="true"
@@ -27,7 +27,7 @@
         </div>
         <div class="col-md-6 col-sm-12">
           <div class="input-group">
-            <span *ngIf="this.genes.length > 0" class="input-group-text">Selected Cell Types:</span>
+            <span *ngIf="this.genes.length > 0" class="input-group-text emphasize">Selected Cell Types:</span>
             <dx-tag-box *ngIf="this.genes.length > 0" style="width: 100%; flex: 1;" [items]="cell_types" [width]="100"
               [searchEnabled]="true" [hideSelectedItems]="true" placeholder="Select Cell Type(s)"
               (onValueChanged)="onCellChanged($event)" [showClearButton]="true" [showSelectionControls]="true"
