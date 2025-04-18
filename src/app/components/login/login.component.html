@@ -5,8 +5,8 @@
     <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
       <div class="form-group">
         <div class="form-floating mb-3">
-          <input type="text" id="username" name="username" [(ngModel)]="credentials.name" required #username="ngModel" [class.is-invalid]="error"
-            class="form-control mb-2" placeholder="Username" aria-label="Username" />
+          <input type="text" id="username" name="username" [(ngModel)]="credentials.name" required #username="ngModel"
+            [class.is-invalid]="error" class="form-control mb-2" placeholder="Username" aria-label="Username" />
           <label for="floatingInput">Username</label>
         </div>
         <div class="form-floating">
@@ -15,7 +15,7 @@
             [class.is-invalid]="error" />
           <label for="floatingPassword">Password</label>
         </div>
-        
+
         <!--<label for="username">Username:</label>
       <input 
         type="text" 
@@ -45,14 +45,14 @@
       </div>-->
       </div>
 
+
+
+      <div class="d-flex justify-content-center mt-4">
+        <button type="submit" [disabled]="loginForm.invalid" class="btn btn-warning">Login</button>
+      </div>
       <!--<div *ngIf="error" class="error-message">
         {{ error }}
       </div>-->
     </form>
-
-
-    <div class="d-flex justify-content-center">
-      <button type="submit" [disabled]="loginForm.invalid" class="btn btn-warning">Login</button>
-    </div>
   </div>
 </div>
