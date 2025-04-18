@@ -6,8 +6,15 @@
 }
 
 .map-box{
-  background: linear-gradient(to bottom, #FFFFFF, #F0F0F0);
-  outline: 2px solid black;
+  /* background: linear-gradient(to bottom, #FFFFFF, #F0F0F0); */
+  border: 1px solid var(--bs-border-color-translucent);
+  border-radius: var(--bs-border-radius);
+  display: block;
+}
+
+.map-box > * {
+  display: flex;
+  justify-content: center;
 }
 
 .buttongroups-container:first-child {
