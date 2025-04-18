@@ -19,36 +19,31 @@ export class NavbarComponent implements OnInit {
         id: 0,
         text: 'SCALIWAG',
         path: 'home',
-        customClass: '.red-text', // Add custom class identifier.
-        color: 'red'
+        customClass: '.nav-link', // Add custom class identifier.
       },
       {
         id: 1,
         text: 'GENOME BROWSER',
         icon: 'verticalaligntop',
         path: 'igv',
-        color: 'red'
       },
       {
         id: 2,
         text: 'GO TERM ENRICHMENT ',
         icon: 'columnfield',
         path: 'go',
-        color: 'red'
       },
       {
         id: 3,
         text: 'SEARCH AND DOWNLOAD',
         icon: 'find',
         path: 'search',
-        color: 'red'
       },
       {
         id: 4,
         text: 'DOCUMENTATION',
         icon: 'file',
         path: 'documentation',
-        color: 'red'
       },
     ];
   }
@@ -64,10 +59,10 @@ export class NavbarComponent implements OnInit {
     this.updateSelectedTab();
   }
 
-  selectTab(event: any) {
-    const selectedTab = this.tabs[event.itemIndex];
+  selectTab(index: number) {
+    const selectedTab = this.tabs[index];
     this.router.navigate([selectedTab.path]);
-  }
+  }  
 
   updateSelectedTab() {
     const tabIndex = this.tabs.findIndex(tab => tab.path === this.selected_path);

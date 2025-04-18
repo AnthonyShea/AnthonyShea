@@ -279,7 +279,7 @@ dowloadRawData(id: number): Promise<DownloadData> {
   /* NEW STUFF, QUESTIONABLE */
 
   onItemSelected($event: any){
-    this.displayed_map = $event.itemData.text
+    this.displayed_map = $event.itemData.text;
   }
 
   makeDictionaries(){

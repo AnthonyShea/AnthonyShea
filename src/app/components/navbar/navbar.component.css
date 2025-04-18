@@ -39,3 +39,18 @@
     font-family: 'RobotoCondensed-Bold';
     font-size: 20px;
   }
+
+:root {
+  --bs-primary-rgb: #D8C385 !important;
+}
+
+.nav-link.active {
+  background-color: var(--bs-navbar-active-color);
+  color: #fafafa;
+}
+
+.nav-link {
+  padding-left :.5rem;
+  padding-right: .5rem;
+  border-radius: .375rem;
+}

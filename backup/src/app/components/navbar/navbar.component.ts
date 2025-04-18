@@ -20,7 +20,7 @@ export class NavbarComponent implements OnInit {
         text: 'SCALIWAG',
         path: 'home',
         customClass: '.red-text', // Add custom class identifier.
-        color: 'red'
+        color: 'red',
       },
       {
         id: 1,

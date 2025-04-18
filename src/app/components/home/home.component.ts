@@ -164,7 +164,7 @@ export class HomeComponent implements OnInit {
       series: Object.values(input_dict),
       chart: {
         type: "donut",
-        height: '550',
+        height: "400",
       },
       legend: {
         show:false

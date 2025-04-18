@@ -1,6 +1,7 @@
 <!-- src/app/components/login/login.component.html -->
-<div class="login-container">
-  <h2>Login</h2>
+<div class="d-flex align-items-center justify-content-center">
+  <div class="d-block">
+    <h2>Login</h2>
   <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
     <div class="form-group">
       <label for="username">Username:</label>
@@ -38,4 +39,5 @@
       {{ error }}
     </div>
   </form>
+  </div>
 </div>

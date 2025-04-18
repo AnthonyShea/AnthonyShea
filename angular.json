@@ -29,10 +29,12 @@
             "styles": [
               "node_modules/devextreme/dist/css/dx.common.css",
               "node_modules/devextreme/dist/css/dx.light.css",
-              "src/styles.css"
+              "src/styles.css",
+              "src/css/bootstrap.min.css"
             ],
             "scripts": [
-              "node_modules/apexcharts/dist/apexcharts.min.js"
+              "node_modules/apexcharts/dist/apexcharts.min.js",
+              "src/js/bootstrap.js"
             ]
           },
           "configurations": {

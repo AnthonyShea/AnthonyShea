@@ -164,7 +164,6 @@ export class HomeComponent implements OnInit {
       series: Object.values(input_dict),
       chart: {
         type: "donut",
-        height: '550',
       },
       legend: {
         show:false
@@ -175,7 +174,7 @@ export class HomeComponent implements OnInit {
           breakpoint: 480,
           options: {
             chart: {
-              width: 200
+              width: '100%'
             },
             legend: {
               position: "bottom"
@@ -188,7 +187,7 @@ export class HomeComponent implements OnInit {
             return opts.w.config.labels[opts.seriesIndex]
         },
         style:{
-          fontSize: '16px'
+          fontSize: '1rem'
         }
       },
       options:{

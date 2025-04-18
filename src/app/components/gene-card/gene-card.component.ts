@@ -214,7 +214,7 @@ export class GeneCardComponent implements OnInit {
       }
       ],
       chart: {
-        height:450,
+        height:'100%',
         type: "scatter",
         events:{
           dataPointSelection: (e, chart, opts) => {
@@ -309,7 +309,7 @@ export class GeneCardComponent implements OnInit {
       }
       ],
       chart: {
-        height:450,
+        height:'100%',
         type: "scatter",
         events:{
           dataPointSelection: (e, chart, opts) => {
@@ -525,7 +525,7 @@ export class GeneCardComponent implements OnInit {
       }
       ],
       chart: {
-        height:450,
+        height:'100%',
         type: "scatter",
         events:{
           dataPointSelection: (e, chart, opts) => {
@@ -611,7 +611,7 @@ export class GeneCardComponent implements OnInit {
       }
       ],
       chart: {
-        height:450,
+        height:'100%',
         type: "scatter",
         events:{
           dataPointSelection: (e, chart, opts) => {
@@ -818,7 +818,7 @@ export class GeneCardComponent implements OnInit {
       }
       ],
       chart: {
-        height:450,
+        height:'100%',
         type: "scatter",
         events:{
           dataPointSelection: (e, chart, opts) => {
@@ -913,7 +913,7 @@ export class GeneCardComponent implements OnInit {
       }
       ],
       chart: {
-        height:450,
+        height:'100%',
         type: "scatter",
         events:{
           dataPointSelection: (e, chart, opts) => {
@@ -1129,7 +1129,7 @@ export class GeneCardComponent implements OnInit {
       }
       ],
       chart: {
-        height:450,
+        height:'100%',
         type: "scatter",
         events:{
           dataPointSelection: (e, chart, opts) => {
@@ -1215,7 +1215,7 @@ export class GeneCardComponent implements OnInit {
       }
       ],
       chart: {
-        height:450,
+        height:'100%',
         type: "scatter",
         events:{
           dataPointSelection: (e, chart, opts) => {

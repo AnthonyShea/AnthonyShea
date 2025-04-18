@@ -1,9 +1,21 @@
 <!-- src/app/components/login/login.component.html -->
 <div class="login-container">
-  <h2>Login</h2>
-  <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
-    <div class="form-group">
-      <label for="username">Username:</label>
+  <div class="d-block">
+    <h2 class="text-center">Login</h2>
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+      <div class="form-group">
+        <div class="form-floating mb-3">
+          <input type="text" id="username" name="username" [(ngModel)]="credentials.name" required #username="ngModel" [class.is-invalid]="error"
+            class="form-control mb-2" placeholder="Username" aria-label="Username" />
+          <label for="floatingInput">Username</label>
+        </div>
+        <div class="form-floating">
+          <input type="password" id="password" name="password" [(ngModel)]="credentials.password" required
+            #password="ngModel" class="form-control mb-2" placeholder="Password" aria-label="Password"
+            [class.is-invalid]="error" />
+          <label for="floatingPassword">Password</label>
+        </div>
+        <!--<label for="username">Username:</label>
       <input 
         type="text" 
         id="username" 
@@ -29,13 +41,16 @@
       >
       <div *ngIf="password.invalid && (password.dirty || password.touched)" class="error">
         <div *ngIf="password.errors?.['required']">Password is required</div>
+      </div>-->
       </div>
-    </div>
 
-    <button type="submit" [disabled]="loginForm.invalid">Login</button>
-    
-    <div *ngIf="error" class="error-message">
-      {{ error }}
-    </div>
-  </form>
+      <div class="d-flex justify-content-center">
+        <button type="submit" [disabled]="loginForm.invalid" class="btn btn-warning">Login</button>
+      </div>
+
+      <!--<div *ngIf="error" class="error-message">
+        {{ error }}
+      </div>-->
+    </form>
+  </div>
 </div>

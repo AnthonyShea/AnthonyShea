@@ -14,7 +14,7 @@ import JSZip from 'jszip';
 //const baseUrl = 'http://localhost:80/api/';
 
 //Prod Base URL
-const baseUrl = 'http://160.94.104.178:3305/api/';
+const baseUrl = 'http://127.0.0.1:3305/api/';
 
 //query paths
 const metaUrl = baseUrl.concat('metadata'.toString());
@@ -135,7 +135,7 @@ export class DatabaseService {
   }
 
   staticDownload(sample_ids: number[]): void {
-    const urls = sample_ids.map(id => `http://160.94.104.178:3305/static/Sample_${id}.tar.gz`);
+    const urls = sample_ids.map(id => `http://127.0.0.1:3305/static/Sample_${id}.tar.gz`);
     const fileRequests = urls.map(url => this.http.get(url, { responseType: 'blob' }).toPromise());
 
     // Create a promise for the metadata request

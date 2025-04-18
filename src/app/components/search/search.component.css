@@ -14,17 +14,15 @@
     float: left;
 }
 .dx-tag-box{
-    position: absolute;
     height: 100%;
     width: inherit;
-    font-size: 20px;
 }
 
 .dx-text-box{
-    position: absolute;
+    /*position: absolute;*/
     height: 100%;
     width: inherit;
-    font-size: 20px
+    /*font-size: 20px*/
 }
 
 .form{

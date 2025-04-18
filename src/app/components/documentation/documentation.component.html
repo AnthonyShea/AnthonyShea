@@ -1,20 +1,28 @@
-<div class="button-container" *ngIf="selectedFeature == 'None'">
-    <button class="image-button">
-        <img src="../../../assets/images/Documentation/HomePageMain.png" alt="Image 1" (click)="selectedHomePage()" style="outline: 2px solid black;">
-        <span class="button-text">Home Page</span>
-    </button>
-    <button class="image-button">
-      <img src="../../../assets/images/Documentation/GenomeBrowserMain.png" alt="Image 2" (click)="selectedGenomeBrowser()"style="outline: 2px solid black;">
-      <span class="button-text">Genome Browser</span>
-    </button>
-    <button class="image-button">
-      <img src="../../../assets/images/Documentation/GoTermMain.png" alt="Image 3" (click)="selectedGOPage()"style="outline: 2px solid black;">
-      <span class="button-text">Go Term Explorer</span>
-    </button>
-    <button class="image-button">
-        <img src="../../../assets/images/Documentation/SP_1.png" alt="Image 3" (click)="selectedSeachPage()"style="outline: 2px solid black;">
-        <span class="button-text">Search and Download</span>
-      </button>
+<div class="row g-2 pt-2" *ngIf="selectedFeature == 'None'">
+    <div class="col-lg-3 col-md-6 col-sm-12">
+        <button class="image-button">
+            <img src="../../../assets/images/Documentation/HomePageMain.png" alt="Image 1" (click)="selectedHomePage()" style="outline: 2px solid black;">
+            <span class="button-text">Home Page</span>
+        </button>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-12">
+        <button class="image-button">
+          <img src="../../../assets/images/Documentation/GenomeBrowserMain.png" alt="Image 2" (click)="selectedGenomeBrowser()"style="outline: 2px solid black;">
+          <span class="button-text">Genome Browser</span>
+        </button>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-12">
+        <button class="image-button">
+          <img src="../../../assets/images/Documentation/GoTermMain.png" alt="Image 3" (click)="selectedGOPage()"style="outline: 2px solid black;">
+          <span class="button-text">Go Term Explorer</span>
+        </button>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-12">
+        <button class="image-button">
+            <img src="../../../assets/images/Documentation/SP_1.png" alt="Image 3" (click)="selectedSeachPage()"style="outline: 2px solid black;">
+            <span class="button-text">Search and Download</span>
+          </button>
+    </div>
 </div>
 
 <div *ngIf="selectedFeature != 'None'" class="main-documentation">

@@ -1,208 +1,189 @@
-<div class="flex-container">
-    <div class="form">
-        <div class="dx-fieldset">
-            <div class="dx-field">
-                <div class="dx-field-label">Species</div>
-                <div class="dx-field-value">
-                    <dx-tag-box class = 'dx-tag-box'
-                        [items]="species"
-                        [searchEnabled]="true"
-                        [hideSelectedItems]="true"
-                        (onValueChanged)="onSpeciesChanged($event)"
-                        placeholder="Select species"
-                        [value] = 'selected_species'
-                    ></dx-tag-box>
-                </div>
+<div class="row mt-2 g-2">
+    <div class="col-lg-7 col-md-6 col-sm-12">
+        <div class="row">
+            <div class="input-group mb-2 d-flex justify-content-between">
+                <span class="input-group-text">Species</span>
+                <dx-tag-box class='dx-tag-box' [items]="species" [searchEnabled]="true"
+                    [hideSelectedItems]="true" [hideSelectedItems]="true" [maxDisplayedTags]="4"
+                    style="width: 100%; flex: 1;" [showClearButton]="true"
+                        (onValueChanged)="onSpeciesChanged($event)" placeholder="Select species"
+                        [value]='selected_species'></dx-tag-box>
             </div>
-            <div class="dx-field">
-                <div class="dx-field-label">Tissue</div>
-                <div class="dx-field-value">
-                    <dx-tag-box class = 'dx-tag-box'
-                        [items]="tissue_types"
-                        [searchEnabled]="true"
-                        [hideSelectedItems]="true"
-                        (onValueChanged)="onTissuesChanged($event)"
-                        placeholder="Select tissues"
-                        [showMultiTagOnly]="false"
-                        [value] = 'tissue_types'
-                        [maxDisplayedTags]="4"
-                        [showClearButton]="true"
-                        [showSelectionControls]="true"
-                    ></dx-tag-box>
-                </div>
+        </div>
+        <div class="row">
+            <div class="input-group mb-2 d-flex justify-content-between">
+                <span class="input-group-text">Tissue</span>
+                <dx-tag-box class='dx-tag-box' [items]="tissue_types" [searchEnabled]="true"
+                        [hideSelectedItems]="true" (onValueChanged)="onTissuesChanged($event)"
+                        placeholder="Select tissues" [showMultiTagOnly]="false" [value]='tissue_types'
+                        style="width: 100%; flex: 1;" [showClearButton]="true"
+                        [maxDisplayedTags]="4" [showClearButton]="true" [showSelectionControls]="true"></dx-tag-box>
             </div>
-            <div class="dx-field">
-                <div class="dx-field-label">Cell Types</div>
-                <div class="dx-field-value">
-                    <dx-tag-box class = 'dx-tag-box'
-                        [items]="cell_types"
-                        [searchEnabled]="true"
-                        [hideSelectedItems]="true"
-                        (onValueChanged)="onCellsChanged($event)"
-                        placeholder="Select cell types"
-                        [value] = 'selected_cells'
-                        [maxDisplayedTags]="8"
-                        [showClearButton]="true"
-                        [showSelectionControls]="true"
-                    ></dx-tag-box>
-                </div>
+        </div>
+        <div class="row">
+            <div class="input-group mb-2 d-flex justify-content-between">
+                <span class="input-group-text">Cell Types</span>
+                <dx-tag-box class='dx-tag-box' [items]="cell_types" [searchEnabled]="true"
+                        [hideSelectedItems]="true" (onValueChanged)="onCellsChanged($event)"
+                        placeholder="Select cell types" [value]='selected_cells' [maxDisplayedTags]="8"
+                        style="width: 100%; flex: 1;"
+                        [showClearButton]="true" [showSelectionControls]="true"></dx-tag-box>
             </div>
-            <div class="dx-field">
-                <div class="dx-field-label">Health Status</div>
-                <div class="dx-field-value">
-                    <dx-tag-box class = 'dx-tag-box'
-                        [items]="health"
-                        [searchEnabled]="true"
-                        [hideSelectedItems]="true"
-                        (onValueChanged)="onHealthChanged($event)"
-                        placeholder="Select Health Status"
-                        [value] = 'selected_health'
-                        [maxDisplayedTags]="8"
-                        [showClearButton]="true"
-                        [showSelectionControls]="false"
-                    ></dx-tag-box>
-                </div>
+        </div>
+        <div class="row">
+            <div class="input-group mb-2 d-flex justify-content-between">
+                <span class="input-group-text">Health Status</span>
+                <dx-tag-box class='dx-tag-box' [items]="health" [searchEnabled]="true" [hideSelectedItems]="true"
+                        (onValueChanged)="onHealthChanged($event)" placeholder="Select Health Status"
+                        style="width: 100%; flex: 1;"
+                        [value]='selected_health' [maxDisplayedTags]="8" [showClearButton]="true"
+                        [showSelectionControls]="false"></dx-tag-box>
             </div>
-            <div class="dx-field">
+        </div>
+        <div class="row">
+            <div class="input-group mb-2">
+                <span class="input-group-text" id="basic-addon1">PMID</span>
+                <input type="text" (value)="pmid" class="form-control" aria-describedby="basic-addon1">
+              </div>
+            <!--<div class="dx-field">
+
                 <div class="dx-field-label">PMID</div>
                 <div class="dx-field-value">
-                    <dx-text-box class="dx-text-box"
-                    placeholder="Enter Specific PMID"
-                    [(value)] = "pmid"
-                    ></dx-text-box>
+                    <dx-text-box class="dx-text-box" placeholder="Enter Specific PMID" [(value)]="pmid"></dx-text-box>
                 </div>
+            </div>-->
+        </div>
+        <div class="row">
+            <div class="input-group mb-2 d-flex justify-content-between">
+                <h6 style="padding: .375rem .75rem">Age Select</h6>
+                <dx-range-slider class="age-slider" id="age-slider" [min]="0" [max]="100" [start]="0" [end]="100"
+                style="width: 100%; flex: 1; border: 1px solid var(--bs-border-with);"
+                        [tooltip]="tooltip" (onValueChanged)="onAgeChanged($event)"></dx-range-slider>
             </div>
-            <div class="dx-field custom-height-slider">
-                <div class="dx-field-label">Age Select</div>
-                <div class="dx-field-value">
-                <dx-range-slider class="age-slider" id="age-slider"
-                    [min]="0"
-                    [max]="100"
-                    [start]="0"
-                    [end]="100"
-                    [tooltip]="tooltip"
-                    (onValueChanged)="onAgeChanged($event)"
-                ></dx-range-slider>
-                </div>
+        </div>
+        <div class="row">
+            <div class="d-flex justify-content-center">
+                <button (click)="samplesTest()" class="btn btn-warning" style="margin-right: .5rem;">Search</button>
+                <button [disabled]="!query_completed" class="btn btn-secondary" icon="download" (click)="downloadWrapper()">Download
+                Standardized Data</button>
             </div>
         </div>
     </div>
-    <div class="graphs">
+    <div class="col-lg-5 col-md-6 col-sm-12">
+        <!--<ul class="nav nav-pills d-flex justify-content-center" id="myTab" role="tablist"
+            *ngIf="query_completed">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="tissue-tab" data-bs-toggle="tab"
+                    data-bs-target="#tissue-tab-pane"
+                    (click)="onItemSelected('Tissue')"
+                    type="button" role="tab" aria-controls="tissue-tab-pane" aria-selected="true">Tissue</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="sex-tab" data-bs-toggle="tab"
+                    data-bs-target="#sex-tab-pane" 
+                    (click)="onItemSelected('Sex')"    
+                    type="button" role="tab" aria-controls="sex-tab-pane" aria-selected="false">Sex</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="age-tab" data-bs-toggle="tab"
+                    data-bs-target="#age-tab-pane" 
+                    (click)="onItemSelected('Age');this.makeBarChart(age_dict)"    
+                    type="button" role="tab" aria-controls="age-tab-pane" aria-selected="false">Age</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="health-tab" data-bs-toggle="tab"
+                    data-bs-target="#health-tab-pane"
+                    (click)="onItemSelected('Health');"
+                    type="button" role="tab" aria-controls="health-tab-pane" aria-selected="false">Health</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show"
+                [class.active]="displayed_map=='Tissue'"
+                id="tissue-tab-pane"
+                role="tabpanel"
+                aria-labelledby="tissue-tab"
+                tabindex="0"
+                *ngIf="query_completed">
+                
+            </div>
+            <div class="tab-pane fade" id="sex-tab-pane" role="tabpanel" aria-labelledby="sex-tab"
+                [class.show]="displayed_map=='Sex'"
+                tabindex="0"
+                *ngIf="query_completed">
+                
+            </div>
+            <div class="tab-pane fade" id="age-tab-pane" role="tabpanel" aria-labelledby="age-tab"
+                tabindex="0"
+                [class.show]="displayed_map=='Age'"
+                *ngIf="query_completed">
+                
+            </div>
+            <div class="tab-pane fade" id="health-tab-pane" role="tabpanel" aria-labelledby="health-tab"
+                tabindex="0"
+                [class.show]="displayed_map=='Health'"
+                *ngIf="query_completed">
+                
+            </div>
+        </div>-->
         <div class="button-group-container" *ngIf="query_completed">
-            <dx-button-group
-                [items]="maps"
-                stylingMode="outlined"
-                [selectedItemKeys]="['Tissue']"
-                (onItemClick)="onItemSelected($event)"
-                class="large-button-group"
-            ></dx-button-group>
-        </div>        
+            <dx-button-group [items]="maps" [selectedItemKeys]="['Tissue']" (onItemClick)="onItemSelected($event)"
+                class="large-button-group"></dx-button-group>
+        </div>
         <div id="tissue_chart" *ngIf="displayed_map=='Tissue' && query_completed" class="tissue_chart">
-            <apx-chart
-            [series]="tissue_chart_options.series!"
-            [chart]="tissue_chart_options.chart!"
-            [labels]="tissue_chart_options.labels!"
-            [legend]="tissue_chart_options.legend!"
-            [responsive]="tissue_chart_options.responsive!"
-            [dataLabels]="tissue_chart_options.data_labels!"
-            [plotOptions]="tissue_chart_options.options!"
-            [theme]="tissue_chart_options.theme!"
-            [stroke]="tissue_chart_options.stroke!"
-            ></apx-chart>
+            <apx-chart [series]="tissue_chart_options.series!" [chart]="tissue_chart_options.chart!"
+                [labels]="tissue_chart_options.labels!" [legend]="tissue_chart_options.legend!"
+                [responsive]="tissue_chart_options.responsive!" [dataLabels]="tissue_chart_options.data_labels!"
+                [plotOptions]="tissue_chart_options.options!" [theme]="tissue_chart_options.theme!"
+                [stroke]="tissue_chart_options.stroke!"></apx-chart>
         </div>
         <div id="sex_chart" *ngIf="displayed_map=='Sex' && query_completed" class="tissue_chart">
-            <apx-chart
-            [series]="sex_chart_options.series!"
-            [chart]="sex_chart_options.chart!"
-            [labels]="sex_chart_options.labels!"
-            [legend]="sex_chart_options.legend!"
-            [responsive]="sex_chart_options.responsive!"
-            [dataLabels]="sex_chart_options.data_labels!"
-            [plotOptions]="sex_chart_options.options!"
-            [theme]="sex_chart_options.theme!"
-            [stroke]="sex_chart_options.stroke!"
-            ></apx-chart>
+            <apx-chart [series]="sex_chart_options.series!" [chart]="sex_chart_options.chart!"
+                [labels]="sex_chart_options.labels!" [legend]="sex_chart_options.legend!"
+                [responsive]="sex_chart_options.responsive!" [dataLabels]="sex_chart_options.data_labels!"
+                [plotOptions]="sex_chart_options.options!" [theme]="sex_chart_options.theme!"
+                [stroke]="sex_chart_options.stroke!"></apx-chart>
         </div>
         <div id="age_chart" *ngIf="displayed_map=='Age' && query_completed" class="age_chart">
-            <apx-chart
-            [series]="age_chart_options.series!"
-            [chart]="age_chart_options.chart!"
-            [legend]="age_chart_options.legend!"
-            [dataLabels]="age_chart_options.data_labels!"
-            [plotOptions]="age_chart_options.options!"
-            [colors]="age_chart_options.colors!"
-            [xaxis]="age_chart_options.xaxis!"
-            [yaxis]="age_chart_options.yaxis!"            
-            ></apx-chart>
+            <apx-chart [series]="age_chart_options.series!" [chart]="age_chart_options.chart!"
+                [legend]="age_chart_options.legend!" [dataLabels]="age_chart_options.data_labels!"
+                [plotOptions]="age_chart_options.options!" [colors]="age_chart_options.colors!"
+                [xaxis]="age_chart_options.xaxis!" [yaxis]="age_chart_options.yaxis!"></apx-chart>
         </div>
         <div id="health_chart" *ngIf="displayed_map=='Health' && query_completed" class="health_chart">
-            <apx-chart
-            [series]="health_chart_options.series!"
-            [chart]="health_chart_options.chart!"
-            [labels]="health_chart_options.labels!"
-            [legend]="health_chart_options.legend!"
-            [responsive]="health_chart_options.responsive!"
-            [dataLabels]="health_chart_options.data_labels!"
-            [plotOptions]="health_chart_options.options!"
-            [theme]="health_chart_options.theme!"
-            [stroke]="health_chart_options.stroke!"          
-            ></apx-chart>
+            <apx-chart [series]="health_chart_options.series!" [chart]="health_chart_options.chart!"
+                [labels]="health_chart_options.labels!" [legend]="health_chart_options.legend!"
+                [responsive]="health_chart_options.responsive!" [dataLabels]="health_chart_options.data_labels!"
+                [plotOptions]="health_chart_options.options!" [theme]="health_chart_options.theme!"
+                [stroke]="health_chart_options.stroke!"></apx-chart>
         </div>
     </div>
-</div>
-<div>
-    <dx-button
-    stylingMode="outlined"
-    text="Contained"
-    type="normal"
-    (onClick) = "samplesTest()"
-    class="searchbutton"
-    >
-        Search
-    </dx-button>
-    <dx-button *ngIf="query_completed"
-        class="test"
-        stylingMode="outlined"
-        text="Contained"
-        type="normal"
-        icon="download"
-        (onClick)="downloadWrapper()"
-    >Download Standardized Data</dx-button>
-    <!-- <dx-drop-down-button *ngIf="query_completed" class="test"
-        [splitButton]="true"
-        [useSelectMode]="false"
-        [text]="selected_download_method"
-        icon="download"
-        [items]="download_options"
-        displayExpr="name"
-        keyExpr="id"
-        (onItemClick)="switchSelectedDownloadMethod($event)"
-        (onButtonClick)="downloadWrapper()"
-    ></dx-drop-down-button> -->
-    <b class = "downloadInfo" *ngIf="selectedRowKeys.length == 1">{{selectedRowKeys.length}} Sample Totaling</b>
-    <b class = "downloadInfo" *ngIf="selectedRowKeys.length > 1">{{selectedRowKeys.length}} Samples Totaling</b>
-    <b class = "downloadInfo" *ngIf="selectedRowKeys.length > 0">{{downloadSize}} Selected</b>
-</div>
-<div *ngIf="query_completed">
-    <dx-data-grid
-      class="sampletable"
-      id="gridContainer"
-      [dataSource]="display!"
-      keyExpr="sample_id"
-      [showBorders]="true"
-      (onRowPrepared)="formatRow($event)"
-      [selectedRowKeys]="selectedRowKeys"
-      (onSelectionChanged)="onSelectionChanged($event)"
-      >
-       <dxo-selection
-            selectAllMode="allPages"
-            [showCheckBoxesMode]="checkBoxesMode"
-            mode="multiple"
-        ></dxo-selection>
-        <dxi-column dataField="tissue" width="20%"></dxi-column>
-        <dxi-column dataField="age" width="10%"></dxi-column>
-        <dxi-column dataField="species" width="10%"></dxi-column>
-        <dxi-column dataField="disease_status" width="10%"></dxi-column>
-        <dxi-column dataField="cell_types"></dxi-column>
-    </dx-data-grid> 
+    <div class="col-12">
+        <!-- <dx-drop-down-button *ngIf="query_completed" class="test"
+            [splitButton]="true"
+            [useSelectMode]="false"
+            [text]="selected_download_method"
+            icon="download"
+            [items]="download_options"
+            displayExpr="name"
+            keyExpr="id"
+            (onItemClick)="switchSelectedDownloadMethod($event)"
+            (onButtonClick)="downloadWrapper()"
+        ></dx-drop-down-button> -->
+        <b class="downloadInfo" *ngIf="selectedRowKeys.length == 1">{{selectedRowKeys.length}} Sample Totaling</b>
+        <b class="downloadInfo" *ngIf="selectedRowKeys.length > 1">{{selectedRowKeys.length}} Samples Totaling</b>
+        <b class="downloadInfo" *ngIf="selectedRowKeys.length > 0">{{downloadSize}} Selected</b>
+    </div>
+    <div class="col-12" *ngIf="query_completed">
+        <dx-data-grid class="sampletable" id="gridContainer" [dataSource]="display!" keyExpr="sample_id"
+            [showBorders]="true" (onRowPrepared)="formatRow($event)" [selectedRowKeys]="selectedRowKeys"
+            (onSelectionChanged)="onSelectionChanged($event)">
+            <dxo-selection selectAllMode="allPages" [showCheckBoxesMode]="checkBoxesMode" mode="multiple"></dxo-selection>
+            <dxi-column dataField="tissue" width="20%"></dxi-column>
+            <dxi-column dataField="age" width="10%"></dxi-column>
+            <dxi-column dataField="species" width="10%"></dxi-column>
+            <dxi-column dataField="disease_status" width="10%"></dxi-column>
+            <dxi-column dataField="cell_types"></dxi-column>
+        </dx-data-grid>
+    </div>
 </div>

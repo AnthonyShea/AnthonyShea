@@ -72,7 +72,7 @@
 }
 
 .side-panel {
-    width: 25%; /* Make sure it only takes up 25% of the width */
+    /*width: 25%; /* Make sure it only takes up 25% of the width */
     display: flex; /* Use Flexbox to arrange child elements horizontally */
     flex-direction: row; /* Arrange children in a row */
     padding: 10px; /* Optional: Add padding to the side-panel */
