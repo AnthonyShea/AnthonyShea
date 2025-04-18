@@ -1,4 +1,5 @@
 
+
 .dx-field-label{
     color: #E98074;
     font-size: 30px;
@@ -53,8 +54,9 @@
 }
 
 ::ng-deep .dx-button-text {
-    font-weight: bold;
-    color: #E98074;
+    font-size: var(--bs-nav-link-font-size);
+    font-weight: var(--bs-nav-link-font-weight);
+    color: var(--bs-nav-link-color);
 }
 
 .sampletable{
@@ -79,8 +81,7 @@
 
 /* Adjust the size of the button group */
 .large-button-group {
-    height: 100%;
-    font-size: 50px;
+    
 }
 
 /* Center the button group horizontally and vertically */
@@ -93,4 +94,9 @@
 /* Custom CSS with increased specificity and !important */
 ::ng-deep .button-group-container .dx-button-content .dx-button-text {
     font-size: 25px !important;
+}
+
+.input-group-text.emphasize {
+    background: var(--bs-warning);
+
 }
