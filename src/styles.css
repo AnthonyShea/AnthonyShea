@@ -5,7 +5,7 @@ nav a.activate{
 }
 html, body {
      height: 100%;
-     background-color: #E0DCCC;
+     /* background-color: #E0DCCC; */
      /*Bone: E0DCCC*/
      }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

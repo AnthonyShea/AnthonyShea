@@ -30,20 +30,30 @@ export class IgvComponent implements AfterViewInit, OnDestroy {
   //to_child = new DiffExp('TEST GENE', ['1','2','3'],['2','3','4'],['0','1','2'],['1,1,1'],['1,1,1'])
   //IGV Variables
   browser: any;
-  trackUrl = 'https://www.encodeproject.org/files/ENCFF356YES/@@download/ENCFF356YES.bigWig'
+  // trackUrl = 'https://www.encodeproject.org/files/ENCFF356YES/@@download/ENCFF356YES.bigWig'
+  trackUrl = 'https://www.encodeproject.org/files/ENCFF092EKO/@@download/ENCFF092EKO.bigWig';
   options = {
     genome: "mm39",
     locus: 'chr8:5727233-17181696',
     tracks: [
-      
       {
-        name: '%-mCG',
+        name: 'Histone CHIP-seq',
         type: 'wig',
         format: 'bigWig',
-        url: this.trackUrl,
+        // url: this.trackUrl,
+        url: 'https://www.encodeproject.org/files/ENCFF092EKO/@@download/ENCFF092EKO.bigWig',
         color: '#0078d7',
+        autoscaleGroup: 'hist'
+      }, // Add methylation marks
+      {
+        name: 'mCG',
+        type: 'wig',
+        format: 'bigWig',
+        // url: this.trackUrl,
+        url: 'https://www.encodeproject.org/files/ENCFF483QCH/@@download/ENCFF483QCH.bigWig',
+        color: '#97fce2',
         autoscaleGroup: 'meth'
-      }
+      } // Add methylation marks
     ],
   };
 
