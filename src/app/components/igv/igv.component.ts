@@ -33,7 +33,7 @@ export class IgvComponent implements AfterViewInit, OnDestroy {
   // trackUrl = 'https://www.encodeproject.org/files/ENCFF356YES/@@download/ENCFF356YES.bigWig'
   trackUrl = 'https://www.encodeproject.org/files/ENCFF092EKO/@@download/ENCFF092EKO.bigWig';
   options = {
-    genome: "mm39",
+    genome: "mm10",
     locus: 'chr8:5727233-17181696',
     tracks: [
       {
