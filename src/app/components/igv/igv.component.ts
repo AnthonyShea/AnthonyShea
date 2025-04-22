@@ -41,7 +41,7 @@ export class IgvComponent implements AfterViewInit, OnDestroy {
         type: 'wig',
         format: 'bigWig',
         // url: this.trackUrl,
-        url: 'https://www.encodeproject.org/files/ENCSR675HDX/@@download/ENCSR675HDX.bigWig',
+        url: 'https://www.encodeproject.org/files/ENCFF657GDL/@@download/ENCFF657GDL.bigWig',
         color: '#0078d7',
         autoscaleGroup: 'hist'
       }, // Add methylation marks
@@ -50,7 +50,7 @@ export class IgvComponent implements AfterViewInit, OnDestroy {
         type: 'wig',
         format: 'bigWig',
         // url: this.trackUrl,
-        url: 'https://www.encodeproject.org/files/ENCSR397YEG/@@download/ENCSR397YEG.bigWig',
+        url: 'https://www.encodeproject.org/files/ENCFF980ZXR/@@download/ENCFF980ZXR.bigWig',
         color: '#97fce2',
         autoscaleGroup: 'meth'
       }
