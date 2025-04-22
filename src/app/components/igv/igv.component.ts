@@ -37,23 +37,23 @@ export class IgvComponent implements AfterViewInit, OnDestroy {
     locus: 'chr8:5727233-17181696',
     tracks: [
       {
-        name: 'Histone CHIP-seq',
+        name: 'Histone CHIP-seq (H3K27ac) : Heart Tissue Postnatal (0 days)',
         type: 'wig',
         format: 'bigWig',
         // url: this.trackUrl,
-        url: 'https://www.encodeproject.org/files/ENCFF092EKO/@@download/ENCFF092EKO.bigWig',
+        url: 'https://www.encodeproject.org/files/ENCSR675HDX/@@download/ENCSR675HDX.bigWig',
         color: '#0078d7',
         autoscaleGroup: 'hist'
       }, // Add methylation marks
       {
-        name: 'mCG',
+        name: 'WGBS : Heart Tissue Postnatal (0 days)',
         type: 'wig',
         format: 'bigWig',
         // url: this.trackUrl,
-        url: 'https://www.encodeproject.org/files/ENCFF483QCH/@@download/ENCFF483QCH.bigWig',
+        url: 'https://www.encodeproject.org/files/ENCSR397YEG/@@download/ENCSR397YEG.bigWig',
         color: '#97fce2',
         autoscaleGroup: 'meth'
-      } // Add methylation marks
+      }
     ],
   };
 
