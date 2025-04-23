@@ -1,58 +1,59 @@
+::ng-deep .dx-tabs .dx-tab-selected {
+  background-color: #8E8D8A !important;
+  border: 1px solid #686784 !important;
+}
 
-::ng-deep .dx-tabs .dx-tab-selected{
-    background-color: #8E8D8A !important;
-    border: 1px solid #686784 !important;
-  }
-  
-  ::ng-deep .dx-tabs .dx-tab-selected.dx-state-focused{
-    background-color: #8E8D8A !important;
-    box-shadow: 2px solid #686784 !important;
-    color: #E0DCCC;
-    font-weight: 700;
-  }
-  
-  ::ng-deep .dx-tab.dx-item {
-    background-color: #D8C385;
-    font-weight: 500;
-    z-index: 2;
-  }
+::ng-deep .dx-tabs .dx-tab-selected.dx-state-focused {
+  background-color: #8E8D8A !important;
+  box-shadow: 2px solid #686784 !important;
+  color: #E0DCCC;
+  font-weight: 700;
+}
 
-    ::ng-deep .dx-tab.dx-item:hover {
-    background-color: #CEB464;
-    font-size: large;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  }
-  
-  ::ng-deep .dx-tabpanel.dx-state-focused .dx-multiview-wrapper {
-    border-top: 1px solid #686784 !important;
-    border-right: 1px solid #686784 !important;
-    border-left: 1px solid #686784 !important;
-  }
-  
-  ::ng-deep .dx-tabpanel.dx-state-focused .dx-tab-selected:after {
-    border-top: 1px solid #686784 !important;
-    border-right: 1px solid #686784 !important;
-    border-left: 1px solid #686784 !important;
-  }
+::ng-deep .dx-tab.dx-item {
+  background-color: #D8C385;
+  font-weight: 500;
+  z-index: 2;
+}
 
-  ::ng-deep .dx-tabs .dx-tab:first-child {
-    font-family: 'RobotoCondensed-Bold';
-    font-size: 20px;
-  }
+::ng-deep .dx-tab.dx-item:hover {
+  background-color: #CEB464;
+  font-size: large;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+::ng-deep .dx-tabpanel.dx-state-focused .dx-multiview-wrapper {
+  border-top: 1px solid #686784 !important;
+  border-right: 1px solid #686784 !important;
+  border-left: 1px solid #686784 !important;
+}
+
+::ng-deep .dx-tabpanel.dx-state-focused .dx-tab-selected:after {
+  border-top: 1px solid #686784 !important;
+  border-right: 1px solid #686784 !important;
+  border-left: 1px solid #686784 !important;
+}
+
+::ng-deep .dx-tabs .dx-tab:first-child {
+  font-family: 'RobotoCondensed-Bold';
+  font-size: 20px;
+}
 
 :root {
   --bs-primary-rgb: #D8C385 !important;
 }
 
 .nav-link.active {
-  background-color: var(--bs-navbar-active-color);
-  color: #fafafa;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(var(--bs-warning-rgb), 0.7);
+  background-color: rgba(var(--bs-warning-rgb), 0.6);
 }
 
 .nav-link {
-  padding-left :.5rem;
+  padding-left: .5rem;
   padding-right: .5rem;
   border-radius: .375rem;
+  border: 1px solid transparent;
 }
 
 .bg-blurred {
