@@ -54,3 +54,9 @@
   padding-right: .5rem;
   border-radius: .375rem;
 }
+
+.bg-blurred {
+  background-color: rgba(var(--bs-warning-rgb), 0.5);
+  backdrop-filter: blur(50px);
+  --webkit-backdrop-filter: blur(50px);
+}
