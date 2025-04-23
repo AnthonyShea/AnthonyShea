@@ -1,143 +1,152 @@
-<!-- <img src="{{logo.url}}" class="image" width="100%"> -->
-
-<!-- <dx-vector-map
-  id="map-container"
-  [bounds]="[-180, 85, 180, -75]"
->
-</dx-vector-map> -->
-<div *ngIf="is_https" class="http-alert-container">
-Warning
-  <div class="http-alert-message">
-    SCALIWAG is designed to be served over <i>HTTP</i>, but it is currently being served over <i>HTTPS</i>. This may cause issues when connecting to the backend database. To properly use SCALIWAG
-    please use Safari, Firefox, or an incognito browser if using Google Chrome. 
-  </div>
-</div>
-
-<div class="d-none d-lg-block">
-  <div class="row">
-    <div id="tissue_chart" *ngIf="charts_ready" class="col-4">
-      <apx-chart
-        [series]="tissue_chart_options.series!"
-        [chart]="tissue_chart_options.chart!"
-        [labels]="tissue_chart_options.labels!"
-        [legend]="tissue_chart_options.legend!"
-        [responsive]="tissue_chart_options.responsive!"
-        [dataLabels]="tissue_chart_options.data_labels!"
-        [plotOptions]="tissue_chart_options.options!"
-        [theme]="tissue_chart_options.theme!"
-        [stroke]="tissue_chart_options.stroke!"
-      ></apx-chart>
-    </div>
-    <div class="col-4 text-center">
-      <h1 class="scaliwag-title">SCALIWAG</h1>
-      <p class="scaliwag-subtitle"><b>S</b>ingle <b>C</b>ell <b>A</b>ging <b>Li</b>brary</p>
-      <p class="scaliwag-subtitle"><b>W</b>ith <b>A</b>&nbsp;<b>G</b>enome Browser</p>
-      <div class="d-flex justify-content-center">
-         <p class = 'center'>
-          <a class="title">Total Cells</a>
-          <br>  
-          <a class="value">{{cell_total}}</a>
-          <br> 
-          <a class="subtitle">{{prettify(selected_age_group)}}</a>
-          <br>
-          <br>
-          <a class="hint" *ngIf="selected_age_group == 'all ages'">Select An Age Below to Explore in More Detail</a>
-        </p>
-      </div>
-    </div>
-    <div id="sex_chart" *ngIf="charts_ready" class="col-4">
-      <div class="align-items-center">
-        <apx-chart
-        [series]="sex_chart_options.series!"
-        [chart]="sex_chart_options.chart!"
-        [labels]="sex_chart_options.labels!"
-        [legend]="sex_chart_options.legend!"
-        [responsive]="sex_chart_options.responsive!"
-        [dataLabels]="sex_chart_options.data_labels!"
-        [plotOptions]="sex_chart_options.options!"
-        [theme]="sex_chart_options.theme!"
-        [stroke]="sex_chart_options.stroke!"></apx-chart>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="d-lg-none">
+<div class="container">
+  <!-- Main Header -->
   <div class="row">
     <div class="col-12 text-center">
-      <h1 class="scaliwag-title">SCALIWAG</h1>
-      <p><b>S</b>ingle <b>C</b>ell <b>A</b>ging <b>Li</b>brary</p>
-      <p><b>W</b>ith <b>A</b>&nbsp;<b>G</b>enome Browser</p>
-      <div class="d-flex justify-content-center">
-         <p class = 'center'>
-          <a class="title">Total Cells</a>
-          <br>  
-          <a class="value">{{cell_total}}</a>
-          <br> 
-          <a class="subtitle">{{prettify(selected_age_group)}}</a>
-          <br>
-          <br>
-          <a class="hint" *ngIf="selected_age_group == 'all ages'">Select An Age Below to Explore in More Detail</a>
-        </p>
+      <h1 class="main-title">Mouse Heart Database</h1>
+      <h2 class="subtitle">
+        Exploring Cardiac Regeneration Through Developmental Transcriptomics
+      </h2>
+    </div>
+  </div>
+
+  <!-- Key Comparative Insight -->
+  <div class="row highlight-section">
+    <div class="col-md-8 offset-md-2 text-center">
+      <p class="research-focus">
+        Neonatal (P1 - P6) vs. Postnatal (P7+) Heart Regeneration Capacity:
+        <br>
+        <span class="emphasis">Uncovering the molecular drivers of cardiomyocyte proliferation decline</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- Database Features -->
+  <div class="row features">
+    <div class="col-md-4 feature-card">
+      <h3>Genome Browser</h3>
+      <p>View how Genes differ in expression levels accross Age, Cell Groups and Experimental Conditions</p>
+    </div>
+    
+    <div class="col-md-4 feature-card">
+      <h3>Go Term Enrichment</h3>
+      <p>Explore how various pathways are impacted accross Age, and Experimental Conditions</p>
+    </div>
+    
+    <div class="col-md-4 feature-card">
+      <h3>Search and Download</h3>
+      <p>Download our Results from our Differential Gene Expression Analysis</p>
+    </div>
+  </div>
+
+  <!-- Age Comparison Visual (placeholder) -->
+  <div class="row">
+    <div class="col-12 regeneration-comparison">
+      <div class="neonatal-phase">
+        <h4>Neonatal Phase (P1 - 6)</h4>
+        <p>Complete cardiac regeneration capacity</p>
       </div>
-    </div>
-    <div id="tissue_chart" *ngIf="charts_ready" class="col-12">
-      <apx-chart
-        [series]="tissue_chart_options.series!"
-        [chart]="tissue_chart_options.chart!"
-        [labels]="tissue_chart_options.labels!"
-        [legend]="tissue_chart_options.legend!"
-        [responsive]="tissue_chart_options.responsive!"
-        [dataLabels]="tissue_chart_options.data_labels!"
-        [plotOptions]="tissue_chart_options.options!"
-        [theme]="tissue_chart_options.theme!"
-        [stroke]="tissue_chart_options.stroke!"
-      ></apx-chart>
-    </div>
-    <div id="sex_chart" *ngIf="charts_ready" class="col-12">
-      <div class="align-items-center">
-        <apx-chart
-        [series]="sex_chart_options.series!"
-        [chart]="sex_chart_options.chart!"
-        [labels]="sex_chart_options.labels!"
-        [legend]="sex_chart_options.legend!"
-        [responsive]="sex_chart_options.responsive!"
-        [dataLabels]="sex_chart_options.data_labels!"
-        [plotOptions]="sex_chart_options.options!"
-        [theme]="sex_chart_options.theme!"
-        [stroke]="sex_chart_options.stroke!"></apx-chart>
+      
+      <div class="postnatal-phase">
+        <h4>Postnatal Phase (P7+)</h4>
+        <p>Regenerative potential significantly reduced</p>
       </div>
     </div>
   </div>
-</div>
-
-<div class="d-block">
-  <div class="d-flex">
-    <div *ngFor="let image of logo_list">
-      <button class="container2" (click)="test(image.name)" id = {{image.name}}>
-        <img [src]="image.url" alt="Image not found" class = "silloette">
-        <div class="overlay">
-          <div class="overlay-age">{{prettify(image.name)}}</div>
+   <!-- Help Guides Section -->
+   <div class="row help-section mt-5">
+    <div class="col-12">
+      <h2 class="section-title mb-4">User Guide</h2>
+      
+      <!-- Genome Browser Help -->
+      <div class="help-card card mb-3">
+        <div class="card-header" data-toggle="collapse" href="#browserHelp">
+          <h3>Genome Browser <i class="fas fa-chevron-down float-right"></i></h3>
         </div>
-      </button>
+        <div id="browserHelp" class="collapse show">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <img src="../../../assets/images/Genome_Broswer_1.jpg" class="help-image img-fluid mb-3" 
+                     alt="Genome browser interface">
+              </div>
+              <div class="col-md-6">
+                <h4>Key Features:</h4>
+                <ol>
+                  <li>Use the search bar to navigate to a specific gene</li>
+                  <li></li>
+                  <li></li>
+                </ol>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <img src="../../../assets/images/Genome_Broswer_2.jpg" class="help-image img-fluid mb-3" 
+                     alt="Genome browser interface">
+              </div>
+              <div class="col-md-6">
+                <h4>Key Features:</h4>
+                <ol>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GO Term Enrichment Help -->
+      <div class="help-card card mb-3">
+        <div class="card-header" data-toggle="collapse" href="#goHelp">
+          <h3>Pathway Enrichment <i class="fas fa-chevron-down float-right"></i></h3>
+        </div>
+        <div id="goHelp" class="collapse">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-4">
+                <img src="path/to/go-term-screenshot.jpg" class="help-image img-fluid mb-3" 
+                     alt="Pathway analysis interface">
+              </div>
+              <div class="col-md-8">
+                <h4>Workflow:</h4>
+                <ul>
+                  <li>Start with gene list from differential expression results</li>
+                  <li>Select ontology database (BP, MF, CC)</li>
+                  <li>Adjust FDR cutoff using slider (default q < 0.05)</li>
+                  <li>Export network diagrams or table results</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data Download Help -->
+      <div class="help-card card mb-3">
+        <div class="card-header" data-toggle="collapse" href="#downloadHelp">
+          <h3>Search and Download (maybe delete entirely)<i class="fas fa-chevron-down float-right"></i></h3>
+        </div>
+        <div id="downloadHelp" class="collapse">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-8">
+                <h4>Available Formats:</h4>
+                <table class="table">
+                  <tr><th>Data Type</th><th>Format</th><th>Resolution</th></tr>
+                  <tr><td>DEG Results</td><td>CSV, XLSX</td><td>Per-gene</td></tr>
+                  <tr><td>Expression Matrix</td><td>H5AD</td><td>Single-cell</td></tr>
+                  <tr><td>Pathway Results</td><td>JSON, PNG</td><td>Publication-ready</td></tr>
+                </table>
+              </div>
+              <div class="col-md-4">
+                <img src="path/to/download-screenshot.jpg" class="help-image img-fluid" 
+                     alt="Data download interface">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-
-<dx-tab-panel
-  #tabPanel
-  [dataSource]="options"
-  [selectedIndex]="0"
-  [loop]="false"
-  [animationEnabled]="true"
-  [swipeEnabled]="true"
->
-  <div *dxTemplate="let options of 'title'" class="footer-widget">
-    <span class="footer-title">{{ options.title }}</span>
-  </div>
-  <div *dxTemplate="let options of 'item'">
-    <div class="tabpanel-item">
-      <a>{{options.text}}</a>
-    </div>
-  </div>
-</dx-tab-panel>

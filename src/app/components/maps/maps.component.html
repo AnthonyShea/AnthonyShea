@@ -5,7 +5,7 @@
                 <dx-button-group [items]="maps" stylingMode="outlined" [selectedItemKeys]="['UMAP']"
                     (onItemClick)="onItemSelected($event)"></dx-button-group>
             </div>
-            <h3 class="text-center">{{selected_info.cell_type}}</h3>
+            <!-- <h3 class="text-center">{{selected_info.cell_type}}</h3> -->
         </div>
     </div>
     <div class="card-body">
@@ -59,28 +59,13 @@
                             </h4>
                         </div>
                     </div>
-                    <!--<div class="flex-container">
-                        <div class="flex-row">
-                            <div class="flex-child2">
-
-                            </div>
-                        </div>
-                        <div class="flex-row">
-                            <div class="flex-child">
-                                <p class="pval-label">-Log10(Adjusted P-Value):</p>
-                                <b class="pval-value">{{selected_info.pvalue.toExponential(2)}}</b>
-                            </div>
-                            <div class="flex-child">
-                                <p class="lfc-label">% Change</p>
-                                <b class="lfc-value"
-                                    [ngClass]="{'negative-value': decade_change < 0, 'positive-value': decade_change >= 0}">
-                                    {{ decade_change + '%' }}
-                                </b>
-                            </div>
-                        </div>
-                    </div>-->
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="card-footer">
+        <div class="selected-cell-display">
+            <h3 class="text-center">{{selected_info.cell_type}}</h3>
         </div>
     </div>
 </div>

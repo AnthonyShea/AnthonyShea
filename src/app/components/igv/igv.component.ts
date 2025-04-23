@@ -148,15 +148,25 @@ export class IgvComponent implements AfterViewInit, OnDestroy {
 
     if (loci != null) {
       this.options = {
-        genome: "mm39",
+        genome: "mm10",
         locus: loci,
         tracks: [
           {
-            name: 'mCG',
+            name: 'Histone CHIP-seq (H3K27ac) : Heart Tissue Postnatal (0 days)',
             type: 'wig',
             format: 'bigWig',
-            url: this.trackUrl,
-            color: '#4a90e2',
+            // url: this.trackUrl,
+            url: 'https://www.encodeproject.org/files/ENCFF657GDL/@@download/ENCFF657GDL.bigWig',
+            color: '#0078d7',
+            autoscaleGroup: 'hist'
+          }, // Add methylation marks
+          {
+            name: 'WGBS : Heart Tissue Postnatal (0 days)',
+            type: 'wig',
+            format: 'bigWig',
+            // url: this.trackUrl,
+            url: 'https://www.encodeproject.org/files/ENCFF980ZXR/@@download/ENCFF980ZXR.bigWig',
+            color: '#97fce2',
             autoscaleGroup: 'meth'
           }
         ],

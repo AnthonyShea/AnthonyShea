@@ -12,6 +12,19 @@
   display: block;
 }
 
+.map-box .card-footer {
+  display: block !important;
+  width: 100%;
+  text-align: center;
+}
+
+.selected-cell-display {
+  display: block !important;
+  text-align: center;
+  margin-top: 10px;
+}
+
+
 .map-box > * {
   display: flex;
   justify-content: center;
