@@ -5,7 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class DatabaseConstsService {
   tissueTypes: string[] = [   
-      "Heart"
+      "Heart",
+      "Bone Marrow"
   ]
   cellTypes: string[] = [
     "Adipose progenitor cell" ,"Adipose-derived stem cell" ,"Adipose-derived stromal cell" ,"Adipose multilineage-differentiating stress-enduring cell" ,"Beige adipogenic precursor cell" ,
