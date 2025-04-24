@@ -183,9 +183,9 @@
             (onButtonClick)="downloadWrapper()"
         ></dx-drop-down-button> -->
         <h5>
-            <span *ngIf="selectedRowKeys.length == 1">{{selectedRowKeys.length}} Sample Totaling</span>
+            <span *ngIf="selectedRowKeys.length <= 1">{{selectedRowKeys.length}} Sample Totaling</span>
             <span *ngIf="selectedRowKeys.length > 1">{{selectedRowKeys.length}} Samples Totaling</span>
-            <span *ngIf="selectedRowKeys.length > 0">&nbsp;{{downloadSize}} Selected</span>
+            <span>&nbsp;{{downloadSize == null ? '0.00 GB' : downloadSize}} Selected</span>
         </h5>
     </div>
     <div class="col-12" *ngIf="query_completed">
@@ -194,9 +194,10 @@
             (onSelectionChanged)="onSelectionChanged($event)">
             <dxo-selection selectAllMode="allPages" [showCheckBoxesMode]="checkBoxesMode"
                 mode="multiple"></dxo-selection>
+            <dxi-column dataField="pmid" width="10%"></dxi-column>
             <dxi-column dataField="tissue" width="20%"></dxi-column>
             <dxi-column dataField="age" width="10%"></dxi-column>
-            <dxi-column dataField="species" width="10%"></dxi-column>
+            <!--<dxi-column dataField="species" width="10%"></dxi-column>-->
             <dxi-column dataField="disease_status" width="10%"></dxi-column>
             <dxi-column dataField="cell_types"></dxi-column>
         </dx-data-grid>

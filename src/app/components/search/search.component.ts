@@ -51,7 +51,8 @@ export class SearchComponent implements OnInit {
 
   tissue_dict: any = {};
   sex_dict: any = {};
-  age_dict: any = { '0-9': 0, '10-19': 0, '20-29': 0, '30-49': 0, '50-64': 0, '65-99': 0, '100+': 0, }
+  age_dict: any = { '0-9': 0, '10-19': 0, '20-29': 0, '30-49': 0, '50-64': 0, '65-99': 0, '100+': 0, };
+  age_dict_new: any = {'Neonatal': 0, 'Postnatal': 0};
   health_dict: any = { 'Healthy': 0, 'Cancer': 0, 'Other': 0, 'Unkown': 0 }
   cell_total: number;
   min_age = -1
@@ -176,7 +177,8 @@ export class SearchComponent implements OnInit {
           this.makeDictionaries()
           this.tissue_chart_options = this.makeDonutChart(this.tissue_dict)
           this.sex_chart_options = this.makeDonutChart(this.sex_dict)
-          this.age_chart_options = this.makeBarChart(this.age_dict)
+          // this.age_chart_options = this.makeBarChart(this.age_dict)
+          this.age_chart_options = this.makeBarChart(this.age_dict_new);
           this.health_chart_options = this.makeDonutChart(this.health_dict)
           this.query_completed = true
         },
@@ -317,6 +319,7 @@ export class SearchComponent implements OnInit {
     let temp_tissue_dict: any = {};
     let temp_sex_dict: any = {};
     let temp_age_dict: any = { '0-9': 0, '10-19': 0, '20-29': 0, '30-49': 0, '50-64': 0, '65-99': 0, '100+': 0, }
+    let temp_age_dict_new: any = {'Neonatal': 0, 'Postnatal': 0};
     let temp_health_dict: any = { 'Healthy': 0, 'Cancer': 0, 'Other': 0, 'Unkown': 0 }
     let cell_count = 0;
 
@@ -328,6 +331,11 @@ export class SearchComponent implements OnInit {
       //Get Age information to always be displayed
       let age_group = this.getAgeGroup(age);
       temp_age_dict[age_group] = temp_age_dict[age_group] + 1;
+
+      let age_group_new = this.getAgeGroupNew(age);
+      console.log(this.age_dict_new);
+      console.log(age_group_new);
+      temp_age_dict_new[age_group_new] = temp_age_dict_new[age_group_new] + 1;
 
       if (age < this.min_age || age > this.max_age) {
         continue;
@@ -371,6 +379,8 @@ export class SearchComponent implements OnInit {
     this.tissue_dict = temp_tissue_dict;
     this.sex_dict = temp_sex_dict;
     this.age_dict = temp_age_dict;
+    this.age_dict_new = temp_age_dict_new;
+    console.log(this.age_dict_new);
     this.health_dict = temp_health_dict;
     this.cell_total = cell_count;
   }
@@ -462,7 +472,7 @@ export class SearchComponent implements OnInit {
               x: age_names[1],
               y: age_count[1],
             },
-            {
+            /*{
               x: age_names[2],
               y: age_count[2],
             },
@@ -481,7 +491,7 @@ export class SearchComponent implements OnInit {
             {
               x: age_names[6],
               y: age_count[6],
-            }
+            }*/
           ]
         }
       ],
@@ -571,6 +581,10 @@ export class SearchComponent implements OnInit {
       return ('65-99')
     }
     return ('100+')
+  }
+
+  getAgeGroupNew(age: number) {
+    return age <= 58 ? 'Neonatal' : 'Postnatal';
   }
 
   formatRow($event: any) {
