@@ -56,6 +56,13 @@
                     style="width: 100%; flex: 1; border: 1px solid var(--bs-border-with);" [tooltip]="tooltip"
                     (onValueChanged)="onAgeChanged($event)"></dx-range-slider>
             </div>
+            <div class="input-group mb-2 d-flex justify-content-between">
+                <span class="input-group-text emphasize" id="basic-addon1">Age Select</span>
+                <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+                <label class="btn btn-outline-secondary" style="width: 100%; flex: 1; border-color: var(--bs-border-color)" for="btncheck1">P1 - P6 (Neonetal)</label>
+                <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
+                <label class="btn btn-outline-secondary" style="width: 100%; flex: 1; border-color: var(--bs-border-color)" for="btncheck2">P7 + (Postnatal)</label>
+            </div>
         </div>
         <div class="row">
             <div class="d-flex justify-content-center">
@@ -175,9 +182,11 @@
             (onItemClick)="switchSelectedDownloadMethod($event)"
             (onButtonClick)="downloadWrapper()"
         ></dx-drop-down-button> -->
-        <b class="downloadInfo" *ngIf="selectedRowKeys.length == 1">{{selectedRowKeys.length}} Sample Totaling</b>
-        <b class="downloadInfo" *ngIf="selectedRowKeys.length > 1">{{selectedRowKeys.length}} Samples Totaling</b>
-        <b class="downloadInfo" *ngIf="selectedRowKeys.length > 0">{{downloadSize}} Selected</b>
+        <h5>
+            <span *ngIf="selectedRowKeys.length == 1">{{selectedRowKeys.length}} Sample Totaling</span>
+            <span *ngIf="selectedRowKeys.length > 1">{{selectedRowKeys.length}} Samples Totaling</span>
+            <span *ngIf="selectedRowKeys.length > 0">&nbsp;{{downloadSize}} Selected</span>
+        </h5>
     </div>
     <div class="col-12" *ngIf="query_completed">
         <dx-data-grid class="sampletable" id="gridContainer" [dataSource]="display!" keyExpr="sample_id"

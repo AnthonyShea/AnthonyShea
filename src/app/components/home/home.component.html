@@ -1,7 +1,8 @@
 <div class="container">
   <!-- Main Header -->
   <div class="row mt-2">
-    <h1 style="color: var(--bs-danger)" class="text-center">Mouse Heart Database</h1>
+    <h1 style="color: var(--bs-danger); font-weight: normal;" class="text-center"><b>M</b>urine <b>I</b>nduced <b>Heart
+        D</b>ata<b>b</b>ase</h1>
     <h3 class="text-center">Exploring Cardiac Regeneration Through Developmental Transcriptomics</h3>
 
     <!-- Key Comparative Insight -->
@@ -17,32 +18,141 @@
 
     <!-- Database Features -->
     <div class="row g-2 mt-2">
+      <h3 class="col-12">User Guide</h3>
       <div class="col-md-4 col-sm-12">
-        <div class="card border-warning">
+        <a class="card border-warning help-card text-decoration-none h-100" data-bs-toggle="collapse"
+          href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
           <div class="card-body">
             <h3 class="card-title">Genome Browser</h3>
             <p>View how Genes differ in expression levels accross Age, Cell Groups and Experimental Conditions</p>
           </div>
-        </div>
+        </a>
       </div>
       <div class="col-md-4 col-sm-12">
-        <div class="card border-warning">
+        <a class="card border-warning help-card text-decoration-none h-100" data-bs-toggle="collapse"
+          href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample2">
           <div class="card-body">
             <h3 class="card-title">Go Term Enrichment</h3>
             <p>Explore how various pathways are impacted accross Age, and Experimental Conditions</p>
           </div>
-        </div>
+        </a>
       </div>
       <div class="col-md-4 col-sm-12">
-        <div class="card border-warning">
+        <a class="card border-warning help-card text-decoration-none h-100" data-bs-toggle="collapse"
+          href="#multiCollapseExample3" role="button" aria-expanded="false" aria-controls="multiCollapseExample3">
           <div class="card-body">
             <h3 class="card-title">Search and Download</h3>
             <p>Download our Results from our Differential Gene Expression Analysis</p>
           </div>
+        </a>
+      </div>
+    </div>
+    <div class="row g-2">
+      <div class="col-12">
+        <div class="collapse multi-collapse" id="multiCollapseExample1">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="card-title">Genome Browser</h4>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6 col-sm-12">
+                  <img src="../../../assets/images/Genome_Broswer_1.jpg" class="help-image img-fluid mb-3"
+                    alt="Genome browser interface">
+                </div>
+                <div class="col-md-6 col-sm-12">
+                  <h4>Key Features:</h4>
+                  <ol>
+                    <li>Use the search bar to navigate to a specific gene</li>
+                    <li></li>
+                    <li></li>
+                  </ol>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                  <img src="../../../assets/images/Genome_Broswer_2.jpg" class="help-image img-fluid"
+                    alt="Genome browser interface">
+                </div>
+                <div class="col-md-6 col-sm-12">
+                  <h4>Key Features:</h4>
+                  <ol>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="collapse multi-collapse" id="multiCollapseExample2">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="card-title">Go Term Enrichment</h4>
+            </div>
+            <div class="card-body">
+              <div class="row g-2">
+                <div class="col-md-6 col-sm-12">
+                  <img src="/path/to/go-term-screenshot.jpg" class="help-image img-fluid"
+                    alt="Pathway analysis interface">
+                </div>
+                <div class="col-md-6 col-sm-12">
+                  <h4>Workflow:</h4>
+                  <ul>
+                    <li>Start with gene list from differential expression results</li>
+                    <li>Select ontology database (BP, MF, CC)</li>
+                    <li>Adjust FDR cutoff using slider (default q &lt; 0.05)</li>
+                    <li>Export network diagrams or table results</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="collapse multi-collapse" id="multiCollapseExample3">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="card-title">Search and Download</h4>
+            </div>
+            <div class="card-body">
+              <div class="row g-2">
+                <div class="col-md-6 col-sm-12">
+                  <img src="path/to/download-screenshot.jpg" class="help-image img-fluid" alt="Data download interface">
+                </div>
+                <div class="col-md-6 col-sm-12">
+                  <h4>Available Formats:</h4>
+                  <table class="table">
+                    <tr>
+                      <th>Data Type</th>
+                      <th>Format</th>
+                      <th>Resolution</th>
+                    </tr>
+                    <tr>
+                      <td>DEG Results</td>
+                      <td>CSV, XLSX</td>
+                      <td>Per-gene</td>
+                    </tr>
+                    <tr>
+                      <td>Expression Matrix</td>
+                      <td>H5AD</td>
+                      <td>Single-cell</td>
+                    </tr>
+                    <tr>
+                      <td>Pathway Results</td>
+                      <td>JSON, PNG</td>
+                      <td>Publication-ready</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-
     <!-- Age Comparison Visual (placeholder) -->
     <div class="row g-3">
       <div class="col-md-6 col-sm-12">
@@ -63,11 +173,12 @@
       </div>
     </div>
     <!-- Help Guides Section -->
+    <!--
     <div class="row help-section mt-5">
       <div class="col-12">
         <h2 class="section-title mb-4">User Guide</h2>
 
-        <!-- Genome Browser Help -->
+         Genome Browser Help 
         <div class="help-card card mb-3">
           <div class="card-header" data-toggle="collapse" href="#browserHelp">
             <h3>Genome Browser <i class="fas fa-chevron-down float-right"></i></h3>
@@ -106,7 +217,7 @@
           </div>
         </div>
 
-        <!-- GO Term Enrichment Help -->
+         GO Term Enrichment Help 
         <div class="help-card card mb-3">
           <div class="card-header" data-toggle="collapse" href="#goHelp">
             <h3>Pathway Enrichment <i class="fas fa-chevron-down float-right"></i></h3>
@@ -132,7 +243,7 @@
           </div>
         </div>
 
-        <!-- Data Download Help -->
+         Data Download Help 
         <div class="help-card card mb-3">
           <div class="card-header" data-toggle="collapse" href="#downloadHelp">
             <h3>Search and Download (maybe delete entirely)<i class="fas fa-chevron-down float-right"></i></h3>
@@ -173,6 +284,6 @@
           </div>
         </div>
       </div>
-    </div>
+    </div>-->
   </div>
 </div>

@@ -39,12 +39,12 @@ export class NavbarComponent implements OnInit {
         icon: 'find',
         path: 'search',
       },
-      {
+      /* Delete documentation tab {
         id: 4,
         text: 'Documentation',
         icon: 'file',
         path: 'documentation',
-      },
+      },*/
     ];
   }
 

@@ -48,11 +48,6 @@
   padding: 5px;
 }
 
-.card-header {
-  cursor: pointer;
-  background: #ffffff;
-}
-
 .card-header h3 {
   color: #c62828;
   margin: 0;

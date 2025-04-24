@@ -89,7 +89,8 @@ export class SearchComponent implements OnInit {
     this.tissue_types = databaseConstService.getTissueTypes();
     //this.species = databaseConstService.getSpecies();
     //this.cell_types = databaseConstService.getCellTypes();
-    this.health = ['All','Cancer', 'Healthy']
+    this.health = ['All','Cancer', 'Healthy'];
+    this.species = ["Human", "Mouse"];
     this.cell_types = ['All Cells', 'B Cells', 'Dendritic Cells', 'Endothelial Cells', 'Fibroblasts', 'Macrophages', 'Neurons', 'T Cells']
 
     this.selected_tissues = this.tissue_types;
