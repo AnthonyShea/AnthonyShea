@@ -50,18 +50,18 @@
             </div>-->
         </div>
         <div class="row">
-            <div class="input-group mb-2 d-flex justify-content-between">
+            <!--<div class="input-group mb-2 d-flex justify-content-between">
                 <h6 style="padding: .375rem .75rem">Age Select</h6>
                 <dx-range-slider class="age-slider" id="age-slider" [min]="0" [max]="100" [start]="0" [end]="100"
                     style="width: 100%; flex: 1; border: 1px solid var(--bs-border-with);" [tooltip]="tooltip"
                     (onValueChanged)="onAgeChanged($event)"></dx-range-slider>
-            </div>
+            </div>-->
             <div class="input-group mb-2 d-flex justify-content-between">
                 <span class="input-group-text emphasize" id="basic-addon1">Age Select</span>
-                <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
-                <label class="btn btn-outline-secondary" style="width: 100%; flex: 1; border-color: var(--bs-border-color)" for="btncheck1">P1 - P6 (Neonetal)</label>
-                <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
-                <label class="btn btn-outline-secondary" style="width: 100%; flex: 1; border-color: var(--bs-border-color)" for="btncheck2">P7 + (Postnatal)</label>
+                <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off" value="neonetal" [(ngModel)]="this.neonatal_selected">
+                <label class="btn btn-outline-secondary" style="width: 100%; flex: 1; border-color: var(--bs-border-color)" for="btncheck1">Neonatal (P1 - P6)</label>
+                <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off" value="postnatal" [(ngModel)]="this.postnatal_selected">
+                <label class="btn btn-outline-secondary" style="width: 100%; flex: 1; border-color: var(--bs-border-color)" for="btncheck2">Postnatal (P7+)</label>
             </div>
         </div>
         <div class="row">
