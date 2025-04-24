@@ -263,7 +263,7 @@ export class SearchComponent implements OnInit {
   onSelectionChanged(event: any) {
     this.selectedRowKeys = event.selectedRowKeys;
     this.selectedRowData = event.selectedRowsData;
-    let selected_ids = this.selectedRowData.map(row => row.sample_id)
+    let selected_ids = this.selectedRowData.map(row => row.sample_id);
     this.databaseService.getTarSize(selected_ids).subscribe({
       next: (data) => {
         this.downloadSize = (data.sum / (1024 ** 3)).toFixed(2) + ' GB'
@@ -279,7 +279,8 @@ export class SearchComponent implements OnInit {
   }
 
   downloadWrapper() {
-    alert('Download Started')
+    alert('Download Started');
+    this.selected_download_method = 'Download Standardized Data';
     let selected_ids = this.selectedRowData.map(row => row.sample_id)
     if (this.selected_download_method == 'Download Standardized Data' && selected_ids.length > 0) {
       this.downloadStandaradizedData(selected_ids)
