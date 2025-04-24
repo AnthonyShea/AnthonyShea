@@ -1,7 +1,9 @@
 <div class="content-wrapper">
    <!-- Loading overlay that will cover only the content area -->
    <div *ngIf="loading" class="loading-overlay" id="loadingOverlay">
-     <div class="loading-message">Loading...</div>
+    <div class="spinner-border" role="status">
+      <div class="loading-message">Loading...</div>
+    </div> 
    </div>
  
    <!-- Content area -->

@@ -1,8 +1,9 @@
 <!--This part works only on lg+ devices!!-->
+<div *ngIf="loading" class="loading-overlay" id="loadingOverlay">
+  <div class="spinner-border text-light" style="width: 5rem; height: 5rem;" role="status"></div>
+  <!--<div class="loading-message">Loading...</div>-->
+</div>
 <div class="row d-none d-lg-flex mt-2">
-  <div *ngIf="loading" class="loading-overlay" id="loadingOverlay">
-    <div class="loading-message">Loading...</div>
-  </div>
 
   <div class="col-3">
     <div *ngIf="!term_selected" class="noTermSelected">
@@ -69,9 +70,8 @@
       <div class="input-group mb-3 d-flex justify-content-between">
         <span class="input-group-text emphasize">Tissues</span>
         <dx-tag-box [items]="tissue_types" [searchEnabled]="true" [hideSelectedItems]="true"
-            placeholder="Select Tissues" [showMultiTagOnly]="false" [maxDisplayedTags]="4" [showClearButton]="true"
-            style="width: 100%; flex: 1;"
-            [showSelectionControls]="true" [(value)]='selected_tissues'></dx-tag-box>
+          placeholder="Select Tissues" [showMultiTagOnly]="false" [maxDisplayedTags]="4" [showClearButton]="true"
+          style="width: 100%; flex: 1;" [showSelectionControls]="true" [(value)]='selected_tissues'></dx-tag-box>
       </div>
     </div>
     <!--CELL TYPE SELECT BOX-->
@@ -80,8 +80,7 @@
         <span class="input-group-text emphasize" id="basic-addon1">Cell Types</span>
         <dx-tag-box [items]="cell_types" [searchEnabled]="true" [hideSelectedItems]="true"
           placeholder="Select Cell Types" [showMultiTagOnly]="false" [maxDisplayedTags]="4" [showClearButton]="true"
-          style="width: 100%; flex: 1;"
-          [showSelectionControls]="true" [(value)]='selected_cell_types'></dx-tag-box>
+          style="width: 100%; flex: 1;" [showSelectionControls]="true" [(value)]='selected_cell_types'></dx-tag-box>
       </div>
     </div>
     <!--PATHWAY SELECT BOX-->
@@ -160,12 +159,9 @@
     <!-- Your gene list content -->
   </div>
 </div>
-
 <!--This part works only on small devices-->
 <div class="row d-lg-none mt-2">
-  <div *ngIf="loading" class="loading-overlay" id="loadingOverlay">
-    <div class="loading-message">Loading...</div>
-  </div>
+
   <div class="col-12 mb-3">
     <div class="row">
       <div class="input-group mb-3">
@@ -189,9 +185,8 @@
       <div class="input-group mb-3">
         <span class="input-group-text emphasize">Tissues</span>
         <dx-tag-box [items]="tissue_types" [searchEnabled]="true" [hideSelectedItems]="true"
-            placeholder="Select Tissues" [showMultiTagOnly]="false" [maxDisplayedTags]="4" [showClearButton]="true"
-            style="width: 100%; flex: 1;"
-            [showSelectionControls]="true" [(value)]='selected_tissues'></dx-tag-box>
+          placeholder="Select Tissues" [showMultiTagOnly]="false" [maxDisplayedTags]="4" [showClearButton]="true"
+          style="width: 100%; flex: 1;" [showSelectionControls]="true" [(value)]='selected_tissues'></dx-tag-box>
       </div>
     </div>
     <!--CELL TYPE SELECT BOX-->
@@ -200,8 +195,7 @@
         <span class="input-group-text emphasize" id="basic-addon1">Cell Types</span>
         <dx-tag-box [items]="cell_types" [searchEnabled]="true" [hideSelectedItems]="true"
           placeholder="Select Cell Types" [showMultiTagOnly]="false" [maxDisplayedTags]="4" [showClearButton]="true"
-          style="width: 100%; flex: 1;"
-          [showSelectionControls]="true" [(value)]='selected_cell_types'></dx-tag-box>
+          style="width: 100%; flex: 1;" [showSelectionControls]="true" [(value)]='selected_cell_types'></dx-tag-box>
       </div>
     </div>
     <!--PATHWAY SELECT BOX-->

@@ -1,8 +1,9 @@
+<!-- Loading overlay that will cover only the content area -->
+<div *ngIf="loading" class="loading-overlay" id="loadingOverlay">
+  <!--<div class="loading-message">Loading...</div>-->
+  <div class="spinner-border text-light" style="width: 5rem; height: 5rem;" role="status"></div>
+</div>
 <div class="row g-2">
-  <!-- Loading overlay that will cover only the content area -->
-  <div *ngIf="loading" class="loading-overlay" id="loadingOverlay">
-    <div class="loading-message">Loading...</div>
-  </div>
 
   <!-- Content area -->
   <div #igvdiv class="igv"></div>

@@ -77,7 +77,7 @@
 }
 
 .loading-overlay {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -106,7 +106,7 @@
 }
 
 .loading-overlay {
-  position: absolute;  /* Positioned relative to the content-wrapper */
+  position: fixed;  /* Positioned relative to the content-wrapper */
   top: 0;
   left: 0;
   width: 100%;

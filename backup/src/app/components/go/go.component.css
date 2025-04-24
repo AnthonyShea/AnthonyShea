@@ -5,7 +5,7 @@
 }
 
 .loading-overlay {
-    position: absolute;  /* Positioned relative to the content-wrapper */
+    position: fixed;  /* Positioned relative to the content-wrapper */
     top: 0;
     left: 0;
     width: 100%;
@@ -24,7 +24,7 @@
 
 
 .loading-overlay {
-    position: absolute;  /* Positioned relative to the parent component */
+    position: fixed;  /* Positioned relative to the parent component */
     top: 0;
     left: 0;
     width: 100%;
