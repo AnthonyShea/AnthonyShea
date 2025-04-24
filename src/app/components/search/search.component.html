@@ -68,7 +68,7 @@
         <div class="row">
             <div class="d-flex justify-content-center">
                 <button (click)="samplesTest()" class="btn btn-warning" style="margin-right: .5rem;">Search</button>
-                <button [disabled]="!query_completed" class="btn btn-secondary" icon="download"
+                <button id="downloadButton" [disabled]="!query_completed" class="btn btn-secondary" icon="download"
                     (click)="downloadWrapper()">Download
                     Standardized Data</button>
             </div>

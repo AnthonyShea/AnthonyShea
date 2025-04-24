@@ -279,12 +279,14 @@ export class SearchComponent implements OnInit {
   }
 
   downloadWrapper() {
+    document.getElementById("downloadButton")?.setAttribute("disabled", "true");
     alert('Download Started');
     this.selected_download_method = 'Download Standardized Data';
     let selected_ids = this.selectedRowData.map(row => row.sample_id)
     if (this.selected_download_method == 'Download Standardized Data' && selected_ids.length > 0) {
       this.downloadStandaradizedData(selected_ids)
     }
+    document.getElementById("downloadButton")?.removeAttribute("disabled");
   }
 
   downloadStandaradizedData(sample_ids: number[]) {
