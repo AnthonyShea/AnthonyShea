@@ -62,7 +62,7 @@ export class NavbarComponent implements OnInit {
   selectTab(index: number) {
     const selectedTab = this.tabs[index];
     this.router.navigate([selectedTab.path]);
-  }  
+  }
 
   updateSelectedTab() {
     const tabIndex = this.tabs.findIndex(tab => tab.path === this.selected_path);
@@ -75,4 +75,15 @@ export class NavbarComponent implements OnInit {
       }, 0);
     }
   }
+
+  onDarkModeSwitchClick() {
+    if (document.documentElement.getAttribute('data-bs-theme') == 'dark') {
+      document.documentElement.setAttribute('data-bs-theme', 'light')
+    }
+    else {
+      document.documentElement.setAttribute('data-bs-theme', 'dark')
+    }
+  }
 }
+
+

@@ -328,7 +328,8 @@ export class SearchComponent implements OnInit {
 
     for (let i = 0; i < this.display.length; i++) {
       let sample = this.display[i];
-      let age = this.getAge(sample.age)
+      let age = this.getAge(sample.age);
+      let age_range = age <= 58 ? 'Neonatal' : 'Postnatal';
 
 
       //Get Age information to always be displayed
