@@ -30,11 +30,13 @@
               "node_modules/devextreme/dist/css/dx.common.css",
               "node_modules/devextreme/dist/css/dx.light.css",
               "src/styles.css",
-              "src/css/bootstrap.min.css"
+              "src/css/bootstrap.min.css",
+              "src/fontawesome-free-6.7.2-web/css/all.min.css"
             ],
             "scripts": [
               "node_modules/apexcharts/dist/apexcharts.min.js",
-              "src/js/bootstrap.js"
+              "src/js/bootstrap.js",
+              "src/fontawesome-free-6.7.2-web/js/all.min.js"
             ]
           },
           "configurations": {
