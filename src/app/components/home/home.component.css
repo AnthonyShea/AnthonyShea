@@ -60,3 +60,9 @@
 .collapsed .fa-chevron-down {
   transform: rotate(-90deg);
 }
+
+.apa-citation {
+  margin-left: .5in;
+  text-indent: -.5in;
+  list-style: none;
+}
