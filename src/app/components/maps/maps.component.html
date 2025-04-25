@@ -44,17 +44,17 @@
                     </p>
                 </div>
                 <div class="col-md-6 col-sm-12">
-                    <h4>SCALIWAG Information</h4>
+                    <h4>Information</h4>
                     <p>Other Possible Cell Types: <b>{{ selected_info.cell_type2 }} {{ selected_info.cell_type3 }}</b>
                     </p>
                     <div class="row">
                         <div class="col-12">
-                            <span>-Log10(Adjusted P-Value):</span>
+                            <span>-Log<sub>10</sub>(Adjusted P-Value):</span>
                             <h4>{{selected_info.pvalue.toExponential(2)}}</h4>
                         </div>
                         <div class="col-12">
                             <span>% Change</span>
-                            <h4 [ngClass]="{'negative-value': decade_change < 0, 'positive-value': decade_change >= 0}">
+                            <h4 [ngClass]="{'text-danger': decade_change < 0, 'text-success': decade_change >= 0}">
                                 {{ decade_change + '%' }}
                             </h4>
                         </div>
