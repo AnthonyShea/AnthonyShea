@@ -172,6 +172,9 @@ export class SearchComponent implements OnInit {
     this.databaseService.getSamplesTest(this.selected_species, backend_tissue_select, this.formatForDB(this.selected_cells), this.selected_age, backend_health_select, pmid_selected)
       .subscribe({
         next: (data) => {
+          console.log(data);
+
+
           this.display = data;
           this, this.cleanDisplay()
           this.makeDictionaries()
@@ -180,7 +183,11 @@ export class SearchComponent implements OnInit {
           // this.age_chart_options = this.makeBarChart(this.age_dict)
           this.age_chart_options = this.makeBarChart(this.age_dict_new);
           this.health_chart_options = this.makeDonutChart(this.health_dict)
-          this.query_completed = true
+          this.query_completed = true;
+
+          data.forEach(element => {
+            element.age = Number.parseInt(String(element.age)) <= 58 ? "Neonatal" : "Postnatal";
+          });
         },
         error: (e) => console.error(e)
       });

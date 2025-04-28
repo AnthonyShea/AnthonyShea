@@ -208,6 +208,9 @@
         </select>-->
         <dx-autocomplete [dataSource]="pathways" [(value)]="selected_pathway" [minSearchLength]="1" searchEnabled="true"
           [searchMode]="selected_search_mode" [maxItemCount]="200" [showDropDownButton]="true"></dx-autocomplete>
+        <!--<select class="form-select" aria-label="Select" [(ngModel)]="selected_pathway">
+          <option *ngFor="let item of pathways" [value]="item.value">{{item.text}}</option>
+        </select>-->
         <span class="input-group-text emphasize" id="basic-addon1">Mode</span>
         <select class="form-select" aria-label="Default select example" [(ngModel)]="selected_search_mode">
           <option *ngFor="let item of search_modes" [value]="item.value">{{item.text}}</option>

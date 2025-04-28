@@ -136,3 +136,9 @@
   background: var(--bs-warning);
 
 }
+
+.dx-texteditor.dx-editor-outlined {
+  background-color: var(--bs-body-bg);
+  border: var(--bs-border-width) solid var(--bs-border-color);
+  color: var(--bs-body-color);
+}

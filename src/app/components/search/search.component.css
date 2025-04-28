@@ -100,3 +100,17 @@
     background: var(--bs-warning);
 
 }
+
+.dx-texteditor.dx-editor-outlined {
+    background-color: var(--bs-body-bg);
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    color: var(--bs-body-color);
+}
+
+.dx-texteditor-container *{
+    color: var(--bs-body-color) !important;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+}

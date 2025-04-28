@@ -91,7 +91,8 @@ export class MapsComponent implements OnInit {
     for(let i=0; i<this.ages.length; i++){
       let point = [Number(this.ages[i]), Number(this.exp[i]).toFixed(3)]
       points.push(point)
-    }
+    };
+    console.log(points)
     let line_data = []
     for(let i=1; i<100; i++){
       let y = (Number(this.selected_info.slope) * i + Number(this.selected_info.intercept)).toFixed(3)
