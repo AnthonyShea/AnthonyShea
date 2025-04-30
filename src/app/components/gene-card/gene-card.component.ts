@@ -71,6 +71,16 @@ export class GeneCardComponent implements OnInit {
   model_selected = false;
   constructor(private geneConversionService: GeneConversionService) {}
 
+  makeid(length: number): string {
+    var result           = '';
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+  }
+
   ngOnInit(): void {
     //sort by fixed effect size
     //this.cleanArrays();
@@ -81,9 +91,9 @@ export class GeneCardComponent implements OnInit {
     
     this.geneConversionService.convertEnsembleToGene(this.en_id).then((result: string) => {
       this.en_id = result==""? this.en_id: result;
-      if(this.en_id.length<15){
+      /*if(this.en_id.length<15){
         this.en_id += ' '.repeat(15-this.en_id.length)
-      }
+      }*/
     }).catch((error: any) => {
       console.error('Error converting ensemble ID to gene:', error);
     });

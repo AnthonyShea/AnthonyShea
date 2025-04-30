@@ -51,7 +51,7 @@ export class IgvComponent implements AfterViewInit, OnDestroy {
         format: 'bigWig',
         // url: this.trackUrl,
         url: 'https://www.encodeproject.org/files/ENCFF980ZXR/@@download/ENCFF980ZXR.bigWig',
-        color: '#97fce2',
+        color: '#6650e9',
         autoscaleGroup: 'meth'
       }
     ],
@@ -166,7 +166,7 @@ export class IgvComponent implements AfterViewInit, OnDestroy {
             format: 'bigWig',
             // url: this.trackUrl,
             url: 'https://www.encodeproject.org/files/ENCFF980ZXR/@@download/ENCFF980ZXR.bigWig',
-            color: '#97fce2',
+            color: '#6650e9',
             autoscaleGroup: 'meth'
           }
         ],
