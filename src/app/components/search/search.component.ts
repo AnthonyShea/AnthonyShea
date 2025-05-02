@@ -73,6 +73,10 @@ export class SearchComponent implements OnInit {
   selected_age_type: string[] = [];
   neonatal_selected: boolean;
   postnatal_selected: boolean;
+  goEnrich_selected: boolean;
+  degResults_selected: boolean;
+  expMatrix_selected: boolean;
+  
 
   tooltip: any;
   checkBoxesMode: string;

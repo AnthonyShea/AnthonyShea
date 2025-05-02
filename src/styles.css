@@ -25,3 +25,11 @@
     font-family: 'RobotoCondensed-Regular';
     src: url('src/assets/RobotoCondensed-Regular.ttf');
 }
+
+[data-bs-theme=dark] {
+    color: #dee2e6;
+}
+
+.igv::part(igv) .igv-gear-menu-column > div {
+    background-color: transparent !important;
+}

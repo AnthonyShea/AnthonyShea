@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, sample } from 'rxjs';
 import { Metadata } from '../models/metadata.model';
 import { Sample } from '../models/sample.model';
 import { Positions } from '../models/positions.model';
@@ -139,6 +139,7 @@ export class DatabaseService {
     const fileRequests = urls.map(url => this.http.get(url, { responseType: 'blob' }).toPromise());
 
     // Create a promise for the metadata request
+    console.log(sampleUrl);
     const metadataRequest = this.http.get<any[]>(`${sampleUrl}/downloadedMetadata/${sample_ids}`).toPromise();
 
     // Combine the file requests and the metadata request into a single promise array

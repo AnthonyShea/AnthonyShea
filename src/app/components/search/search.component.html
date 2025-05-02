@@ -39,30 +39,23 @@
         <div class="row">
             <div class="input-group mb-2">
                 <span class="input-group-text emphasize" id="basic-addon1">PMID</span>
-                <input type="text" (value)="pmid" placeholder="Optional" class="form-control" aria-describedby="basic-addon1">
+                <input type="text" (value)="pmid" placeholder="Optional" class="form-control"
+                    aria-describedby="basic-addon1">
             </div>
-            <!--<div class="dx-field">
-
-                <div class="dx-field-label">PMID</div>
-                <div class="dx-field-value">
-                    <dx-text-box class="dx-text-box" placeholder="Enter Specific PMID" [(value)]="pmid"></dx-text-box>
-                </div>
-            </div>-->
         </div>
         <div class="row">
-            <!--<div class="input-group mb-2 d-flex justify-content-between">
-                <h6 style="padding: .375rem .75rem">Age Select</h6>
-                <dx-range-slider class="age-slider" id="age-slider" [min]="0" [max]="100" [start]="0" [end]="100"
-                    style="width: 100%; flex: 1; border: 1px solid var(--bs-border-with);" [tooltip]="tooltip"
-                    (onValueChanged)="onAgeChanged($event)"></dx-range-slider>
-            </div>-->
-            <!--To test its function, "Neonetal" was set to age 0-58 and "Postnatal" was set to age 59+.-->
             <div class="input-group mb-2 d-flex justify-content-between">
                 <span class="input-group-text emphasize" id="basic-addon1">Age Select</span>
-                <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off" value="neonetal" [(ngModel)]="this.neonatal_selected">
-                <label class="btn btn-outline-secondary" style="width: 100%; flex: 1; border-color: var(--bs-border-color)" for="btncheck1">Neonatal (P1 - P6)</label>
-                <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off" value="postnatal" [(ngModel)]="this.postnatal_selected">
-                <label class="btn btn-outline-secondary" style="width: 100%; flex: 1; border-color: var(--bs-border-color)" for="btncheck2">Postnatal (P7+)</label>
+                <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off" value="neonetal"
+                    [(ngModel)]="this.neonatal_selected">
+                <label class="btn btn-outline-secondary"
+                    style="width: 100%; flex: 1; border-color: var(--bs-border-color)" for="btncheck1">Neonatal (P1 -
+                    P6)</label>
+                <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off" value="postnatal"
+                    [(ngModel)]="this.postnatal_selected">
+                <label class="btn btn-outline-secondary"
+                    style="width: 100%; flex: 1; border-color: var(--bs-border-color)" for="btncheck2">Postnatal
+                    (P7+)</label>
             </div>
         </div>
         <div class="row">
@@ -75,62 +68,6 @@
         </div>
     </div>
     <div class="col-lg-5 col-md-6 col-sm-12">
-        <!--<ul class="nav nav-pills d-flex justify-content-center" id="myTab" role="tablist"
-            *ngIf="query_completed">
-            <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="tissue-tab" data-bs-toggle="tab"
-                    data-bs-target="#tissue-tab-pane"
-                    (click)="onItemSelected('Tissue')"
-                    type="button" role="tab" aria-controls="tissue-tab-pane" aria-selected="true">Tissue</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="sex-tab" data-bs-toggle="tab"
-                    data-bs-target="#sex-tab-pane" 
-                    (click)="onItemSelected('Sex')"    
-                    type="button" role="tab" aria-controls="sex-tab-pane" aria-selected="false">Sex</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="age-tab" data-bs-toggle="tab"
-                    data-bs-target="#age-tab-pane" 
-                    (click)="onItemSelected('Age');this.makeBarChart(age_dict)"    
-                    type="button" role="tab" aria-controls="age-tab-pane" aria-selected="false">Age</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="health-tab" data-bs-toggle="tab"
-                    data-bs-target="#health-tab-pane"
-                    (click)="onItemSelected('Health');"
-                    type="button" role="tab" aria-controls="health-tab-pane" aria-selected="false">Health</button>
-            </li>
-        </ul>
-        <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show"
-                [class.active]="displayed_map=='Tissue'"
-                id="tissue-tab-pane"
-                role="tabpanel"
-                aria-labelledby="tissue-tab"
-                tabindex="0"
-                *ngIf="query_completed">
-                
-            </div>
-            <div class="tab-pane fade" id="sex-tab-pane" role="tabpanel" aria-labelledby="sex-tab"
-                [class.show]="displayed_map=='Sex'"
-                tabindex="0"
-                *ngIf="query_completed">
-                
-            </div>
-            <div class="tab-pane fade" id="age-tab-pane" role="tabpanel" aria-labelledby="age-tab"
-                tabindex="0"
-                [class.show]="displayed_map=='Age'"
-                *ngIf="query_completed">
-                
-            </div>
-            <div class="tab-pane fade" id="health-tab-pane" role="tabpanel" aria-labelledby="health-tab"
-                tabindex="0"
-                [class.show]="displayed_map=='Health'"
-                *ngIf="query_completed">
-                
-            </div>
-        </div>-->
         <div class="card" *ngIf="query_completed">
             <div class="card-header">
                 <div class="row">
@@ -172,17 +109,6 @@
         </div>
     </div>
     <div class="col-12">
-        <!-- <dx-drop-down-button *ngIf="query_completed" class="test"
-            [splitButton]="true"
-            [useSelectMode]="false"
-            [text]="selected_download_method"
-            icon="download"
-            [items]="download_options"
-            displayExpr="name"
-            keyExpr="id"
-            (onItemClick)="switchSelectedDownloadMethod($event)"
-            (onButtonClick)="downloadWrapper()"
-        ></dx-drop-down-button> -->
         <h5>
             <span *ngIf="selectedRowKeys.length <= 1">{{selectedRowKeys.length}} Sample Totaling</span>
             <span *ngIf="selectedRowKeys.length > 1">{{selectedRowKeys.length}} Samples Totaling</span>
@@ -198,9 +124,67 @@
             <dxi-column dataField="study_id" caption="PMID" width="10%"></dxi-column>
             <dxi-column dataField="tissue" width="20%"></dxi-column>
             <dxi-column dataField="age" width="10%"></dxi-column>
-            <!--<dxi-column dataField="species" width="10%"></dxi-column>-->
             <dxi-column dataField="disease_status" width="10%"></dxi-column>
             <dxi-column dataField="cell_types"></dxi-column>
         </dx-data-grid>
+    </div>
+    <div class="col-lg-6 col-md-12">
+        <div class="input-group mb-2 d-flex justify-content-between">
+            <span class="input-group-text emphasize" id="basic-addon1">File Type</span>
+            <input type="checkbox" class="btn-check" id="degResults" autocomplete="off" value="degResult"
+                [(ngModel)]="this.degResults_selected">
+            <label class="btn btn-outline-secondary" style="width: 100%; flex: 1; border-color: var(--bs-border-color)"
+                for="degResults">DEG Results</label>
+            <input type="checkbox" class="btn-check" id="expMatrix" autocomplete="off" value="expMatrix"
+                [(ngModel)]="this.expMatrix_selected">
+            <label class="btn btn-outline-secondary" style="width: 100%; flex: 1; border-color: var(--bs-border-color)"
+                for="expMatrix">Exp Matrix</label>
+            <input type="checkbox" class="btn-check" id="goEnrich" autocomplete="off" value="goEnrich"
+                [(ngModel)]="this.goEnrich_selected">
+            <label class="btn btn-outline-secondary" style="width: 100%; flex: 1; border-color: var(--bs-border-color)"
+                for="goEnrich">Go Enrich</label>
+        </div>
+        <div class="input-group mb-2">
+            <span class="input-group-text emphasize" id="basic-addon1">PMID</span>
+            <input type="text" (value)="pmid" placeholder="Optional" class="form-control"
+                aria-describedby="basic-addon1">
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-12">
+        <table class="table table-striped" *ngIf="query_completed">
+            <thead>
+                <tr>
+                    <th scope="col">　</th>
+                    <th scope="col">PMID</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Size</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngIf="degResults_selected">
+                    <tr *ngFor="let item of display;">
+                        <td><input class="form-check-input" type="checkbox" id="{{item.study_id}}"></td>
+                        <td>{{item.study_id}}</td>
+                    </tr>
+                </ng-container>
+                <ng-container *ngIf="expMatrix_selected">
+                    <tr></tr>
+                    <tr *ngFor="let item of display;">
+                        <td><input class="form-check-input" type="checkbox" id="{{item.study_id}}"></td>
+                        <td>{{item.study_id}}</td>
+                    </tr>
+                </ng-container>
+                <ng-container *ngIf="goEnrich_selected">
+                    <tr *ngFor="let item of display;">
+                        <td><input class="form-check-input" type="checkbox" id="{{item.study_id}}"></td>
+                        <td>{{item.study_id}}</td>
+                    </tr>
+                </ng-container>
+                <tr *ngIf="!(degResults_selected || expMatrix_selected || goEnrich_selected)">
+                    <td class="text-center" colspan="5">Please select at least one criteria</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
