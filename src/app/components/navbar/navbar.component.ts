@@ -63,7 +63,6 @@ export class NavbarComponent implements OnInit {
         document.documentElement.setAttribute("data-bs-theme", "dark");
         document.getElementById('darkModeSwitch')?.setAttribute('checked', 'checked');
     }
-    console.log("aaaa")
     console.log(prefersDark);
   }
 
