@@ -25,10 +25,21 @@
             </ul>
             <div class="d-flex align-right">
                 <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" role="switch" id="darkModeSwitch" (click)="onDarkModeSwitchClick()">
+                    <input class="form-check-input" type="checkbox" role="switch" id="darkModeSwitch"
+                        (click)="onDarkModeSwitchClick()">
                     <label class="form-check-label" for="switchCheckDefault">Dark mode (Experimental)</label>
                 </div>
             </div>
         </div>
     </div>
 </nav>
+
+<script>
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (prefersDark) {
+        document.documentElement.setAttribute("data-bs-theme", "dark");
+        document.getElementById('darkModeSwitch').setAttribute('checked');
+    }
+    console.log("aaaa");
+    console.log(prefersDark);
+</script>

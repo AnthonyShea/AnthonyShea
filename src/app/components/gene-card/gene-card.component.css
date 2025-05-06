@@ -175,3 +175,7 @@ apx-chart {
 #chart-additional {
     margin-top: 400px;
 }
+
+.apexcharts-text tspan {
+    color: var(--bs-primary)
+}

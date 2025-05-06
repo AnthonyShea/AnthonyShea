@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, SimpleChanges, ViewChild } from '@angular/core';
-import {ApexAxisChartSeries,ApexChart,ApexPlotOptions,ApexXAxis, ApexTitleSubtitle, ApexTooltip, ApexYAxis, ApexMarkers, ApexFill, ApexAnnotations} from "ng-apexcharts";
+import { ApexAxisChartSeries, ApexChart, ApexPlotOptions, ApexXAxis, ApexTitleSubtitle, ApexTooltip, ApexYAxis, ApexMarkers, ApexFill, ApexAnnotations } from "ng-apexcharts";
 import { DiffExp } from 'src/app/models/diffExp.model';
 import { Indices } from 'src/app/models/indices.model';
 import { MapsComponent } from '../maps/maps.component';
@@ -7,18 +7,18 @@ import { GeneConversionService } from '../../services/name-converter.service';
 import { CommonModule } from '@angular/common';
 
 export type ChartOptions = {
-   series: ApexAxisChartSeries;
-   chart: ApexChart;
-   xaxis: ApexXAxis;
-   yaxis: ApexYAxis;
-   plotOptions: ApexPlotOptions;
-   fill: ApexFill;
-   title: ApexTitleSubtitle;
-   tooltip: ApexTooltip;
-   markers: ApexMarkers;
-   annotations: ApexAnnotations;
-   colors?: string[]; // Add colors property
- };
+  series: ApexAxisChartSeries;
+  chart: ApexChart;
+  xaxis: ApexXAxis;
+  yaxis: ApexYAxis;
+  plotOptions: ApexPlotOptions;
+  fill: ApexFill;
+  title: ApexTitleSubtitle;
+  tooltip: ApexTooltip;
+  markers: ApexMarkers;
+  annotations: ApexAnnotations;
+  colors?: string[]; // Add colors property
+};
 
 @Component({
   selector: 'app-gene-card',
@@ -64,19 +64,19 @@ export class GeneCardComponent implements OnInit {
   sli_dn_color: string = '#00BCD4'
   sig_dn_color: string = '#9C27B0'
   no_sig_fit_color: string = '#000000'
-  lfc_sig_cutoff= 0.0116
-  lfc_minor_sig_cutoff= 0.0037
+  lfc_sig_cutoff = 0.0116
+  lfc_minor_sig_cutoff = 0.0037
 
 
   model_selected = false;
-  constructor(private geneConversionService: GeneConversionService) {}
+  constructor(private geneConversionService: GeneConversionService) { }
 
   makeid(length: number): string {
-    var result           = '';
-    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var result = '';
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     var charactersLength = characters.length;
-    for ( var i = 0; i < length; i++ ) {
-        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    for (var i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
     return result;
   }
@@ -88,9 +88,9 @@ export class GeneCardComponent implements OnInit {
     this.temp.push(this.gene_list[0])
     let temp_string = "00000000000" + this.gene_list[0].gene?.toString()
     this.en_id = "ENSMUSG" + temp_string.slice(-11)
-    
+
     this.geneConversionService.convertEnsembleToGene(this.en_id).then((result: string) => {
-      this.en_id = result==""? this.en_id: result;
+      this.en_id = result == "" ? this.en_id : result;
       /*if(this.en_id.length<15){
         this.en_id += ' '.repeat(15-this.en_id.length)
       }*/
@@ -101,19 +101,19 @@ export class GeneCardComponent implements OnInit {
 
     this.meta_chart_options1_Sham = {
       series: [
-        {  
-          name:'BAD',
-          data:[4]
+        {
+          name: 'BAD',
+          data: [4]
         },
-        {  
-          name:'Good',
-          data:[1]
+        {
+          name: 'Good',
+          data: [1]
         }
       ],
       chart: {
         type: "bar",
-        height:'100%',
-        stacked:true,
+        height: '100%',
+        stacked: true,
         sparkline: {
           enabled: true
         }
@@ -133,13 +133,13 @@ export class GeneCardComponent implements OnInit {
         labels: {
           show: false,
         },
-        categories:[''],
+        categories: [''],
         tickAmount: 0,
         position: 'top',
-        axisBorder:{
+        axisBorder: {
           show: false
         },
-        axisTicks:{
+        axisTicks: {
           show: false
         }
       },
@@ -153,26 +153,26 @@ export class GeneCardComponent implements OnInit {
         type: "pattern",
         pattern: {
           style: "verticalLines",
-                  
+
         }
       },
     };
 
     this.meta_chart_options1_MI = {
       series: [
-        {  
-          name:'BAD',
-          data:[4]
+        {
+          name: 'BAD',
+          data: [4]
         },
-        {  
-          name:'Good',
-          data:[1]
+        {
+          name: 'Good',
+          data: [1]
         }
       ],
       chart: {
         type: "bar",
-        height:'100%',
-        stacked:true,
+        height: '100%',
+        stacked: true,
         sparkline: {
           enabled: true
         }
@@ -192,13 +192,13 @@ export class GeneCardComponent implements OnInit {
         labels: {
           show: false,
         },
-        categories:[''],
+        categories: [''],
         tickAmount: 0,
         position: 'top',
-        axisBorder:{
+        axisBorder: {
           show: false
         },
-        axisTicks:{
+        axisTicks: {
           show: false
         }
       },
@@ -212,7 +212,7 @@ export class GeneCardComponent implements OnInit {
         type: "pattern",
         pattern: {
           style: "verticalLines",
-                  
+
         }
       },
     };
@@ -224,9 +224,9 @@ export class GeneCardComponent implements OnInit {
       }
       ],
       chart: {
-        height:'100%',
+        height: '100%',
         type: "scatter",
-        events:{
+        events: {
           dataPointSelection: (e, chart, opts) => {
             console.log("Cluster Clicked - DataPoint Index:", opts.dataPointIndex);
             const psd1_genes = this.gene_list.filter(gene => gene.PSD === 1 && gene.Surgery === 'Sham');
@@ -238,10 +238,10 @@ export class GeneCardComponent implements OnInit {
             console.log("Selected Gene Data:", slected_gene);
 
 
-            
+
             this.to_map = {
-              pmid:slected_gene.pmid,
-              cell_type:slected_gene.cell_type, 
+              pmid: slected_gene.pmid,
+              cell_type: slected_gene.cell_type,
               gene: slected_gene.gene,
               cell_type2: slected_gene.cell_type2,
               cell_type3: slected_gene.cell_type3,
@@ -254,13 +254,13 @@ export class GeneCardComponent implements OnInit {
             this.model_selected = true;
           }
         },
-        zoom:{
-          enabled:false
+        zoom: {
+          enabled: false
         }
       },
       xaxis: {
-        tooltip:{
-          formatter: function(val, opts){
+        tooltip: {
+          formatter: function (val, opts) {
             return val.toString()
           }
         },
@@ -269,14 +269,14 @@ export class GeneCardComponent implements OnInit {
         //min: -2,
         //max: 2
       },
-      markers:{
+      markers: {
         size: 10
       },
-      yaxis:{
+      yaxis: {
         title: {
           text: "-Log10(Adjusted P-Value)",
-          style:{
-            fontSize:'18px'
+          style: {
+            fontSize: '18px'
           }
         }
       },
@@ -284,28 +284,31 @@ export class GeneCardComponent implements OnInit {
         type: "pattern",
         pattern: {
           style: "verticalLines",
-                  
+
         }
       },
       title: {
-         text: this.gene_list[0].gene!.toString(),
-         align: "center"
-       },
-      tooltip:{
+        text: this.gene_list[0].gene!.toString(),
+        align: "center",
+        style: {
+          color: "#0d6efd"
+        }
+      },
+      tooltip: {
         enabled: false
       },
-      annotations:{
+      annotations: {
         yaxis: [
           {
             y: 1.30103,
-            strokeDashArray:10,
+            strokeDashArray: 10,
             borderColor: 'black',
           }
         ],
         xaxis: [
           {
             x: 0,
-            strokeDashArray:7,
+            strokeDashArray: 7,
             borderColor: 'grey',
           }
         ]
@@ -319,12 +322,12 @@ export class GeneCardComponent implements OnInit {
       }
       ],
       chart: {
-        height:'100%',
+        height: '100%',
         type: "scatter",
-        events:{
+        events: {
           dataPointSelection: (e, chart, opts) => {
             console.log("Cluster Clicked - DataPoint Index:", opts.dataPointIndex);
-            const psd1_genes = this.gene_list.filter(gene => gene.PSD === 1&& gene.Surgery === 'MI');
+            const psd1_genes = this.gene_list.filter(gene => gene.PSD === 1 && gene.Surgery === 'MI');
             let slected_gene = psd1_genes[opts.dataPointIndex];
 
 
@@ -333,10 +336,10 @@ export class GeneCardComponent implements OnInit {
             console.log("Selected Gene Data:", slected_gene);
 
 
-            
+
             this.to_map = {
-              pmid:slected_gene.pmid,
-              cell_type:slected_gene.cell_type, 
+              pmid: slected_gene.pmid,
+              cell_type: slected_gene.cell_type,
               gene: slected_gene.gene,
               cell_type2: slected_gene.cell_type2,
               cell_type3: slected_gene.cell_type3,
@@ -349,14 +352,25 @@ export class GeneCardComponent implements OnInit {
             this.model_selected = true;
           }
         },
-        zoom:{
-          enabled:false
+        zoom: {
+          enabled: false
         }
       },
       xaxis: {
-        tooltip:{
-          formatter: function(val, opts){
+        tooltip: {
+          formatter: function (val, opts) {
             return val.toString()
+          }
+        },
+        axisBorder: {
+          color: "#0d6efd"
+        },
+        axisTicks: {
+          color: "#0d6efd"
+        },
+        labels: {
+          style: {
+            colors: "#0d6efd",
           }
         },
         //type: "numeric",
@@ -364,43 +378,57 @@ export class GeneCardComponent implements OnInit {
         //min: -2,
         //max: 2
       },
-      markers:{
+      markers: {
         size: 10
       },
-      yaxis:{
+      yaxis: {
         title: {
           text: "-Log10(Adjusted P-Value)",
-          style:{
-            fontSize:'18px'
+          style: {
+            fontSize: '16px',
           }
+        },
+        labels: {
+          style: {
+            colors: "#0d6efd",
+          }
+        },
+        axisBorder: {
+          color: "#0d6efd"
+        },
+        axisTicks: {
+          color: "#0d6efd"
         }
       },
       fill: {
         type: "pattern",
         pattern: {
           style: "verticalLines",
-                  
+
         }
       },
       title: {
-         text: this.gene_list[0].gene!.toString(),
-         align: "center"
-       },
-      tooltip:{
+        text: this.gene_list[0].gene!.toString(),
+        align: "center",
+        style: {
+          color: "#0d6efd"
+        }
+      },
+      tooltip: {
         enabled: false
       },
-      annotations:{
+      annotations: {
         yaxis: [
           {
             y: 1.30103,
-            strokeDashArray:10,
+            strokeDashArray: 10,
             borderColor: 'black',
           }
         ],
         xaxis: [
           {
             x: 0,
-            strokeDashArray:7,
+            strokeDashArray: 7,
             borderColor: 'grey',
           }
         ]
@@ -411,19 +439,19 @@ export class GeneCardComponent implements OnInit {
 
     this.meta_chart_options3_MI = {
       series: [
-        {  
-          name:'BAD',
-          data:[4]
+        {
+          name: 'BAD',
+          data: [4]
         },
-        {  
-          name:'Good',
-          data:[1]
+        {
+          name: 'Good',
+          data: [1]
         }
       ],
       chart: {
         type: "bar",
-        height:'100%',
-        stacked:true,
+        height: '100%',
+        stacked: true,
         sparkline: {
           enabled: true
         }
@@ -443,13 +471,13 @@ export class GeneCardComponent implements OnInit {
         labels: {
           show: false,
         },
-        categories:[''],
+        categories: [''],
         tickAmount: 0,
         position: 'top',
-        axisBorder:{
+        axisBorder: {
           show: false
         },
-        axisTicks:{
+        axisTicks: {
           show: false
         }
       },
@@ -463,26 +491,26 @@ export class GeneCardComponent implements OnInit {
         type: "pattern",
         pattern: {
           style: "verticalLines",
-                  
+
         }
       },
     };
 
     this.meta_chart_options3_Sham = {
       series: [
-        {  
-          name:'BAD',
-          data:[4]
+        {
+          name: 'BAD',
+          data: [4]
         },
-        {  
-          name:'Good',
-          data:[1]
+        {
+          name: 'Good',
+          data: [1]
         }
       ],
       chart: {
         type: "bar",
-        height:'100%',
-        stacked:true,
+        height: '100%',
+        stacked: true,
         sparkline: {
           enabled: true
         }
@@ -502,13 +530,13 @@ export class GeneCardComponent implements OnInit {
         labels: {
           show: false,
         },
-        categories:[''],
+        categories: [''],
         tickAmount: 0,
         position: 'top',
-        axisBorder:{
+        axisBorder: {
           show: false
         },
-        axisTicks:{
+        axisTicks: {
           show: false
         }
       },
@@ -522,7 +550,7 @@ export class GeneCardComponent implements OnInit {
         type: "pattern",
         pattern: {
           style: "verticalLines",
-                  
+
         }
       },
     };
@@ -535,15 +563,15 @@ export class GeneCardComponent implements OnInit {
       }
       ],
       chart: {
-        height:'100%',
+        height: '100%',
         type: "scatter",
-        events:{
+        events: {
           dataPointSelection: (e, chart, opts) => {
             const psd1_genes = this.gene_list.filter(gene => gene.PSD === 3 && gene.Surgery === 'Sham');
             let slected_gene = psd1_genes[opts.dataPointIndex];
             this.to_map = {
-              pmid:slected_gene.pmid,
-              cell_type:slected_gene.cell_type, 
+              pmid: slected_gene.pmid,
+              cell_type: slected_gene.cell_type,
               gene: slected_gene.gene,
               cell_type2: slected_gene.cell_type2,
               cell_type3: slected_gene.cell_type3,
@@ -556,13 +584,13 @@ export class GeneCardComponent implements OnInit {
             this.model_selected = true;
           }
         },
-        zoom:{
-          enabled:false
+        zoom: {
+          enabled: false
         }
       },
       xaxis: {
-        tooltip:{
-          formatter: function(val, opts){
+        tooltip: {
+          formatter: function (val, opts) {
             return val.toString()
           }
         },
@@ -571,14 +599,14 @@ export class GeneCardComponent implements OnInit {
         //min: -2,
         //max: 2
       },
-      markers:{
+      markers: {
         size: 10
       },
-      yaxis:{
+      yaxis: {
         title: {
           text: "-Log10(Adjusted P-Value)",
-          style:{
-            fontSize:'18px'
+          style: {
+            fontSize: '18px'
           }
         }
       },
@@ -586,28 +614,31 @@ export class GeneCardComponent implements OnInit {
         type: "pattern",
         pattern: {
           style: "verticalLines",
-                  
+
         }
       },
       title: {
-         text: this.gene_list[0].gene!.toString(),
-         align: "center"
-       },
-      tooltip:{
+        text: this.gene_list[0].gene!.toString(),
+        align: "center",
+        style: {
+          color: "#0d6efd"
+        }
+      },
+      tooltip: {
         enabled: false
       },
-      annotations:{
+      annotations: {
         yaxis: [
           {
             y: 1.30103,
-            strokeDashArray:10,
+            strokeDashArray: 10,
             borderColor: 'black',
           }
         ],
         xaxis: [
           {
             x: 0,
-            strokeDashArray:7,
+            strokeDashArray: 7,
             borderColor: 'grey',
           }
         ]
@@ -621,15 +652,15 @@ export class GeneCardComponent implements OnInit {
       }
       ],
       chart: {
-        height:'100%',
+        height: '100%',
         type: "scatter",
-        events:{
+        events: {
           dataPointSelection: (e, chart, opts) => {
             const psd1_genes = this.gene_list.filter(gene => gene.PSD === 3 && gene.Surgery === 'MI');
             let slected_gene = psd1_genes[opts.dataPointIndex];
             this.to_map = {
-              pmid:slected_gene.pmid,
-              cell_type:slected_gene.cell_type, 
+              pmid: slected_gene.pmid,
+              cell_type: slected_gene.cell_type,
               gene: slected_gene.gene,
               cell_type2: slected_gene.cell_type2,
               cell_type3: slected_gene.cell_type3,
@@ -642,13 +673,13 @@ export class GeneCardComponent implements OnInit {
             this.model_selected = true;
           }
         },
-        zoom:{
-          enabled:false
+        zoom: {
+          enabled: false
         }
       },
       xaxis: {
-        tooltip:{
-          formatter: function(val, opts){
+        tooltip: {
+          formatter: function (val, opts) {
             return val.toString()
           }
         },
@@ -657,14 +688,14 @@ export class GeneCardComponent implements OnInit {
         //min: -2,
         //max: 2
       },
-      markers:{
+      markers: {
         size: 10
       },
-      yaxis:{
+      yaxis: {
         title: {
           text: "-Log10(Adjusted P-Value)",
-          style:{
-            fontSize:'18px'
+          style: {
+            fontSize: '18px'
           }
         }
       },
@@ -672,28 +703,31 @@ export class GeneCardComponent implements OnInit {
         type: "pattern",
         pattern: {
           style: "verticalLines",
-                  
+
         }
       },
       title: {
-         text: this.gene_list[0].gene!.toString(),
-         align: "center"
-       },
-      tooltip:{
+        text: this.gene_list[0].gene!.toString(),
+        align: "center",
+        style: {
+          color: "#0d6efd"
+        }
+      },
+      tooltip: {
         enabled: false
       },
-      annotations:{
+      annotations: {
         yaxis: [
           {
             y: 1.30103,
-            strokeDashArray:10,
+            strokeDashArray: 10,
             borderColor: 'black',
           }
         ],
         xaxis: [
           {
             x: 0,
-            strokeDashArray:7,
+            strokeDashArray: 7,
             borderColor: 'grey',
           }
         ]
@@ -705,19 +739,19 @@ export class GeneCardComponent implements OnInit {
 
     this.meta_chart_optionsP1_1 = {
       series: [
-        {  
-          name:'BAD',
-          data:[4]
+        {
+          name: 'BAD',
+          data: [4]
         },
-        {  
-          name:'Good',
-          data:[1]
+        {
+          name: 'Good',
+          data: [1]
         }
       ],
       chart: {
         type: "bar",
-        height:'100%',
-        stacked:true,
+        height: '100%',
+        stacked: true,
         sparkline: {
           enabled: true
         }
@@ -737,13 +771,13 @@ export class GeneCardComponent implements OnInit {
         labels: {
           show: false,
         },
-        categories:[''],
+        categories: [''],
         tickAmount: 0,
         position: 'top',
-        axisBorder:{
+        axisBorder: {
           show: false
         },
-        axisTicks:{
+        axisTicks: {
           show: false
         }
       },
@@ -757,26 +791,26 @@ export class GeneCardComponent implements OnInit {
         type: "pattern",
         pattern: {
           style: "verticalLines",
-                  
+
         }
       },
     };
 
     this.meta_chart_optionsP1_3 = {
       series: [
-        {  
-          name:'BAD',
-          data:[4]
+        {
+          name: 'BAD',
+          data: [4]
         },
-        {  
-          name:'Good',
-          data:[1]
+        {
+          name: 'Good',
+          data: [1]
         }
       ],
       chart: {
         type: "bar",
-        height:'100%',
-        stacked:true,
+        height: '100%',
+        stacked: true,
         sparkline: {
           enabled: true
         }
@@ -796,13 +830,13 @@ export class GeneCardComponent implements OnInit {
         labels: {
           show: false,
         },
-        categories:[''],
+        categories: [''],
         tickAmount: 0,
         position: 'top',
-        axisBorder:{
+        axisBorder: {
           show: false
         },
-        axisTicks:{
+        axisTicks: {
           show: false
         }
       },
@@ -816,7 +850,7 @@ export class GeneCardComponent implements OnInit {
         type: "pattern",
         pattern: {
           style: "verticalLines",
-                  
+
         }
       },
     };
@@ -828,9 +862,9 @@ export class GeneCardComponent implements OnInit {
       }
       ],
       chart: {
-        height:'100%',
+        height: '100%',
         type: "scatter",
-        events:{
+        events: {
           dataPointSelection: (e, chart, opts) => {
             console.log("Cluster Clicked - DataPoint Index:", opts.dataPointIndex);
             const psd1_genes = this.gene_list.filter(gene => gene.PSD === 1 && gene.Surgery === '' && gene.natal_status === 'P1' && gene.Comparison === 'ShamvsMI');
@@ -842,10 +876,10 @@ export class GeneCardComponent implements OnInit {
             console.log("Selected Gene Data:", slected_gene);
 
 
-            
+
             this.to_map = {
-              pmid:slected_gene.pmid,
-              cell_type:slected_gene.cell_type, 
+              pmid: slected_gene.pmid,
+              cell_type: slected_gene.cell_type,
               gene: slected_gene.gene,
               cell_type2: slected_gene.cell_type2,
               cell_type3: slected_gene.cell_type3,
@@ -858,13 +892,13 @@ export class GeneCardComponent implements OnInit {
             this.model_selected = true;
           }
         },
-        zoom:{
-          enabled:false
+        zoom: {
+          enabled: false
         }
       },
       xaxis: {
-        tooltip:{
-          formatter: function(val, opts){
+        tooltip: {
+          formatter: function (val, opts) {
             return val.toString()
           }
         },
@@ -873,14 +907,14 @@ export class GeneCardComponent implements OnInit {
         //min: -2,
         //max: 2
       },
-      markers:{
+      markers: {
         size: 10
       },
-      yaxis:{
+      yaxis: {
         title: {
           text: "-Log10(Adjusted P-Value)",
-          style:{
-            fontSize:'18px'
+          style: {
+            fontSize: '18px'
           }
         }
       },
@@ -888,28 +922,31 @@ export class GeneCardComponent implements OnInit {
         type: "pattern",
         pattern: {
           style: "verticalLines",
-                  
+
         }
       },
       title: {
-         text: this.gene_list[0].gene!.toString(),
-         align: "center"
-       },
-      tooltip:{
+        text: this.gene_list[0].gene!.toString(),
+        align: "center",
+        style: {
+          color: "#0d6efd"
+        }
+      },
+      tooltip: {
         enabled: false
       },
-      annotations:{
+      annotations: {
         yaxis: [
           {
             y: 1.30103,
-            strokeDashArray:10,
+            strokeDashArray: 10,
             borderColor: 'black',
           }
         ],
         xaxis: [
           {
             x: 0,
-            strokeDashArray:7,
+            strokeDashArray: 7,
             borderColor: 'grey',
           }
         ]
@@ -923,9 +960,9 @@ export class GeneCardComponent implements OnInit {
       }
       ],
       chart: {
-        height:'100%',
+        height: '100%',
         type: "scatter",
-        events:{
+        events: {
           dataPointSelection: (e, chart, opts) => {
             console.log("Cluster Clicked - DataPoint Index:", opts.dataPointIndex);
             const psd1_genes = this.gene_list.filter(gene => gene.PSD === 3 && gene.Surgery === '' && gene.natal_status === 'P1' && gene.Comparison === 'ShamvsMI');
@@ -937,10 +974,10 @@ export class GeneCardComponent implements OnInit {
             console.log("Selected Gene Data:", slected_gene);
 
 
-            
+
             this.to_map = {
-              pmid:slected_gene.pmid,
-              cell_type:slected_gene.cell_type, 
+              pmid: slected_gene.pmid,
+              cell_type: slected_gene.cell_type,
               gene: slected_gene.gene,
               cell_type2: slected_gene.cell_type2,
               cell_type3: slected_gene.cell_type3,
@@ -953,13 +990,13 @@ export class GeneCardComponent implements OnInit {
             this.model_selected = true;
           }
         },
-        zoom:{
-          enabled:false
+        zoom: {
+          enabled: false
         }
       },
       xaxis: {
-        tooltip:{
-          formatter: function(val, opts){
+        tooltip: {
+          formatter: function (val, opts) {
             return val.toString()
           }
         },
@@ -968,14 +1005,14 @@ export class GeneCardComponent implements OnInit {
         //min: -2,
         //max: 2
       },
-      markers:{
+      markers: {
         size: 10
       },
-      yaxis:{
+      yaxis: {
         title: {
           text: "-Log10(Adjusted P-Value)",
-          style:{
-            fontSize:'18px'
+          style: {
+            fontSize: '18px'
           }
         }
       },
@@ -983,28 +1020,31 @@ export class GeneCardComponent implements OnInit {
         type: "pattern",
         pattern: {
           style: "verticalLines",
-                  
+
         }
       },
       title: {
-         text: this.gene_list[0].gene!.toString(),
-         align: "center"
-       },
-      tooltip:{
+        text: this.gene_list[0].gene!.toString(),
+        align: "center",
+        style: {
+          color: "#0d6efd"
+        }
+      },
+      tooltip: {
         enabled: false
       },
-      annotations:{
+      annotations: {
         yaxis: [
           {
             y: 1.30103,
-            strokeDashArray:10,
+            strokeDashArray: 10,
             borderColor: 'black',
           }
         ],
         xaxis: [
           {
             x: 0,
-            strokeDashArray:7,
+            strokeDashArray: 7,
             borderColor: 'grey',
           }
         ]
@@ -1015,19 +1055,19 @@ export class GeneCardComponent implements OnInit {
 
     this.meta_chart_optionsP8_1 = {
       series: [
-        {  
-          name:'BAD',
-          data:[4]
+        {
+          name: 'BAD',
+          data: [4]
         },
-        {  
-          name:'Good',
-          data:[1]
+        {
+          name: 'Good',
+          data: [1]
         }
       ],
       chart: {
         type: "bar",
-        height:'100%',
-        stacked:true,
+        height: '100%',
+        stacked: true,
         sparkline: {
           enabled: true
         }
@@ -1047,13 +1087,13 @@ export class GeneCardComponent implements OnInit {
         labels: {
           show: false,
         },
-        categories:[''],
+        categories: [''],
         tickAmount: 0,
         position: 'top',
-        axisBorder:{
+        axisBorder: {
           show: false
         },
-        axisTicks:{
+        axisTicks: {
           show: false
         }
       },
@@ -1067,26 +1107,26 @@ export class GeneCardComponent implements OnInit {
         type: "pattern",
         pattern: {
           style: "verticalLines",
-                  
+
         }
       },
     };
 
     this.meta_chart_optionsP8_3 = {
       series: [
-        {  
-          name:'BAD',
-          data:[4]
+        {
+          name: 'BAD',
+          data: [4]
         },
-        {  
-          name:'Good',
-          data:[1]
+        {
+          name: 'Good',
+          data: [1]
         }
       ],
       chart: {
         type: "bar",
-        height:'100%',
-        stacked:true,
+        height: '100%',
+        stacked: true,
         sparkline: {
           enabled: true
         }
@@ -1106,13 +1146,13 @@ export class GeneCardComponent implements OnInit {
         labels: {
           show: false,
         },
-        categories:[''],
+        categories: [''],
         tickAmount: 0,
         position: 'top',
-        axisBorder:{
+        axisBorder: {
           show: false
         },
-        axisTicks:{
+        axisTicks: {
           show: false
         }
       },
@@ -1126,7 +1166,7 @@ export class GeneCardComponent implements OnInit {
         type: "pattern",
         pattern: {
           style: "verticalLines",
-                  
+
         }
       },
     };
@@ -1139,15 +1179,15 @@ export class GeneCardComponent implements OnInit {
       }
       ],
       chart: {
-        height:'100%',
+        height: '100%',
         type: "scatter",
-        events:{
+        events: {
           dataPointSelection: (e, chart, opts) => {
             const psd1_genes = this.gene_list.filter(gene => gene.PSD === 1 && gene.Surgery === '' && gene.natal_status === 'P8' && gene.Comparison === 'ShamvsMI');
             let slected_gene = psd1_genes[opts.dataPointIndex];
             this.to_map = {
-              pmid:slected_gene.pmid,
-              cell_type:slected_gene.cell_type, 
+              pmid: slected_gene.pmid,
+              cell_type: slected_gene.cell_type,
               gene: slected_gene.gene,
               cell_type2: slected_gene.cell_type2,
               cell_type3: slected_gene.cell_type3,
@@ -1160,13 +1200,13 @@ export class GeneCardComponent implements OnInit {
             this.model_selected = true;
           }
         },
-        zoom:{
-          enabled:false
+        zoom: {
+          enabled: false
         }
       },
       xaxis: {
-        tooltip:{
-          formatter: function(val, opts){
+        tooltip: {
+          formatter: function (val, opts) {
             return val.toString()
           }
         },
@@ -1175,14 +1215,14 @@ export class GeneCardComponent implements OnInit {
         //min: -2,
         //max: 2
       },
-      markers:{
+      markers: {
         size: 10
       },
-      yaxis:{
+      yaxis: {
         title: {
           text: "-Log10(Adjusted P-Value)",
-          style:{
-            fontSize:'18px'
+          style: {
+            fontSize: '18px'
           }
         }
       },
@@ -1190,28 +1230,31 @@ export class GeneCardComponent implements OnInit {
         type: "pattern",
         pattern: {
           style: "verticalLines",
-                  
+
         }
       },
       title: {
-         text: this.gene_list[0].gene!.toString(),
-         align: "center"
-       },
-      tooltip:{
+        text: this.gene_list[0].gene!.toString(),
+        align: "center",
+        style: {
+          color: "#0d6efd"
+        }
+      },
+      tooltip: {
         enabled: false
       },
-      annotations:{
+      annotations: {
         yaxis: [
           {
             y: 1.30103,
-            strokeDashArray:10,
+            strokeDashArray: 10,
             borderColor: 'black',
           }
         ],
         xaxis: [
           {
             x: 0,
-            strokeDashArray:7,
+            strokeDashArray: 7,
             borderColor: 'grey',
           }
         ]
@@ -1225,15 +1268,15 @@ export class GeneCardComponent implements OnInit {
       }
       ],
       chart: {
-        height:'100%',
+        height: '100%',
         type: "scatter",
-        events:{
+        events: {
           dataPointSelection: (e, chart, opts) => {
             const psd1_genes = this.gene_list.filter(gene => gene.PSD === 3 && gene.Surgery === '' && gene.natal_status === 'P8' && gene.Comparison === 'ShamvsMI');
             let slected_gene = psd1_genes[opts.dataPointIndex];
             this.to_map = {
-              pmid:slected_gene.pmid,
-              cell_type:slected_gene.cell_type, 
+              pmid: slected_gene.pmid,
+              cell_type: slected_gene.cell_type,
               gene: slected_gene.gene,
               cell_type2: slected_gene.cell_type2,
               cell_type3: slected_gene.cell_type3,
@@ -1246,13 +1289,13 @@ export class GeneCardComponent implements OnInit {
             this.model_selected = true;
           }
         },
-        zoom:{
-          enabled:false
+        zoom: {
+          enabled: false
         }
       },
       xaxis: {
-        tooltip:{
-          formatter: function(val, opts){
+        tooltip: {
+          formatter: function (val, opts) {
             return val.toString()
           }
         },
@@ -1261,14 +1304,14 @@ export class GeneCardComponent implements OnInit {
         //min: -2,
         //max: 2
       },
-      markers:{
+      markers: {
         size: 10
       },
-      yaxis:{
+      yaxis: {
         title: {
           text: "-Log10(Adjusted P-Value)",
-          style:{
-            fontSize:'18px'
+          style: {
+            fontSize: '18px'
           }
         }
       },
@@ -1276,28 +1319,31 @@ export class GeneCardComponent implements OnInit {
         type: "pattern",
         pattern: {
           style: "verticalLines",
-                  
+
         }
       },
       title: {
-         text: this.gene_list[0].gene!.toString(),
-         align: "center"
-       },
-      tooltip:{
+        text: this.gene_list[0].gene!.toString(),
+        align: "center",
+        style: {
+          color: "#0d6efd"
+        }
+      },
+      tooltip: {
         enabled: false
       },
-      annotations:{
+      annotations: {
         yaxis: [
           {
             y: 1.30103,
-            strokeDashArray:10,
+            strokeDashArray: 10,
             borderColor: 'black',
           }
         ],
         xaxis: [
           {
             x: 0,
-            strokeDashArray:7,
+            strokeDashArray: 7,
             borderColor: 'grey',
           }
         ]
@@ -1314,7 +1360,7 @@ export class GeneCardComponent implements OnInit {
     this.createDisplayData()
   }
 
-  
+
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['gene_list'] && !changes['gene_list'].firstChange) {
@@ -1324,7 +1370,7 @@ export class GeneCardComponent implements OnInit {
   }
 
 
-  createDisplayData(){
+  createDisplayData() {
     console.log("Starting createDisplayData");
     console.log("Genes:", this.gene_list); // Log first few genes
     // Check what PSD values exist in the gene list
@@ -1336,7 +1382,7 @@ export class GeneCardComponent implements OnInit {
     const group1_MI = this.gene_list.filter(gene => gene.PSD === 1 && gene.Surgery === 'MI' && gene.Comparison === 'P1vsP8');
     const group3_MI = this.gene_list.filter(gene => gene.PSD === 3 && gene.Surgery === 'MI' && gene.Comparison === 'P1vsP8');
     const group3_Sham = this.gene_list.filter(gene => gene.PSD === 3 && gene.Surgery === 'Sham' && gene.Comparison === 'P1vsP8');
-   
+
     // Sham Vs MI
     const groupP1_1 = this.gene_list.filter(gene => gene.PSD === 1 && gene.Surgery === '' && gene.natal_status === 'P1' && gene.Comparison === 'ShamvsMI');
     const groupP1_3 = this.gene_list.filter(gene => gene.PSD === 3 && gene.Surgery === '' && gene.natal_status === 'P1' && gene.Comparison === 'ShamvsMI');
@@ -1347,16 +1393,16 @@ export class GeneCardComponent implements OnInit {
     // Initialize variables for both groups P1vsP8
     let model_data1_Sham: { x: number; y: number; fillColor: string }[] = [];
     let model_data3_Sham: { x: number; y: number; fillColor: string }[] = [];
-    let meta_series_info1_Sham = [0,0,0,0,0,0];
-    let meta_series_info3_Sham = [0,0,0,0,0,0];
+    let meta_series_info1_Sham = [0, 0, 0, 0, 0, 0];
+    let meta_series_info3_Sham = [0, 0, 0, 0, 0, 0];
     let cluster_number1_Sham = group1_Sham.length;
     let cluster_number3_Sham = group3_Sham.length;
 
     // Initialize variables for both groups
     let model_data1_MI: { x: number; y: number; fillColor: string }[] = [];
     let model_data3_MI: { x: number; y: number; fillColor: string }[] = [];
-    let meta_series_info1_MI = [0,0,0,0,0,0];
-    let meta_series_info3_MI = [0,0,0,0,0,0];
+    let meta_series_info1_MI = [0, 0, 0, 0, 0, 0];
+    let meta_series_info3_MI = [0, 0, 0, 0, 0, 0];
     let cluster_number1_MI = group1_MI.length;
     let cluster_number3_MI = group3_MI.length;
 
@@ -1376,22 +1422,22 @@ export class GeneCardComponent implements OnInit {
 
     let min_lfc3_MI = Number.POSITIVE_INFINITY;
     let max_lfc3_MI = Number.NEGATIVE_INFINITY;
-    let max_p_val3_MI = Number.NEGATIVE_INFINITY;    
+    let max_p_val3_MI = Number.NEGATIVE_INFINITY;
 
 
     // Initialize variables for both groups ShamvsMI
     let model_dataP1_1: { x: number; y: number; fillColor: string }[] = [];
     let model_dataP8_1: { x: number; y: number; fillColor: string }[] = [];
-    let meta_series_infoP1_1 = [0,0,0,0,0,0];
-    let meta_series_infoP8_1 = [0,0,0,0,0,0];
+    let meta_series_infoP1_1 = [0, 0, 0, 0, 0, 0];
+    let meta_series_infoP8_1 = [0, 0, 0, 0, 0, 0];
     let cluster_numberP1_1 = groupP1_1.length;
     let cluster_numberP8_1 = groupP8_1.length;
 
     // Initialize variables for both groups
     let model_dataP1_3: { x: number; y: number; fillColor: string }[] = [];
     let model_dataP8_3: { x: number; y: number; fillColor: string }[] = [];
-    let meta_series_infoP1_3 = [0,0,0,0,0,0];
-    let meta_series_infoP8_3 = [0,0,0,0,0,0];
+    let meta_series_infoP1_3 = [0, 0, 0, 0, 0, 0];
+    let meta_series_infoP8_3 = [0, 0, 0, 0, 0, 0];
     let cluster_numberP1_3 = groupP1_3.length;
     let cluster_numberP8_3 = groupP8_3.length;
 
@@ -1411,7 +1457,7 @@ export class GeneCardComponent implements OnInit {
 
     let min_lfcP8_3 = Number.POSITIVE_INFINITY;
     let max_lfcP8_3 = Number.NEGATIVE_INFINITY;
-    let max_p_valP8_3 = Number.NEGATIVE_INFINITY;    
+    let max_p_valP8_3 = Number.NEGATIVE_INFINITY;
 
     // Process PSD 1 group
     console.log("Processing Group 1");
@@ -1421,15 +1467,15 @@ export class GeneCardComponent implements OnInit {
       let gene = group1_Sham[i];
       let lfc = Number(gene.lfc);
       let p_value = Number(gene.p_value);
-  
+
       if (isNaN(lfc) || isNaN(p_value)) continue;
-  
+
       meta_series_info1_Sham = this.updateMetaSeriesInfo(meta_series_info1_Sham, lfc, p_value);
-  
+
       let fill_color = this.getFillColor(p_value, lfc);
       let formatted_data = { x: lfc, y: p_value, fillColor: fill_color };
       model_data1_Sham.push(formatted_data);
-  
+
       if (lfc < min_lfc1_Sham) min_lfc1_Sham = lfc;
       if (lfc > max_lfc1_Sham) max_lfc1_Sham = lfc;
       if (p_value > max_p_val1_Sham) max_p_val1_Sham = p_value;
@@ -1439,20 +1485,20 @@ export class GeneCardComponent implements OnInit {
       let gene = group3_Sham[i];
       let lfc = Number(gene.lfc);
       let p_value = Number(gene.p_value);
-  
+
       if (isNaN(lfc) || isNaN(p_value)) continue;
-  
+
       meta_series_info3_Sham = this.updateMetaSeriesInfo(meta_series_info3_Sham, lfc, p_value);
-  
+
       let fill_color = this.getFillColor(p_value, lfc);
       let formatted_data = { x: lfc, y: p_value, fillColor: fill_color };
       model_data3_Sham.push(formatted_data);
-  
+
       if (lfc < min_lfc3_Sham) min_lfc3_Sham = lfc;
       if (lfc > max_lfc3_Sham) max_lfc3_Sham = lfc;
       if (p_value > max_p_val3_Sham) max_p_val3_Sham = p_value;
     }
-  
+
 
     for (let i = 0; i < cluster_number1_MI; i++) {
       let gene = group1_MI[i];
@@ -1495,15 +1541,15 @@ export class GeneCardComponent implements OnInit {
       let gene = groupP1_1[i];
       let lfc = Number(gene.lfc);
       let p_value = Number(gene.p_value);
-  
+
       if (isNaN(lfc) || isNaN(p_value)) continue;
-  
+
       meta_series_infoP1_1 = this.updateMetaSeriesInfo(meta_series_infoP1_1, lfc, p_value);
-  
+
       let fill_color = this.getFillColor(p_value, lfc);
       let formatted_data = { x: lfc, y: p_value, fillColor: fill_color };
       model_dataP1_1.push(formatted_data);
-  
+
       if (lfc < min_lfcP1_1) min_lfcP1_1 = lfc;
       if (lfc > max_lfcP1_1) max_lfcP1_1 = lfc;
       if (p_value > max_p_valP1_1) max_p_valP1_1 = p_value;
@@ -1513,20 +1559,20 @@ export class GeneCardComponent implements OnInit {
       let gene = groupP8_1[i];
       let lfc = Number(gene.lfc);
       let p_value = Number(gene.p_value);
-  
+
       if (isNaN(lfc) || isNaN(p_value)) continue;
-  
+
       meta_series_infoP8_1 = this.updateMetaSeriesInfo(meta_series_infoP8_1, lfc, p_value);
-  
+
       let fill_color = this.getFillColor(p_value, lfc);
       let formatted_data = { x: lfc, y: p_value, fillColor: fill_color };
       model_dataP8_1.push(formatted_data);
-  
+
       if (lfc < min_lfcP8_1) min_lfcP8_1 = lfc;
       if (lfc > max_lfcP8_1) max_lfcP8_1 = lfc;
       if (p_value > max_p_valP8_1) max_p_valP8_1 = p_value;
     }
-  
+
 
     for (let i = 0; i < cluster_numberP1_3; i++) {
       let gene = groupP1_3[i];
@@ -1576,8 +1622,8 @@ export class GeneCardComponent implements OnInit {
     min_lfc3_Sham = -temp3_Sham - 0.1;
     max_lfc3_Sham = temp3_Sham + 0.1;
 
-    max_p_val1_Sham = Math.ceil(max_p_val1_Sham+1)
-    max_p_val3_Sham = Math.ceil(max_p_val3_Sham+1)
+    max_p_val1_Sham = Math.ceil(max_p_val1_Sham + 1)
+    max_p_val3_Sham = Math.ceil(max_p_val3_Sham + 1)
 
     // Calculate ranges for both groups
     let temp1_MI = Math.max(Math.abs(min_lfc1_MI), max_lfc1_MI);
@@ -1588,8 +1634,8 @@ export class GeneCardComponent implements OnInit {
     min_lfc3_MI = -temp3_MI - 0.1;
     max_lfc3_MI = temp3_MI + 0.1;
 
-    max_p_val1_MI = Math.ceil(max_p_val1_MI+1)
-    max_p_val3_MI = Math.ceil(max_p_val3_MI+1)
+    max_p_val1_MI = Math.ceil(max_p_val1_MI + 1)
+    max_p_val3_MI = Math.ceil(max_p_val3_MI + 1)
 
 
 
@@ -1602,8 +1648,8 @@ export class GeneCardComponent implements OnInit {
     min_lfcP1_3 = -tempP1_3 - 0.1;
     max_lfcP1_3 = tempP1_3 + 0.1;
 
-    max_p_valP1_1 = Math.ceil(max_p_valP1_1+1)
-    max_p_valP1_3 = Math.ceil(max_p_valP1_3+1)
+    max_p_valP1_1 = Math.ceil(max_p_valP1_1 + 1)
+    max_p_valP1_3 = Math.ceil(max_p_valP1_3 + 1)
 
     // Calculate ranges for both groups
     let tempP8_1 = Math.max(Math.abs(min_lfcP8_1), max_lfcP8_1);
@@ -1614,36 +1660,42 @@ export class GeneCardComponent implements OnInit {
     min_lfcP8_3 = -tempP8_3 - 0.1;
     max_lfcP8_3 = tempP8_3 + 0.1;
 
-    max_p_valP8_1 = Math.ceil(max_p_valP8_1+1)
-    max_p_valP8_3 = Math.ceil(max_p_valP8_3+1)
+    max_p_valP8_1 = Math.ceil(max_p_valP8_1 + 1)
+    max_p_valP8_3 = Math.ceil(max_p_valP8_3 + 1)
 
     let num_ticks = 5
 
     //Setup MetaChart
-    this.meta_chart_options1_Sham.chart!.width =  cluster_number1_Sham > 20? '100%' : Math.trunc(cluster_number1_Sham * 5).toString()+'%'
+    this.meta_chart_options1_Sham.chart!.width = cluster_number1_Sham > 20 ? '100%' : Math.trunc(cluster_number1_Sham * 5).toString() + '%'
     this.meta_chart_options1_Sham.series = [
-      {name: "Non-Significant Fit",
-      data: [meta_series_info1_Sham[5]]
+      {
+        name: "Non-Significant Fit",
+        data: [meta_series_info1_Sham[5]]
       },
-      {name: "Significantly Downregulated",
-      data: [meta_series_info1_Sham[0]]
+      {
+        name: "Significantly Downregulated",
+        data: [meta_series_info1_Sham[0]]
       },
-      {name: "Slightly Downregulated",
-      data: [meta_series_info1_Sham[1]]
+      {
+        name: "Slightly Downregulated",
+        data: [meta_series_info1_Sham[1]]
       },
-      {name: "No Change",
-      data: [meta_series_info1_Sham[2]]
+      {
+        name: "No Change",
+        data: [meta_series_info1_Sham[2]]
       },
-      {name: "Slightly Upregulated",
-      data: [meta_series_info1_Sham[3]]
+      {
+        name: "Slightly Upregulated",
+        data: [meta_series_info1_Sham[3]]
       },
-      {name: "Significantly Upregulated",
-      data: [meta_series_info1_Sham[4]]
+      {
+        name: "Significantly Upregulated",
+        data: [meta_series_info1_Sham[4]]
       },
     ]
 
     //Setup ModelChart
-    this.model_chart_options1_Sham.series =[{data: model_data1_Sham}]
+    this.model_chart_options1_Sham.series = [{ data: model_data1_Sham }]
 
     // Debug X-Axis settings
     console.log("X-Axis Range for ModelChart:");
@@ -1652,13 +1704,15 @@ export class GeneCardComponent implements OnInit {
     this.model_chart_options1_Sham.xaxis = {
       title: {
         text: "Fixed Effect (Log2 Fold Change)",
-        offsetY: 80,
-        style:{
-          fontSize:'18px'
+        offsetY: 75,
+        style: {
+          fontSize: '16px',
+          color: "#0d6efd"
         }
+        
       },
-      tooltip:{
-        formatter: function(val, opts){
+      tooltip: {
+        formatter: function (val, opts) {
           return val.toString()
         }
       },
@@ -1670,14 +1724,15 @@ export class GeneCardComponent implements OnInit {
     this.model_chart_options1_Sham.yaxis = {
       title: {
         text: "-Log10(Adjusted P-Value)",
-        style:{
-          fontSize:'18px'
+        style: {
+          fontSize: '16px',
+          color: "#0d6efd"
         }
       },
-      min:0,
-      max:max_p_val1_Sham,
+      min: 0,
+      max: max_p_val1_Sham,
       labels: {
-        formatter: function(val) {
+        formatter: function (val) {
           // Round the y-axis label to an integer
           return Math.round(val).toString();
         }
@@ -1693,30 +1748,36 @@ export class GeneCardComponent implements OnInit {
 
 
     //Setup MetaChart
-    this.meta_chart_options1_MI.chart!.width =  cluster_number1_MI > 20? '100%' : Math.trunc(cluster_number1_MI * 5).toString()+'%'
+    this.meta_chart_options1_MI.chart!.width = cluster_number1_MI > 20 ? '100%' : Math.trunc(cluster_number1_MI * 5).toString() + '%'
     this.meta_chart_options1_MI.series = [
-      {name: "Non-Significant Fit",
-      data: [meta_series_info1_MI[5]]
+      {
+        name: "Non-Significant Fit",
+        data: [meta_series_info1_MI[5]]
       },
-      {name: "Significantly Downregulated",
-      data: [meta_series_info1_MI[0]]
+      {
+        name: "Significantly Downregulated",
+        data: [meta_series_info1_MI[0]]
       },
-      {name: "Slightly Downregulated",
-      data: [meta_series_info1_MI[1]]
+      {
+        name: "Slightly Downregulated",
+        data: [meta_series_info1_MI[1]]
       },
-      {name: "No Change",
-      data: [meta_series_info1_MI[2]]
+      {
+        name: "No Change",
+        data: [meta_series_info1_MI[2]]
       },
-      {name: "Slightly Upregulated",
-      data: [meta_series_info1_MI[3]]
+      {
+        name: "Slightly Upregulated",
+        data: [meta_series_info1_MI[3]]
       },
-      {name: "Significantly Upregulated",
-      data: [meta_series_info1_MI[4]]
+      {
+        name: "Significantly Upregulated",
+        data: [meta_series_info1_MI[4]]
       },
     ]
 
     //Setup ModelChart
-    this.model_chart_options1_MI.series =[{data: model_data1_MI}]
+    this.model_chart_options1_MI.series = [{ data: model_data1_MI }]
 
     // Debug X-Axis settings
     console.log("X-Axis Range for ModelChart:");
@@ -1725,13 +1786,14 @@ export class GeneCardComponent implements OnInit {
     this.model_chart_options1_MI.xaxis = {
       title: {
         text: "Fixed Effect (Log2 Fold Change)",
-        offsetY: 80,
-        style:{
-          fontSize:'18px'
+        offsetY: 75,
+        style: {
+          fontSize: '16px',
+          color: "#0d6efd"
         }
       },
-      tooltip:{
-        formatter: function(val, opts){
+      tooltip: {
+        formatter: function (val, opts) {
           return val.toString()
         }
       },
@@ -1743,14 +1805,15 @@ export class GeneCardComponent implements OnInit {
     this.model_chart_options1_MI.yaxis = {
       title: {
         text: "-Log10(Adjusted P-Value)",
-        style:{
-          fontSize:'18px'
+        style: {
+          fontSize: '16px',
+          color: "#0d6efd"
         }
       },
-      min:0,
-      max:max_p_val1_MI,
+      min: 0,
+      max: max_p_val1_MI,
       labels: {
-        formatter: function(val) {
+        formatter: function (val) {
           // Round the y-axis label to an integer
           return Math.round(val).toString();
         }
@@ -1767,39 +1830,46 @@ export class GeneCardComponent implements OnInit {
 
 
     //Setup MetaChart
-    this.meta_chart_options3_Sham.chart!.width =  cluster_number3_Sham > 20? '100%' : Math.trunc(cluster_number3_Sham * 5).toString()+'%'
+    this.meta_chart_options3_Sham.chart!.width = cluster_number3_Sham > 20 ? '100%' : Math.trunc(cluster_number3_Sham * 5).toString() + '%'
     this.meta_chart_options3_Sham.series = [
-      {name: "Non-Significant Fit",
-      data: [meta_series_info3_Sham[5]]
+      {
+        name: "Non-Significant Fit",
+        data: [meta_series_info3_Sham[5]]
       },
-      {name: "Significantly Downregulated",
-      data: [meta_series_info3_Sham[0]]
+      {
+        name: "Significantly Downregulated",
+        data: [meta_series_info3_Sham[0]]
       },
-      {name: "Slightly Downregulated",
-      data: [meta_series_info3_Sham[1]]
+      {
+        name: "Slightly Downregulated",
+        data: [meta_series_info3_Sham[1]]
       },
-      {name: "No Change",
-      data: [meta_series_info3_Sham[2]]
+      {
+        name: "No Change",
+        data: [meta_series_info3_Sham[2]]
       },
-      {name: "Slightly Upregulated",
-      data: [meta_series_info3_Sham[3]]
+      {
+        name: "Slightly Upregulated",
+        data: [meta_series_info3_Sham[3]]
       },
-      {name: "Significantly Upregulated",
-      data: [meta_series_info3_Sham[4]]
+      {
+        name: "Significantly Upregulated",
+        data: [meta_series_info3_Sham[4]]
       },
     ]
     //Setup ModelChart
-    this.model_chart_options3_Sham.series =[{data: model_data3_Sham}]
+    this.model_chart_options3_Sham.series = [{ data: model_data3_Sham }]
     this.model_chart_options3_Sham.xaxis = {
       title: {
         text: "Fixed Effect (Log2 Fold Change)",
-        offsetY: 80,
-        style:{
-          fontSize:'18px'
+        offsetY: 75,
+        style: {
+          fontSize: '16px',
+          color: "#0d6efd"
         }
       },
-      tooltip:{
-        formatter: function(val, opts){
+      tooltip: {
+        formatter: function (val, opts) {
           return val.toString()
         }
       },
@@ -1811,14 +1881,15 @@ export class GeneCardComponent implements OnInit {
     this.model_chart_options3_Sham.yaxis = {
       title: {
         text: "-Log10(Adjusted P-Value)",
-        style:{
-          fontSize:'18px'
+        style: {
+          fontSize: '16px',
+          color: "#0d6efd"
         }
       },
-      min:0,
-      max:max_p_val3_Sham,
+      min: 0,
+      max: max_p_val3_Sham,
       labels: {
-        formatter: function(val) {
+        formatter: function (val) {
           // Round the y-axis label to an integer
           return Math.round(val).toString();
         }
@@ -1826,64 +1897,72 @@ export class GeneCardComponent implements OnInit {
     }
 
 
-        //Setup MetaChart
-        this.meta_chart_options3_MI.chart!.width =  cluster_number3_MI > 20? '100%' : Math.trunc(cluster_number3_MI * 5).toString()+'%'
-        this.meta_chart_options3_MI.series = [
-          {name: "Non-Significant Fit",
-          data: [meta_series_info3_MI[5]]
-          },
-          {name: "Significantly Downregulated",
-          data: [meta_series_info3_MI[0]]
-          },
-          {name: "Slightly Downregulated",
-          data: [meta_series_info3_MI[1]]
-          },
-          {name: "No Change",
-          data: [meta_series_info3_MI[2]]
-          },
-          {name: "Slightly Upregulated",
-          data: [meta_series_info3_MI[3]]
-          },
-          {name: "Significantly Upregulated",
-          data: [meta_series_info3_MI[4]]
-          },
-        ]
-        //Setup ModelChart
-        this.model_chart_options3_MI.series =[{data: model_data3_MI}]
-        this.model_chart_options3_MI.xaxis = {
-          title: {
-            text: "Fixed Effect (Log2 Fold Change)",
-            offsetY: 80,
-            style:{
-              fontSize:'18px'
-            }
-          },
-          tooltip:{
-            formatter: function(val, opts){
-              return val.toString()
-            }
-          },
-          type: "numeric",
-          tickAmount: num_ticks,
-          min: min_lfc3_MI,
-          max: max_lfc3_MI
+    //Setup MetaChart
+    this.meta_chart_options3_MI.chart!.width = cluster_number3_MI > 20 ? '100%' : Math.trunc(cluster_number3_MI * 5).toString() + '%'
+    this.meta_chart_options3_MI.series = [
+      {
+        name: "Non-Significant Fit",
+        data: [meta_series_info3_MI[5]]
+      },
+      {
+        name: "Significantly Downregulated",
+        data: [meta_series_info3_MI[0]]
+      },
+      {
+        name: "Slightly Downregulated",
+        data: [meta_series_info3_MI[1]]
+      },
+      {
+        name: "No Change",
+        data: [meta_series_info3_MI[2]]
+      },
+      {
+        name: "Slightly Upregulated",
+        data: [meta_series_info3_MI[3]]
+      },
+      {
+        name: "Significantly Upregulated",
+        data: [meta_series_info3_MI[4]]
+      },
+    ]
+    //Setup ModelChart
+    this.model_chart_options3_MI.series = [{ data: model_data3_MI }]
+    this.model_chart_options3_MI.xaxis = {
+      title: {
+        text: "Fixed Effect (Log2 Fold Change)",
+        offsetY: 75,
+        style: {
+          fontSize: '16px',
+          color: "#0d6efd"
         }
-        this.model_chart_options3_MI.yaxis = {
-          title: {
-            text: "-Log10(Adjusted P-Value)",
-            style:{
-              fontSize:'18px'
-            }
-          },
-          min:0,
-          max:max_p_val3_MI,
-          labels: {
-            formatter: function(val) {
-              // Round the y-axis label to an integer
-              return Math.round(val).toString();
-            }
-          }
+      },
+      tooltip: {
+        formatter: function (val, opts) {
+          return val.toString()
         }
+      },
+      type: "numeric",
+      tickAmount: num_ticks,
+      min: min_lfc3_MI,
+      max: max_lfc3_MI
+    }
+    this.model_chart_options3_MI.yaxis = {
+      title: {
+        text: "-Log10(Adjusted P-Value)",
+        style: {
+          fontSize: '16px',
+          color: "#0d6efd"
+        }
+      },
+      min: 0,
+      max: max_p_val3_MI,
+      labels: {
+        formatter: function (val) {
+          // Round the y-axis label to an integer
+          return Math.round(val).toString();
+        }
+      }
+    }
 
 
 
@@ -1901,31 +1980,37 @@ export class GeneCardComponent implements OnInit {
 
 
 
-         //Setup MetaChart
-    this.meta_chart_optionsP1_1.chart!.width =  cluster_numberP1_1 > 20? '100%' : Math.trunc(cluster_numberP1_1 * 5).toString()+'%'
+    //Setup MetaChart
+    this.meta_chart_optionsP1_1.chart!.width = cluster_numberP1_1 > 20 ? '100%' : Math.trunc(cluster_numberP1_1 * 5).toString() + '%'
     this.meta_chart_optionsP1_1.series = [
-      {name: "Non-Significant Fit",
-      data: [meta_series_infoP1_1[5]]
+      {
+        name: "Non-Significant Fit",
+        data: [meta_series_infoP1_1[5]]
       },
-      {name: "Significantly Downregulated",
-      data: [meta_series_infoP1_1[0]]
+      {
+        name: "Significantly Downregulated",
+        data: [meta_series_infoP1_1[0]]
       },
-      {name: "Slightly Downregulated",
-      data: [meta_series_infoP1_1[1]]
+      {
+        name: "Slightly Downregulated",
+        data: [meta_series_infoP1_1[1]]
       },
-      {name: "No Change",
-      data: [meta_series_infoP1_1[2]]
+      {
+        name: "No Change",
+        data: [meta_series_infoP1_1[2]]
       },
-      {name: "Slightly Upregulated",
-      data: [meta_series_infoP1_1[3]]
+      {
+        name: "Slightly Upregulated",
+        data: [meta_series_infoP1_1[3]]
       },
-      {name: "Significantly Upregulated",
-      data: [meta_series_infoP1_1[4]]
+      {
+        name: "Significantly Upregulated",
+        data: [meta_series_infoP1_1[4]]
       },
     ]
 
     //Setup ModelChart
-    this.model_chart_optionsP1_1.series =[{data: model_dataP1_1}]
+    this.model_chart_optionsP1_1.series = [{ data: model_dataP1_1 }]
 
     // Debug X-Axis settings
     console.log("X-Axis Range for ModelChart:");
@@ -1934,13 +2019,14 @@ export class GeneCardComponent implements OnInit {
     this.model_chart_optionsP1_1.xaxis = {
       title: {
         text: "Fixed Effect (Log2 Fold Change)",
-        offsetY: 80,
-        style:{
-          fontSize:'18px'
+        offsetY: 75,
+        style: {
+          fontSize: '16px',
+          color: "#0d6efd"
         }
       },
-      tooltip:{
-        formatter: function(val, opts){
+      tooltip: {
+        formatter: function (val, opts) {
           return val.toString()
         }
       },
@@ -1952,14 +2038,15 @@ export class GeneCardComponent implements OnInit {
     this.model_chart_optionsP1_1.yaxis = {
       title: {
         text: "-Log10(Adjusted P-Value)",
-        style:{
-          fontSize:'18px'
+        style: {
+          fontSize: '16px',
+          color: "#0d6efd"
         }
       },
-      min:0,
-      max:max_p_valP1_1,
+      min: 0,
+      max: max_p_valP1_1,
       labels: {
-        formatter: function(val) {
+        formatter: function (val) {
           // Round the y-axis label to an integer
           return Math.round(val).toString();
         }
@@ -1977,30 +2064,36 @@ export class GeneCardComponent implements OnInit {
 
 
     //Setup MetaChart
-    this.meta_chart_optionsP1_3.chart!.width =  cluster_numberP1_3 > 20? '100%' : Math.trunc(cluster_numberP1_3 * 5).toString()+'%'
+    this.meta_chart_optionsP1_3.chart!.width = cluster_numberP1_3 > 20 ? '100%' : Math.trunc(cluster_numberP1_3 * 5).toString() + '%'
     this.meta_chart_optionsP1_3.series = [
-      {name: "Non-Significant Fit",
-      data: [meta_series_infoP1_3[5]]
+      {
+        name: "Non-Significant Fit",
+        data: [meta_series_infoP1_3[5]]
       },
-      {name: "Significantly Downregulated",
-      data: [meta_series_infoP1_3[0]]
+      {
+        name: "Significantly Downregulated",
+        data: [meta_series_infoP1_3[0]]
       },
-      {name: "Slightly Downregulated",
-      data: [meta_series_infoP1_3[1]]
+      {
+        name: "Slightly Downregulated",
+        data: [meta_series_infoP1_3[1]]
       },
-      {name: "No Change",
-      data: [meta_series_infoP1_3[2]]
+      {
+        name: "No Change",
+        data: [meta_series_infoP1_3[2]]
       },
-      {name: "Slightly Upregulated",
-      data: [meta_series_infoP1_3[3]]
+      {
+        name: "Slightly Upregulated",
+        data: [meta_series_infoP1_3[3]]
       },
-      {name: "Significantly Upregulated",
-      data: [meta_series_infoP1_3[4]]
+      {
+        name: "Significantly Upregulated",
+        data: [meta_series_infoP1_3[4]]
       },
     ]
 
     //Setup ModelChart
-    this.model_chart_optionsP1_3.series =[{data: model_dataP1_3}]
+    this.model_chart_optionsP1_3.series = [{ data: model_dataP1_3 }]
 
     // Debug X-Axis settings
     console.log("X-Axis Range for ModelChart:");
@@ -2009,13 +2102,14 @@ export class GeneCardComponent implements OnInit {
     this.model_chart_optionsP1_3.xaxis = {
       title: {
         text: "Fixed Effect (Log2 Fold Change)",
-        offsetY: 80,
-        style:{
-          fontSize:'18px'
+        offsetY: 75,
+        style: {
+          fontSize: '16px',
+          color: "#0d6efd"
         }
       },
-      tooltip:{
-        formatter: function(val, opts){
+      tooltip: {
+        formatter: function (val, opts) {
           return val.toString()
         }
       },
@@ -2027,14 +2121,15 @@ export class GeneCardComponent implements OnInit {
     this.model_chart_optionsP1_3.yaxis = {
       title: {
         text: "-Log10(Adjusted P-Value)",
-        style:{
-          fontSize:'18px'
+        style: {
+          fontSize: '16px',
+          color: "#0d6efd"
         }
       },
-      min:0,
-      max:max_p_valP1_3,
+      min: 0,
+      max: max_p_valP1_3,
       labels: {
-        formatter: function(val) {
+        formatter: function (val) {
           // Round the y-axis label to an integer
           return Math.round(val).toString();
         }
@@ -2046,48 +2141,55 @@ export class GeneCardComponent implements OnInit {
 
 
 
-///test comment
+    ///test comment
 
- //   let scaler = cluster_numberP1_3 > 15 ? cluster_numberP1_3 : 15
-//    let height = (scaler * 15).toString() + 'px'
+    //   let scaler = cluster_numberP1_3 > 15 ? cluster_numberP1_3 : 15
+    //    let height = (scaler * 15).toString() + 'px'
 
 
 
 
     //Setup MetaChart
-    this.meta_chart_optionsP8_1.chart!.width =  cluster_numberP8_1 > 20? '100%' : Math.trunc(cluster_numberP8_1 * 5).toString()+'%'
+    this.meta_chart_optionsP8_1.chart!.width = cluster_numberP8_1 > 20 ? '100%' : Math.trunc(cluster_numberP8_1 * 5).toString() + '%'
     this.meta_chart_optionsP8_1.series = [
-      {name: "Non-Significant Fit",
-      data: [meta_series_infoP8_1[5]]
+      {
+        name: "Non-Significant Fit",
+        data: [meta_series_infoP8_1[5]]
       },
-      {name: "Significantly Downregulated",
-      data: [meta_series_infoP8_1[0]]
+      {
+        name: "Significantly Downregulated",
+        data: [meta_series_infoP8_1[0]]
       },
-      {name: "Slightly Downregulated",
-      data: [meta_series_infoP8_1[1]]
+      {
+        name: "Slightly Downregulated",
+        data: [meta_series_infoP8_1[1]]
       },
-      {name: "No Change",
-      data: [meta_series_infoP8_1[2]]
+      {
+        name: "No Change",
+        data: [meta_series_infoP8_1[2]]
       },
-      {name: "Slightly Upregulated",
-      data: [meta_series_infoP8_1[3]]
+      {
+        name: "Slightly Upregulated",
+        data: [meta_series_infoP8_1[3]]
       },
-      {name: "Significantly Upregulated",
-      data: [meta_series_infoP8_1[4]]
+      {
+        name: "Significantly Upregulated",
+        data: [meta_series_infoP8_1[4]]
       },
     ]
     //Setup ModelChart
-    this.model_chart_optionsP8_1.series =[{data: model_dataP8_1}]
+    this.model_chart_optionsP8_1.series = [{ data: model_dataP8_1 }]
     this.model_chart_optionsP8_1.xaxis = {
       title: {
         text: "Fixed Effect (Log2 Fold Change)",
-        offsetY: 80,
-        style:{
-          fontSize:'18px'
+        offsetY: 75,
+        style: {
+          fontSize: '16px',
+          color: "#0d6efd"
         }
       },
-      tooltip:{
-        formatter: function(val, opts){
+      tooltip: {
+        formatter: function (val, opts) {
           return val.toString()
         }
       },
@@ -2099,14 +2201,15 @@ export class GeneCardComponent implements OnInit {
     this.model_chart_optionsP8_1.yaxis = {
       title: {
         text: "-Log10(Adjusted P-Value)",
-        style:{
-          fontSize:'18px'
+        style: {
+          fontSize: '16px',
+          color: "#0d6efd"
         }
       },
-      min:0,
-      max:max_p_valP8_1,
+      min: 0,
+      max: max_p_valP8_1,
       labels: {
-        formatter: function(val) {
+        formatter: function (val) {
           // Round the y-axis label to an integer
           return Math.round(val).toString();
         }
@@ -2114,124 +2217,132 @@ export class GeneCardComponent implements OnInit {
     }
 
 
-        //Setup MetaChart
-        this.meta_chart_optionsP8_3.chart!.width =  cluster_numberP8_3 > 20? '100%' : Math.trunc(cluster_numberP8_3 * 5).toString()+'%'
-        this.meta_chart_optionsP8_3.series = [
-          {name: "Non-Significant Fit",
-          data: [meta_series_infoP8_3[5]]
-          },
-          {name: "Significantly Downregulated",
-          data: [meta_series_infoP8_3[0]]
-          },
-          {name: "Slightly Downregulated",
-          data: [meta_series_infoP8_3[1]]
-          },
-          {name: "No Change",
-          data: [meta_series_infoP8_3[2]]
-          },
-          {name: "Slightly Upregulated",
-          data: [meta_series_infoP8_3[3]]
-          },
-          {name: "Significantly Upregulated",
-          data: [meta_series_infoP8_3[4]]
-          },
-        ]
-        //Setup ModelChart
-        this.model_chart_optionsP8_3.series =[{data: model_dataP8_3}]
-        this.model_chart_optionsP8_3.xaxis = {
-          title: {
-            text: "Fixed Effect (Log2 Fold Change)",
-            offsetY: 80,
-            style:{
-              fontSize:'18px'
-            }
-          },
-          tooltip:{
-            formatter: function(val, opts){
-              return val.toString()
-            }
-          },
-          type: "numeric",
-          tickAmount: num_ticks,
-          min: min_lfcP8_3,
-          max: max_lfcP8_3
+    //Setup MetaChart
+    this.meta_chart_optionsP8_3.chart!.width = cluster_numberP8_3 > 20 ? '100%' : Math.trunc(cluster_numberP8_3 * 5).toString() + '%'
+    this.meta_chart_optionsP8_3.series = [
+      {
+        name: "Non-Significant Fit",
+        data: [meta_series_infoP8_3[5]]
+      },
+      {
+        name: "Significantly Downregulated",
+        data: [meta_series_infoP8_3[0]]
+      },
+      {
+        name: "Slightly Downregulated",
+        data: [meta_series_infoP8_3[1]]
+      },
+      {
+        name: "No Change",
+        data: [meta_series_infoP8_3[2]]
+      },
+      {
+        name: "Slightly Upregulated",
+        data: [meta_series_infoP8_3[3]]
+      },
+      {
+        name: "Significantly Upregulated",
+        data: [meta_series_infoP8_3[4]]
+      },
+    ]
+    //Setup ModelChart
+    this.model_chart_optionsP8_3.series = [{ data: model_dataP8_3 }]
+    this.model_chart_optionsP8_3.xaxis = {
+      title: {
+        text: "Fixed Effect (Log2 Fold Change)",
+        offsetY: 75,
+        style: {
+          fontSize: '16px',
+          color: "#0d6efd"
         }
-        this.model_chart_optionsP8_3.yaxis = {
-          title: {
-            text: "-Log10(Adjusted P-Value)",
-            style:{
-              fontSize:'18px'
-            }
-          },
-          min:0,
-          max:max_p_valP8_3,
-          labels: {
-            formatter: function(val) {
-              // Round the y-axis label to an integer
-              return Math.round(val).toString();
-            }
-          }
+      },
+      tooltip: {
+        formatter: function (val, opts) {
+          return val.toString()
         }
+      },
+      type: "numeric",
+      tickAmount: num_ticks,
+      min: min_lfcP8_3,
+      max: max_lfcP8_3
+    }
+    this.model_chart_optionsP8_3.yaxis = {
+      title: {
+        text: "-Log10(Adjusted P-Value)",
+        style: {
+          fontSize: '16px',
+          color: "#0d6efd"
+        }
+      },
+      min: 0,
+      max: max_p_valP8_3,
+      labels: {
+        formatter: function (val) {
+          // Round the y-axis label to an integer
+          return Math.round(val).toString();
+        }
+      }
+    }
   }
 
-  updateMetaSeriesInfo(info: number[], lfc: number, pval:number){
+  updateMetaSeriesInfo(info: number[], lfc: number, pval: number) {
     let i = -1
-    if(pval < 1.30103){
+    if (pval < 1.30103) {
       i = 5
     }
-    else if(lfc <= -this.lfc_sig_cutoff){
+    else if (lfc <= -this.lfc_sig_cutoff) {
       i = 0
     }
-    else if(lfc>-this.lfc_sig_cutoff && lfc< -this.lfc_minor_sig_cutoff){
+    else if (lfc > -this.lfc_sig_cutoff && lfc < -this.lfc_minor_sig_cutoff) {
       i = 1
     }
-    else if(lfc>=-this.lfc_minor_sig_cutoff && lfc<= this.lfc_minor_sig_cutoff){
+    else if (lfc >= -this.lfc_minor_sig_cutoff && lfc <= this.lfc_minor_sig_cutoff) {
       i = 2
     }
-    else if(lfc>this.lfc_minor_sig_cutoff && lfc< this.lfc_sig_cutoff){
+    else if (lfc > this.lfc_minor_sig_cutoff && lfc < this.lfc_sig_cutoff) {
       i = 3
     }
-    else{
+    else {
       i = 4
     }
-    info[i] = info[i]+1;
-    return(info)
+    info[i] = info[i] + 1;
+    return (info)
   }
 
-  reorder(list: any, ids: any){
+  reorder(list: any, ids: any) {
     let new_list = []
-    for(let i = 0; i<ids.length; i++){
+    for (let i = 0; i < ids.length; i++) {
       let id = ids[i]
       new_list.push(list[id])
     }
-    return(new_list)
+    return (new_list)
   }
-  getNumUniqueStudies(){
+  getNumUniqueStudies() {
     let pmids = []
-    for(let i = 0; i<this.gene_list.length; i++){
+    for (let i = 0; i < this.gene_list.length; i++) {
       pmids.push(this.gene_list[i].pmid)
     }
     let set = new Set(pmids)
-    return(set.size)
+    return (set.size)
   }
 
-  getFillColor(p_val: number, lfc: number){
-    if(p_val < 1.30103){
-      return('black')
+  getFillColor(p_val: number, lfc: number) {
+    if (p_val < 1.30103) {
+      return ('black')
     }
-    if(lfc < -this.lfc_sig_cutoff){
-      return(this.sig_dn_color)
+    if (lfc < -this.lfc_sig_cutoff) {
+      return (this.sig_dn_color)
     }
-    if(lfc < -this.lfc_minor_sig_cutoff){
-      return(this.sli_dn_color)
+    if (lfc < -this.lfc_minor_sig_cutoff) {
+      return (this.sli_dn_color)
     }
-    if(lfc > this.lfc_sig_cutoff){
-      return(this.sig_up_color)
+    if (lfc > this.lfc_sig_cutoff) {
+      return (this.sig_up_color)
     }
-    if(lfc > this.lfc_minor_sig_cutoff){
-      return(this.sli_up_color)
+    if (lfc > this.lfc_minor_sig_cutoff) {
+      return (this.sli_up_color)
     }
-    return(this.no_change_color)
+    return (this.no_change_color)
   }
   // cleanArrays(){
   //   let ordered_ids = sortIds(this.gene.fixed_effect);
