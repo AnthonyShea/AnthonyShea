@@ -149,7 +149,13 @@ export class GoComponent implements OnInit {
         title: {
           text: "-Log10(Adjusted P-Value)",
           style: {
-            fontSize: '20px'
+            fontSize: '16px',
+            color: "#d63384"
+          }
+        },
+        labels: {
+          style: {
+            colors: '#d63384',
           }
         }
       },
@@ -170,7 +176,10 @@ export class GoComponent implements OnInit {
       },
       title: {
         text: 'TEST@',
-        align: "center"
+        align: "center",
+        style: {
+          color: '#d63384'
+        }
       },
     };
 
@@ -194,7 +203,13 @@ export class GoComponent implements OnInit {
         title: {
           text: "Gini Index Frequency",
           style: {
-            fontSize: '20px'
+            fontSize: '16px',
+            color: '#d63384'
+          }
+        },
+        labels: {
+          style: {
+            colors: '#d63384',
           }
         }
       },
@@ -204,13 +219,17 @@ export class GoComponent implements OnInit {
           offsetY: 90,
           offsetX: -20,
           style: {
-            fontSize: '20px'
+            fontSize: '20px',
+            color: '#d63384'
           }
         },
         tickAmount: 10, // Attempt to set the number of ticks to 10
         labels: {
           formatter: function (value) {
             return Number(value).toFixed(1);
+          },
+          style: {
+            colors: '#d63384',
           }
         }
       },
@@ -279,7 +298,13 @@ export class GoComponent implements OnInit {
         text: "Normalized Enrichment Score",
         offsetY: 80,
         style: {
-          fontSize: '20px'
+          fontSize: '16px',
+          color: "#d63384"
+        }
+      },
+      labels: {
+        style: {
+          colors: "#d63384"
         }
       },
       type: "numeric", // Ensure x-axis is numeric
@@ -294,7 +319,8 @@ export class GoComponent implements OnInit {
       title: {
         text: "-Log10(Adjusted P-Value)",
         style: {
-          fontSize: '20px'
+          fontSize: '16px',
+          color: '#d63384'
         }
       },
       min: 0,
@@ -303,6 +329,9 @@ export class GoComponent implements OnInit {
         formatter: function (val) {
           // Round the y-axis label to an integer
           return Math.round(val).toString();
+        },
+        style: {
+          colors: "#d63384",
         }
       }
     }
