@@ -50,7 +50,7 @@
     </div>
     <div class="row">
       <div class="input-group mb-3">
-        <span class="input-group-text emphasize" id="basic-addon1">Comparison Type</span>
+        <span class="input-group-text text-bg-danger" id="basic-addon1">Comparison Type</span>
         <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedComparisonType">
           <option *ngFor="let item of comparisonTypes" [value]="item.value">{{item.text}}</option>
         </select>
@@ -68,7 +68,7 @@
     <!--TISSUE SELECT BOX-->
     <div class="row">
       <div class="input-group mb-3 d-flex justify-content-between">
-        <span class="input-group-text emphasize">Tissues</span>
+        <span class="input-group-text text-bg-danger">Tissues</span>
         <dx-tag-box [items]="tissue_types" [searchEnabled]="true" [hideSelectedItems]="true"
           placeholder="Select Tissues" [showMultiTagOnly]="false" [maxDisplayedTags]="4" [showClearButton]="true"
           style="width: 100%; flex: 1;" [showSelectionControls]="true" [(value)]='selected_tissues'></dx-tag-box>
@@ -77,7 +77,7 @@
     <!--CELL TYPE SELECT BOX-->
     <div class="row">
       <div class="input-group mb-3">
-        <span class="input-group-text emphasize" id="basic-addon1">Cell Types</span>
+        <span class="input-group-text text-bg-danger" id="basic-addon1">Cell Types</span>
         <dx-tag-box [items]="cell_types" [searchEnabled]="true" [hideSelectedItems]="true"
           placeholder="Select Cell Types" [showMultiTagOnly]="false" [maxDisplayedTags]="4" [showClearButton]="true"
           style="width: 100%; flex: 1;" [showSelectionControls]="true" [(value)]='selected_cell_types'></dx-tag-box>
@@ -86,14 +86,14 @@
     <!--PATHWAY SELECT BOX-->
     <div class="row">
       <div class="input-group mb-3">
-        <span class="input-group-text emphasize" id="basic-addon1">Pathways</span>
+        <span class="input-group-text text-bg-danger" id="basic-addon1">Pathways</span>
         <!--<select class="form-select" aria-label="Default select example" [(ngModel)]="selected_pathway">
           <option *ngFor="let item of pathways"
             [value]="item">{{item}}</option>
         </select>-->
         <dx-autocomplete [dataSource]="pathways" [(value)]="selected_pathway" [minSearchLength]="1" searchEnabled="true"
           [searchMode]="selected_search_mode" [maxItemCount]="200" [showDropDownButton]="true"></dx-autocomplete>
-        <span class="input-group-text emphasize" id="basic-addon1">Mode</span>
+        <span class="input-group-text text-bg-danger" id="basic-addon1">Mode</span>
         <select class="form-select" aria-label="Default select example" [(ngModel)]="selected_search_mode">
           <option *ngFor="let item of search_modes" [value]="item.value">{{item.text}}</option>
         </select>
@@ -113,8 +113,8 @@
     </div>-->
     <div class="row">
       <div class="d-flex justify-content-center">
-        <button (click)="getNewData()" class="btn btn-warning">
-          SELECT GO RESULTS
+        <button (click)="getNewData()" class="btn btn-danger">
+          Select GO Results
         </button>
       </div>
     </div>
@@ -165,7 +165,7 @@
   <div class="col-12 mb-3">
     <div class="row">
       <div class="input-group mb-3">
-        <span class="input-group-text emphasize" id="basic-addon1">Comparison Type</span>
+        <span class="input-group-text text-bg-danger" id="basic-addon1">Comparison Type</span>
         <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedComparisonType">
           <option *ngFor="let item of comparisonTypes" [value]="item.value">{{item.text}}</option>
         </select>
@@ -183,7 +183,7 @@
     <!--TISSUE SELECT BOX-->
     <div class="row">
       <div class="input-group mb-3">
-        <span class="input-group-text emphasize">Tissues</span>
+        <span class="input-group-text text-bg-danger">Tissues</span>
         <dx-tag-box [items]="tissue_types" [searchEnabled]="true" [hideSelectedItems]="true"
           placeholder="Select Tissues" [showMultiTagOnly]="false" [maxDisplayedTags]="4" [showClearButton]="true"
           style="width: 100%; flex: 1;" [showSelectionControls]="true" [(value)]='selected_tissues'></dx-tag-box>
@@ -192,7 +192,7 @@
     <!--CELL TYPE SELECT BOX-->
     <div class="row">
       <div class="input-group mb-3">
-        <span class="input-group-text emphasize" id="basic-addon1">Cell Types</span>
+        <span class="input-group-text text-bg-danger" id="basic-addon1">Cell Types</span>
         <dx-tag-box [items]="cell_types" [searchEnabled]="true" [hideSelectedItems]="true"
           placeholder="Select Cell Types" [showMultiTagOnly]="false" [maxDisplayedTags]="4" [showClearButton]="true"
           style="width: 100%; flex: 1;" [showSelectionControls]="true" [(value)]='selected_cell_types'></dx-tag-box>
@@ -201,7 +201,7 @@
     <!--PATHWAY SELECT BOX-->
     <div class="row">
       <div class="input-group mb-3">
-        <span class="input-group-text emphasize" id="basic-addon1">Pathways</span>
+        <span class="input-group-text text-bg-danger" id="basic-addon1">Pathways</span>
         <!--<select class="form-select" aria-label="Default select example" [(ngModel)]="selected_pathway">
           <option *ngFor="let item of pathways"
             [value]="item">{{item}}</option>
@@ -211,7 +211,7 @@
         <!--<select class="form-select" aria-label="Select" [(ngModel)]="selected_pathway">
           <option *ngFor="let item of pathways" [value]="item.value">{{item.text}}</option>
         </select>-->
-        <span class="input-group-text emphasize" id="basic-addon1">Mode</span>
+        <span class="input-group-text text-bg-danger" id="basic-addon1">Mode</span>
         <select class="form-select" aria-label="Default select example" [(ngModel)]="selected_search_mode">
           <option *ngFor="let item of search_modes" [value]="item.value">{{item.text}}</option>
         </select>
@@ -220,8 +220,8 @@
 
     <div class="row">
       <div class="d-flex justify-content-center">
-        <button (click)="getNewData()" class="btn btn-warning">
-          SELECT GO RESULTS
+        <button (click)="getNewData()" class="btn btn-danger">
+          Select GO Results
         </button>
       </div>
     </div>

@@ -2,7 +2,7 @@
     <div class="col-lg-7 col-md-6 col-sm-12">
         <div class="row">
             <div class="input-group mb-2 d-flex justify-content-between">
-                <span class="input-group-text emphasize">Species</span>
+                <span class="input-group-text text-bg-danger">Species</span>
                 <dx-tag-box class='dx-tag-box' [items]="species" [searchEnabled]="true" [hideSelectedItems]="true"
                     [hideSelectedItems]="true" [maxDisplayedTags]="4" style="width: 100%; flex: 1;"
                     [showClearButton]="true" (onValueChanged)="onSpeciesChanged($event)" placeholder="Select species"
@@ -11,7 +11,7 @@
         </div>
         <div class="row">
             <div class="input-group mb-2 d-flex justify-content-between">
-                <span class="input-group-text emphasize">Tissue</span>
+                <span class="input-group-text text-bg-danger">Tissue</span>
                 <dx-tag-box class='dx-tag-box' [items]="tissue_types" [searchEnabled]="true" [hideSelectedItems]="true"
                     (onValueChanged)="onTissuesChanged($event)" placeholder="Select tissues" [showMultiTagOnly]="false"
                     [value]='tissue_types' style="width: 100%; flex: 1;" [showClearButton]="true" [maxDisplayedTags]="4"
@@ -20,7 +20,7 @@
         </div>
         <div class="row">
             <div class="input-group mb-2 d-flex justify-content-between">
-                <span class="input-group-text emphasize">Cell Types</span>
+                <span class="input-group-text text-bg-danger">Cell Types</span>
                 <dx-tag-box class='dx-tag-box' [items]="cell_types" [searchEnabled]="true" [hideSelectedItems]="true"
                     (onValueChanged)="onCellsChanged($event)" placeholder="Select cell types" [value]='selected_cells'
                     [maxDisplayedTags]="8" style="width: 100%; flex: 1;" [showClearButton]="true"
@@ -29,7 +29,7 @@
         </div>
         <div class="row">
             <div class="input-group mb-2 d-flex justify-content-between">
-                <span class="input-group-text emphasize">Health Status</span>
+                <span class="input-group-text text-bg-danger">Health Status</span>
                 <dx-tag-box class='dx-tag-box' [items]="health" [searchEnabled]="true" [hideSelectedItems]="true"
                     (onValueChanged)="onHealthChanged($event)" placeholder="Select Health Status"
                     style="width: 100%; flex: 1;" [value]='selected_health' [maxDisplayedTags]="8"
@@ -38,14 +38,14 @@
         </div>
         <div class="row">
             <div class="input-group mb-2">
-                <span class="input-group-text emphasize" id="basic-addon1">PMID</span>
+                <span class="input-group-text text-bg-danger" id="basic-addon1">PMID</span>
                 <input type="text" (value)="pmid" placeholder="Optional" class="form-control"
                     aria-describedby="basic-addon1">
             </div>
         </div>
         <div class="row">
             <div class="input-group mb-2 d-flex justify-content-between">
-                <span class="input-group-text emphasize" id="basic-addon1">Age Select</span>
+                <span class="input-group-text text-bg-danger" id="basic-addon1">Age Select</span>
                 <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off" value="neonetal"
                     [(ngModel)]="this.neonatal_selected">
                 <label class="btn btn-outline-secondary"
@@ -60,7 +60,7 @@
         </div>
         <div class="row">
             <div class="d-flex justify-content-center">
-                <button (click)="samplesTest()" class="btn btn-warning" style="margin-right: .5rem;">Search</button>
+                <button (click)="samplesTest()" class="btn btn-danger" style="margin-right: .5rem;">Search</button>
                 <button id="downloadButton" [disabled]="!query_completed" class="btn btn-secondary" icon="download"
                     (click)="downloadWrapper()">Download
                     Standardized Data</button>
@@ -130,7 +130,7 @@
     </div>
     <div class="col-lg-6 col-md-12">
         <div class="input-group mb-2 d-flex justify-content-between">
-            <span class="input-group-text emphasize" id="basic-addon1">File Type</span>
+            <span class="input-group-text text-bg-danger" id="basic-addon1">File Type</span>
             <input type="checkbox" class="btn-check" id="degResults" autocomplete="off" value="degResult"
                 [(ngModel)]="this.degResults_selected">
             <label class="btn btn-outline-secondary" style="width: 100%; flex: 1; border-color: var(--bs-border-color)"
@@ -145,7 +145,7 @@
                 for="goEnrich">Go Enrich</label>
         </div>
         <div class="input-group mb-2">
-            <span class="input-group-text emphasize" id="basic-addon1">PMID</span>
+            <span class="input-group-text text-bg-danger" id="basic-addon1">PMID</span>
             <input type="text" (value)="pmid" placeholder="Optional" class="form-control"
                 aria-describedby="basic-addon1">
         </div>
