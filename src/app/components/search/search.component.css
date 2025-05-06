@@ -1,6 +1,4 @@
-
-
-.dx-field-label{
+.dx-field-label {
     color: #E98074;
     font-size: 30px;
     font-weight: 700;
@@ -8,37 +6,39 @@
     width: 30%;
 }
 
-.dx-field{
+.dx-field {
     width: 100%;
 }
-.dx-field-value{
+
+.dx-field-value {
     float: left;
 }
-.dx-tag-box{
+
+.dx-tag-box {
     height: 100%;
     width: inherit;
 }
 
-.dx-text-box{
+.dx-text-box {
     /*position: absolute;*/
     height: 100%;
     width: inherit;
     /*font-size: 20px*/
 }
 
-.form{
+.form {
     flex: 1 0 auto;
     width: 65%;
 }
 
-.graphs{
+.graphs {
     flex: 1 0 auto;
     width: 35%;
     max-height: 100%;
 }
 
 .flex-container {
-    display:flex;
+    display: flex;
     flex-wrap: nowrap;
 }
 
@@ -49,30 +49,57 @@
     font-weight: bold;
     font-size: 16px;
     height: 40px;
-    border: solid #8E8D8A 2px;  
+    border: solid #8E8D8A 2px;
     margin-right: 5px;
 }
 
 ::ng-deep .dx-button-text {
-    font-size: var(--bs-nav-link-font-size);
-    font-weight: var(--bs-nav-link-font-weight);
-    color: var(--bs-nav-link-color);
+    font-size: var(--bs-body-font-size);
+    font-family: var(--bs-body-font-family);
+    font-weight: var(--bs-body-font-weight);
+    color: var(--bs-body-color);
+    transition: .2s ease-in-out;
+    border: var(--bs-border-width) 1px var(--bs-border-color) !important;
+    background: transparent;
 }
 
-.sampletable{
+::ng-deep .dx-buttongroup-item {
+    background-color: transparent !important;
+}
+
+::ng-deep .dx-buttongroup-item.dx-item-selected {
+    background-color: var(--bs-pink) !important;
+}
+
+::ng-deep .dx-item-selected .dx-button-text {
+    color: white;
+}
+
+::ng-deep .dx-button-mode-contained.dx-buttongroup-first-item.dx-button, .dx-button-mode-contained.dx-buttongroup-first-item.dx-state-hover .dx-button-content, .dx-button-mode-outlined.dx-buttongroup-first-item.dx-button, .dx-button-mode-outlined.dx-buttongroup-first-item.dx-state-hover .dx-button-content {
+    border-top-left-radius: .375rem;
+    border-bottom-left-radius: .375rem;
+}
+
+::ng-deep .dx-button-mode-contained.dx-buttongroup-last-item.dx-button, .dx-button-mode-contained.dx-buttongroup-last-item.dx-state-hover .dx-button-content, .dx-button-mode-outlined.dx-buttongroup-last-item.dx-button, .dx-button-mode-outlined.dx-buttongroup-last-item.dx-state-hover .dx-button-content {
+    border-top-right-radius: .375rem;
+    border-bottom-right-radius: .375rem;
+}
+
+.sampletable {
     background-color: #E98074;
 }
 
-.searchbutton{
+.searchbutton {
     color: #E98074;
     font-weight: bold;
     font-size: 16px;
     height: 40px;
-    border: solid #8E8D8A 2px;  
+    border: solid #8E8D8A 2px;
     margin-left: 80px;
     margin-right: 5px;
 }
-.downloadInfo{
+
+.downloadInfo {
     font-size: 20px;
     margin: 3px;
     text-align: center;
@@ -80,17 +107,17 @@
 }
 
 /* Adjust the size of the button group */
-.large-button-group {
-    
-}
+.large-button-group {}
 
 /* Center the button group horizontally and vertically */
 .button-group-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px; /* Adjust the height of the container as needed */
+    height: 100px;
+    /* Adjust the height of the container as needed */
 }
+
 /* Custom CSS with increased specificity and !important */
 ::ng-deep .button-group-container .dx-button-content .dx-button-text {
     font-size: 25px !important;
@@ -107,7 +134,7 @@
     color: var(--bs-body-color);
 }
 
-.dx-texteditor-container *{
+.dx-texteditor-container * {
     color: var(--bs-body-color) !important;
     padding: .375rem .75rem;
     font-size: 1rem;
