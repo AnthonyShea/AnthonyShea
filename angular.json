@@ -30,7 +30,7 @@
               "node_modules/devextreme/dist/css/dx.common.css",
               "node_modules/devextreme/dist/css/dx.light.css",
               "src/styles.css",
-              "src/css/bootstrap.min.css",
+              "src/css/bootstrap.css",
               "src/fontawesome-free-6.7.2-web/css/all.min.css"
             ],
             "scripts": [
