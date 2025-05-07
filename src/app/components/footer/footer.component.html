@@ -1,0 +1,48 @@
+<footer class="text-left bg-body-tertiary mt-4">
+    <!-- Grid container -->
+    <div class="container">
+        <section class="d-flex justify-content-center justify-content-between py-4 border-bottom">
+            <!-- Section: Social media -->
+            <div class="me-5 d-lg-block">
+                <div class="row">
+                    <p>
+                        Mouse Cardiac Regeneration Database
+                        <br />
+                        <small class="text-muted">Version 0.2505.2.0</small>
+                    </p>
+                    <small class="text-muted">This resource is provided for research/educational purposes only. It must
+                        not be used for clinical diagnosis or commercial decision making.</small>
+                    <div class="d-flex">
+                        <small class="text-muted"><a href="javascript:void(0);" target="_blank"
+                                (click)="CiteClick();">Citation</a></small>
+                        <small class="text-muted ms-2"><a href="javascript:void(0);" target="_blank"
+                            (click)="showChangelog();">Changelog</a></small>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex">
+                <!-- Github -->
+                <a data-mdb-ripple-init="" class="btn btn-link btn-floating text-body btn-lg"
+                    href="https://github.com/itsuki5696/aninext" role="button" data-mdb-ripple-color="dark"><i
+                        class="fab fa-github"></i></a>
+                <a data-mdb-ripple-init="" class="btn btn-link btn-floating text-body btn-lg"
+                    href="mailto:author@example.com" role="button" data-mdb-ripple-color="dark"><i
+                        class="fa fa-envelope"></i></a>
+            </div>
+        </section>
+    </div>
+    <!-- Copyright -->
+</footer>
+
+<div class="toast-container position-fixed top-0 start-0 w-100 h-100">
+    <div id="changelogToast" class="toast bg-blurred top-50 start-50 translate-middle position-fixed" role="alert" aria-live="assertive" data-bs-autohide="false" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto">Changelog</strong>
+            <a type="button" (click)="hideChangelog();" data-bs-dismiss="toast" aria-label="Close" class="btn-macclose"></a>
+        </div>
+        <div class="toast-body">
+            Hello, world! This is a toast message.
+        </div>
+    </div>
+    <div id="shadow" class="position-fixed shadow top-0 start-0 w-100 h-100"></div>
+</div>
