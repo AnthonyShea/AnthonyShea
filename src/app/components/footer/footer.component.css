@@ -19,6 +19,7 @@
     border: var(--bs-border-width) solid var(--bs-btn-border-color);
     border-radius: 50%;
     transition: .1s ease-in-out;
+    cursor: pointer;
 }
 
 ::ng-deep .btn-macclose:hover {
@@ -34,6 +35,37 @@
     -webkit-backdrop-filter: blur(100px);
     backdrop-filter: blur(100px);
     z-index: 999
+}
+
+.toast.full-screen {
+    min-width: 90%;
+    max-width: 700px;
+    max-height: 90%;
+    overflow-y: scroll;
+}
+
+@media (min-width: 576px) {
+    .toast.full-screen {
+        min-width: 80%;
+    }
+}
+
+@media (min-width: 768px) {
+    .toast.full-screen {
+        min-width: 70%;
+    }
+}
+
+@media (min-width: 992px) {
+    .toast.full-screen {
+        min-width: 60%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .toast.full-screen {
+        min-width: 50%;
+    }
 }
 
 .toast.bg-blurred .toast-header {

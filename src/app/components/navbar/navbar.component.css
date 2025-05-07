@@ -44,10 +44,11 @@
   --bs-main-theme-rgb: 214, 51, 132;
 }
 
-.nav-link.active {
+.nav-link.active, .btn-darkmode {
   box-shadow: var(--bs-box-shadow);
   border: 1px solid var(--bs-border-color-translucent);
-  background-color: rgba(var(--bs-pink-rgb), 0.6);
+  background-color: rgba(var(--bs-pink-rgb), 0.5);
+  transition: .1s ease-in-out;
 }
 
 .nav-link {
@@ -61,4 +62,12 @@
   background-color: rgba(var(--bs-pink-rgb), 0.5);
   backdrop-filter: blur(100px);
   --webkit-backdrop-filter: blur(100px);
+}
+
+.btn-darkmode:hover, .nav-link.active:hover {
+  background-color: rgba(var(--bs-pink-rgb), 0.6);
+}
+
+.btn-darkmode:active, .nav-link.active:active {
+  background-color: rgba(var(--bs-pink-rgb), 0.7);
 }

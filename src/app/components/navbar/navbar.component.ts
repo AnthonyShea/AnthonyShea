@@ -9,7 +9,6 @@ import { filter } from 'rxjs/operators';
 })
 export class NavbarComponent implements OnInit {
   tabs: any[];
-  tabs_dropdown: any[];
   selected_path: string = '';
 
   @ViewChild('customTabTemplate', { static: true }) customTabTemplate: TemplateRef<any>;
@@ -63,6 +62,7 @@ export class NavbarComponent implements OnInit {
     if (prefersDark) {
         document.documentElement.setAttribute("data-bs-theme", "dark");
         document.getElementById('darkModeSwitch')?.setAttribute('checked', 'checked');
+        document.getElementById("darkModeBtn")!.innerHTML = "<i class=\"fa fa-moon\"><\/i>";
     }
     console.log(prefersDark);
   }
@@ -90,6 +90,17 @@ export class NavbarComponent implements OnInit {
     }
     else {
       document.documentElement.setAttribute('data-bs-theme', 'dark')
+    }
+  }
+
+  onDarkModeBtnClick() {
+    if (document.documentElement.getAttribute('data-bs-theme') == 'dark') {
+      document.documentElement.setAttribute('data-bs-theme', 'light');
+      document.getElementById("darkModeBtn")!.innerHTML = "<i class=\"fa fa-sun\"><\/i>";
+    }
+    else {
+      document.documentElement.setAttribute('data-bs-theme', 'dark');
+      document.getElementById("darkModeBtn")!.innerHTML = "<i class=\"fa fa-moon\"><\/i>";
     }
   }
 }
