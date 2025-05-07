@@ -4,9 +4,10 @@ import bootstrap from 'src/js/bootstrap.js'
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.css']
+  styleUrls: ['./footer.component.css'],
 })
 export class FooterComponent implements OnInit {
+
 
   constructor() { }
 
@@ -26,5 +27,9 @@ export class FooterComponent implements OnInit {
 
   hideChangelog(): void {
     document.getElementById("shadow")!.style.display = "none";
+  }
+
+  readChangelog(): void {
+    const ChangelogFile = "CHANGELOG.md";
   }
 }
