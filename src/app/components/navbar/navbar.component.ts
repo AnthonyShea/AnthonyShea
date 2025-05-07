@@ -9,6 +9,7 @@ import { filter } from 'rxjs/operators';
 })
 export class NavbarComponent implements OnInit {
   tabs: any[];
+  tabs_dropdown: any[];
   selected_path: string = '';
 
   @ViewChild('customTabTemplate', { static: true }) customTabTemplate: TemplateRef<any>;

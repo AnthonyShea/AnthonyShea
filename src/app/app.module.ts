@@ -21,6 +21,8 @@ import { DocumentationComponent } from './components/documentation/documentation
 import { DxiLayerModule, DxoSelectionModule } from 'devextreme-angular/ui/nested';
 import { GoComponent } from './components/go/go.component';
 import { LoginComponent } from './components/login/login.component';
+import { ChangelogComponent } from './components/changelog/changelog.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { LoginComponent } from './components/login/login.component';
     NavbarComponent,
     DocumentationComponent,
     GoComponent,
-    LoginComponent
+    LoginComponent,
+    ChangelogComponent,
+    FooterComponent
   ],
   imports: [
     DxFormModule,
