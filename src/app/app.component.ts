@@ -7,7 +7,4 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent {
   title = 'Chewie';
-  CiteClick(): void {
-    window.prompt('Citation', 'Abcd, E., 2025, https://mcaredb.org/');
-  }
 }
