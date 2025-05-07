@@ -31,9 +31,7 @@
 }
 
 .toast.bg-blurred {
-    background-color: rgba(var(--bs-body-bg-rgb), .3);
-    -webkit-backdrop-filter: blur(100px);
-    backdrop-filter: blur(100px);
+    background-color: var(--bs-body-bg);
     z-index: 999
 }
 
@@ -69,7 +67,7 @@
 }
 
 .toast.bg-blurred .toast-header {
-    background-color: rgba(var(--bs-body-bg-rgb), .5);
+    background-color: var(--bs-body-bg);
 }
 
 .shadow {
