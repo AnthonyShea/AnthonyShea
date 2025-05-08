@@ -124,6 +124,7 @@
   --bs-form-valid-border-color: #198754;
   --bs-form-invalid-color: #dc3545;
   --bs-form-invalid-border-color: #dc3545;
+  --bs-canvas-filter: none;
 }
 
 [data-bs-theme=dark] {
@@ -180,6 +181,7 @@
   --bs-form-valid-border-color: #75b798;
   --bs-form-invalid-color: #ea868f;
   --bs-form-invalid-border-color: #ea868f;
+  --bs-canvas-filter: invert(1) hue-rotate(180deg);
 }
 
 *,
@@ -12038,3 +12040,37 @@ textarea.form-control-lg {
 }
 
 /*# sourceMappingURL=bootstrap.css.map */
+
+/* Custom CSS Area.
+ * Somehow the component CSS files aren't working. I moved all styles here.
+ */
+
+.apexcharts-tooltip {
+  background-color: rgba(var(--bs-body-bg-rgb), .1) !important;
+  color: var(--bs-body-color) !important;
+  backdrop-filter: blur(100px) !important;
+  -webkit-backdrop-filter: blur(100px) !important;
+  padding: .25rem .75rem !important;
+  border: var(--bs-border-width) solid var(--bs-border-color-translucent) !important;
+  border-radius: var(--bs-border-radius) !important;
+  box-shadow: var(--bs-box-shadow) !important;
+  font-family: var(--bs-font-sans-serif) !important;
+  font-size: var(--bs-tooltip-font-size) !important;
+}
+
+.apexcharts-svg * {
+  font-family: var(--bs-body-font-family) !important;
+}
+
+.apexcharts-tooltip > *, .apexcharts-tooltip * {
+  background: transparent !important;
+  color: var(--bs-body-color) !important;
+  font-family: var(--bs-font-sans-serif) !important;
+  padding: 0 !important;
+}
+
+
+
+.apexcharts-svg, canvas, img {
+  filter: var(--bs-canvas-filter) !important;
+}
