@@ -96,7 +96,7 @@ export class NavbarComponent implements OnInit {
   onDarkModeBtnClick() {
     if (document.documentElement.getAttribute('data-bs-theme') == 'dark') {
       document.documentElement.setAttribute('data-bs-theme', 'light');
-      document.getElementById("darkModeBtn")!.innerHTML = "<i class=\"fa fa-sun\"><\/i>";
+      document.getElementById("darkModeBtn")!.innerHTML = "<i class=\"fa fa-cloud-sun\"><\/i>";
     }
     else {
       document.documentElement.setAttribute('data-bs-theme', 'dark');
