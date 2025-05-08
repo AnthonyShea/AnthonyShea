@@ -13923,7 +13923,7 @@ fieldset:disabled .btn {
   font-family: var(--bs-body-font-family) !important;
 }
 
-.dx-popup-wrapper>.dx-overlay-content {
+.dx-popup-wrapper>.dx-overlay-content, .apexcharts-menu {
   background-color: rgba(var(--bs-body-bg-rgb), .1) !important;
   color: var(--bs-body-color) !important;
   backdrop-filter: blur(100px) !important;
@@ -13931,6 +13931,27 @@ fieldset:disabled .btn {
   border: var(--bs-border-width) solid var(--bs-border-color-translucent) !important;
   border-radius: var(--bs-border-radius) !important;
   box-shadow: var(--bs-box-shadow) !important;
+}
+
+.apexcharts-menu {
+  padding: 0.5rem 0 !important;
+  min-width: 10rem !important;
+}
+
+.apexcharts-menu > .apexcharts-menu-item {
+  padding: .25rem 1rem !important;
+  background: transparent !important;
+  color: var(--bs-body-color) !important;
+  font-family: var(--bs-font-sans-serif) !important;
+  font-size: var(--bs-tooltip-font-size) !important;
+}
+
+.apexcharts-menu > .apexcharts-menu-item:hover {
+  background-color: rgba(var(--bs-body-color-rgb), .1) !important;
+}
+
+.apexcharts-menu > .apexcharts-menu-item:focus, .apexcharts-menu > .apexcharts-menu-item:active {
+  background-color: rgba(var(--bs-body-color-rgb), .2) !important;
 }
 
 .dx-dropdownlist-popup-wrapper .dx-popup-content {
@@ -13953,6 +13974,25 @@ fieldset:disabled .btn {
   -webkit-appearance: none;
   appearance: none;
   background-color: var(--bs-body-bg) !important;
+}
+
+.dx-texteditor-input-container.dx-tag-container {
+  padding: 0;
+}
+
+.dx-tag {
+  height: 100%;
+}
+
+.dx-tag > .dx-tag-content {
+  margin: 5px
+}
+
+.dx-tag-content {
+  background-color: rgba(var(--bs-body-color-rgb), .2);
+  color: var(--bs-body-color);
+  border: var(--bs-border-width) solid var(--bs-border-color-translucent);
+  border-radius: var(--bs-border-radius);
 }
 
 dx-autocomplete:focus {
