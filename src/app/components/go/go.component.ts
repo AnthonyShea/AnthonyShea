@@ -150,12 +150,12 @@ export class GoComponent implements OnInit {
           text: "-Log10(Adjusted P-Value)",
           style: {
             fontSize: '16px',
-            color: "#d63384"
+            color: "#000"
           }
         },
         labels: {
           style: {
-            colors: '#d63384',
+            colors: '#000',
           }
         }
       },
@@ -178,7 +178,7 @@ export class GoComponent implements OnInit {
         text: 'TEST@',
         align: "center",
         style: {
-          color: '#d63384'
+          color: '#000'
         }
       },
     };
@@ -204,12 +204,12 @@ export class GoComponent implements OnInit {
           text: "Gini Index Frequency",
           style: {
             fontSize: '16px',
-            color: '#d63384'
+            color: '#000'
           }
         },
         labels: {
           style: {
-            colors: '#d63384',
+            colors: '#000',
           }
         }
       },
@@ -220,7 +220,7 @@ export class GoComponent implements OnInit {
           offsetX: -20,
           style: {
             fontSize: '20px',
-            color: '#d63384'
+            color: '#000'
           }
         },
         tickAmount: 10, // Attempt to set the number of ticks to 10
@@ -229,7 +229,7 @@ export class GoComponent implements OnInit {
             return Number(value).toFixed(1);
           },
           style: {
-            colors: '#d63384',
+            colors: '#000',
           }
         }
       },
@@ -299,12 +299,12 @@ export class GoComponent implements OnInit {
         offsetY: 80,
         style: {
           fontSize: '16px',
-          color: "#d63384"
+          color: "#000"
         }
       },
       labels: {
         style: {
-          colors: "#d63384"
+          colors: "#000"
         }
       },
       type: "numeric", // Ensure x-axis is numeric
@@ -320,7 +320,7 @@ export class GoComponent implements OnInit {
         text: "-Log10(Adjusted P-Value)",
         style: {
           fontSize: '16px',
-          color: '#d63384'
+          color: '#000'
         }
       },
       min: 0,
@@ -331,7 +331,7 @@ export class GoComponent implements OnInit {
           return Math.round(val).toString();
         },
         style: {
-          colors: "#d63384",
+          colors: "#000",
         }
       }
     }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges, ViewChild, ViewEncapsulation } from '@angular/core';
 import { ApexAxisChartSeries, ApexChart, ApexPlotOptions, ApexXAxis, ApexTitleSubtitle, ApexTooltip, ApexYAxis, ApexMarkers, ApexFill, ApexAnnotations } from "ng-apexcharts";
 import { DiffExp } from 'src/app/models/diffExp.model';
 import { Indices } from 'src/app/models/indices.model';
@@ -23,7 +23,7 @@ export type ChartOptions = {
 @Component({
   selector: 'app-gene-card',
   templateUrl: './gene-card.component.html',
-  styleUrls: ['./gene-card.component.css']
+  styleUrls: ['./gene-card.component.css'],
 })
 
 export class GeneCardComponent implements OnInit {
@@ -277,7 +277,7 @@ export class GeneCardComponent implements OnInit {
           text: "-Log10(Adjusted P-Value)",
           style: {
             fontSize: '16px',
-            color: '#d63384',
+            color: '#000',
           }
         }
       },
@@ -292,7 +292,7 @@ export class GeneCardComponent implements OnInit {
         text: this.gene_list[0].gene!.toString(),
         align: "center",
         style: {
-          color: "#d63384"
+          color: "#000"
         }
       },
       tooltip: {
@@ -364,14 +364,14 @@ export class GeneCardComponent implements OnInit {
           }
         },
         axisBorder: {
-          color: "#d63384"
+          color: "#000"
         },
         axisTicks: {
-          color: "#d63384"
+          color: "#000"
         },
         labels: {
           style: {
-            colors: "#d63384",
+            colors: "#000",
           }
         },
         //type: "numeric",
@@ -391,14 +391,14 @@ export class GeneCardComponent implements OnInit {
         },
         labels: {
           style: {
-            colors: "#d63384",
+            colors: "#000",
           }
         },
         axisBorder: {
-          color: "#d63384"
+          color: "#000"
         },
         axisTicks: {
-          color: "#d63384"
+          color: "#000"
         }
       },
       fill: {
@@ -412,7 +412,7 @@ export class GeneCardComponent implements OnInit {
         text: this.gene_list[0].gene!.toString(),
         align: "center",
         style: {
-          color: "#d63384"
+          color: "#000"
         }
       },
       tooltip: {
@@ -622,7 +622,7 @@ export class GeneCardComponent implements OnInit {
         text: this.gene_list[0].gene!.toString(),
         align: "center",
         style: {
-          color: "#d63384"
+          color: "#000"
         }
       },
       tooltip: {
@@ -711,7 +711,7 @@ export class GeneCardComponent implements OnInit {
         text: this.gene_list[0].gene!.toString(),
         align: "center",
         style: {
-          color: "#d63384"
+          color: "#000"
         }
       },
       tooltip: {
@@ -930,7 +930,7 @@ export class GeneCardComponent implements OnInit {
         text: this.gene_list[0].gene!.toString(),
         align: "center",
         style: {
-          color: "#d63384"
+          color: "#000"
         }
       },
       tooltip: {
@@ -1028,7 +1028,7 @@ export class GeneCardComponent implements OnInit {
         text: this.gene_list[0].gene!.toString(),
         align: "center",
         style: {
-          color: "#d63384"
+          color: "#000"
         }
       },
       tooltip: {
@@ -1238,7 +1238,7 @@ export class GeneCardComponent implements OnInit {
         text: this.gene_list[0].gene!.toString(),
         align: "center",
         style: {
-          color: "#d63384"
+          color: "#000"
         }
       },
       tooltip: {
@@ -1327,7 +1327,7 @@ export class GeneCardComponent implements OnInit {
         text: this.gene_list[0].gene!.toString(),
         align: "center",
         style: {
-          color: "#d63384"
+          color: "#000"
         }
       },
       tooltip: {
@@ -1708,7 +1708,7 @@ export class GeneCardComponent implements OnInit {
         offsetY: 75,
         style: {
           fontSize: '16px',
-          color: "#d63384"
+          color: "#000"
         }
         
       },
@@ -1727,7 +1727,7 @@ export class GeneCardComponent implements OnInit {
         text: "-Log10(Adjusted P-Value)",
         style: {
           fontSize: '16px',
-          color: "#d63384"
+          color: "#000"
         }
       },
       min: 0,
@@ -1790,7 +1790,7 @@ export class GeneCardComponent implements OnInit {
         offsetY: 75,
         style: {
           fontSize: '16px',
-          color: "#d63384"
+          color: "#000"
         }
       },
       tooltip: {
@@ -1808,7 +1808,7 @@ export class GeneCardComponent implements OnInit {
         text: "-Log10(Adjusted P-Value)",
         style: {
           fontSize: '16px',
-          color: "#d63384"
+          color: "#000"
         }
       },
       min: 0,
@@ -1866,7 +1866,7 @@ export class GeneCardComponent implements OnInit {
         offsetY: 75,
         style: {
           fontSize: '16px',
-          color: "#d63384"
+          color: "#000"
         }
       },
       tooltip: {
@@ -1884,7 +1884,7 @@ export class GeneCardComponent implements OnInit {
         text: "-Log10(Adjusted P-Value)",
         style: {
           fontSize: '16px',
-          color: "#d63384"
+          color: "#000"
         }
       },
       min: 0,
@@ -1934,7 +1934,7 @@ export class GeneCardComponent implements OnInit {
         offsetY: 75,
         style: {
           fontSize: '16px',
-          color: "#d63384"
+          color: "#000"
         }
       },
       tooltip: {
@@ -1952,7 +1952,7 @@ export class GeneCardComponent implements OnInit {
         text: "-Log10(Adjusted P-Value)",
         style: {
           fontSize: '16px',
-          color: "#d63384"
+          color: "#000"
         }
       },
       min: 0,
@@ -2023,7 +2023,7 @@ export class GeneCardComponent implements OnInit {
         offsetY: 75,
         style: {
           fontSize: '16px',
-          color: "#d63384"
+          color: "#000"
         }
       },
       tooltip: {
@@ -2041,7 +2041,7 @@ export class GeneCardComponent implements OnInit {
         text: "-Log10(Adjusted P-Value)",
         style: {
           fontSize: '16px',
-          color: "#d63384"
+          color: "#000"
         }
       },
       min: 0,
@@ -2106,7 +2106,7 @@ export class GeneCardComponent implements OnInit {
         offsetY: 75,
         style: {
           fontSize: '16px',
-          color: "#d63384"
+          color: "#000"
         }
       },
       tooltip: {
@@ -2124,7 +2124,7 @@ export class GeneCardComponent implements OnInit {
         text: "-Log10(Adjusted P-Value)",
         style: {
           fontSize: '16px',
-          color: "#d63384"
+          color: "#000"
         }
       },
       min: 0,
@@ -2186,7 +2186,7 @@ export class GeneCardComponent implements OnInit {
         offsetY: 75,
         style: {
           fontSize: '16px',
-          color: "#d63384"
+          color: "#000"
         }
       },
       tooltip: {
@@ -2204,7 +2204,7 @@ export class GeneCardComponent implements OnInit {
         text: "-Log10(Adjusted P-Value)",
         style: {
           fontSize: '16px',
-          color: "#d63384"
+          color: "#000"
         }
       },
       min: 0,
@@ -2254,7 +2254,7 @@ export class GeneCardComponent implements OnInit {
         offsetY: 75,
         style: {
           fontSize: '16px',
-          color: "#d63384"
+          color: "#000"
         }
       },
       tooltip: {
@@ -2272,7 +2272,7 @@ export class GeneCardComponent implements OnInit {
         text: "-Log10(Adjusted P-Value)",
         style: {
           fontSize: '16px',
-          color: "#d63384"
+          color: "#000"
         }
       },
       min: 0,

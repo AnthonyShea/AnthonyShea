@@ -1,7 +1,9 @@
 <!--This part works only on lg+ devices!!-->
 <div *ngIf="loading" class="loading-overlay" id="loadingOverlay">
-  <div class="spinner-border text-light" style="width: 5rem; height: 5rem;" role="status"></div>
   <!--<div class="loading-message">Loading...</div>-->
+  <div class="spinner-blurred">
+    <div class="spinner-border text-light" style="width: 5rem; height: 5rem;" role="status"></div>
+  </div>
 </div>
 <div class="row d-none d-lg-flex mt-2">
 

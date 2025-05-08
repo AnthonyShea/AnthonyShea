@@ -179,3 +179,22 @@ apx-chart {
 .apexcharts-text tspan {
     color: var(--bs-primary)
 }
+
+:root, [data-bs-theme="light"] {
+    --bs-canvas-filter: none;
+}
+
+[data-bs-theme="dark"] {
+    --bs-canvas-filter: invert(1) hue-rotate(180deg);
+}
+
+canvas, .apexcharts-svg {
+    filter: var(--bs-canvas-filter);
+}
+
+.apexcharts-tooltip {
+    background-color: rgba(var(--bs-body-bg-rgb), .1) !important;
+    color: var(--bs-body-color) !important;
+    backdrop-filter: blur(100px) !important;
+    -webkit-backdrop-filter: blur(100px) !important;
+}
