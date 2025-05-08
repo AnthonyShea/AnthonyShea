@@ -1,6 +1,16 @@
 # Version history
 
-The latest version is **0.2502.2.0**, compiled on 7 May 2025.
+The latest version is **0.2502.24.0**, compiled on 8 May 2025.
+
+## 0.2502.24.0
+
+### Fixed issues
+
+- Now all controls should be able to display correctly in dark mode.
+
+- Dropdown menus should be collapsed and shown correctly.
+
+- Colors in IGV were changed to adapt color themes.
 
 ## 0.2502.2.0
 
