@@ -22,17 +22,17 @@ export class FooterComponent implements OnInit {
     window.prompt('Citation', 'Abcd, E., 2025, https://mcaredb.org/');
   }
 
-  showChangelog(): void {
+  showToastControl(control_id: string): void {
     // Don't use the default method of bootstrap here. I don't know why but
     // if you try to use it, probably any else collapse elements won't
     // function normally.
-    const changelogToast = document.getElementById("changelogToast");
+    const changelogToast = document.getElementById(control_id);
     document.getElementById("shadow-bg")!.style.display = "block";
     changelogToast!.style.display = "block";
   }
 
-  hideChangelog(): void {
-    const changelogToast = document.getElementById("changelogToast");
+  hideToastControl(control_id: string): void {
+    const changelogToast = document.getElementById(control_id);
     document.getElementById("shadow-bg")!.style.display = "none";
     changelogToast!.style.display = "none";
   }

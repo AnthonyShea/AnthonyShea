@@ -59,12 +59,12 @@
     font-weight: var(--bs-body-font-weight);
     color: var(--bs-body-color);
     transition: .2s ease-in-out;
-    border: var(--bs-border-width) 1px var(--bs-border-color) !important;
     background: transparent;
 }
 
 ::ng-deep .dx-buttongroup-item {
     background-color: transparent !important;
+    border: var(--bs-border-width) solid var(--bs-border-color-translucent) !important;
 }
 
 ::ng-deep .dx-buttongroup-item.dx-item-selected {

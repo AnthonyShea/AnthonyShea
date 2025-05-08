@@ -30,7 +30,7 @@
 }
 
 .loading-overlay>.spinner-blurred {
-    background: rgba(var(--bs-body-bg-rgb), .5);
+    background: rgba(var(--bs-body-color-rgb), .2);
     backdrop-filter: blur(100px);
     -webkit-backdrop-filter: blur(100px);
     display: flex;
@@ -40,6 +40,15 @@
     z-index: 10000;
     border-radius: var(--bs-border-radius-xl);
     border: var(--bs-border-width) solid var(--bs-border-color-translucent);
+    box-shadow: var(--bs-box-shadow);
+}
+
+.gene-regulated {
+    background: transparent;
+}
+
+.gene-regulated > span {
+    filter: var(--bs-canvas-filter);
 }
 
 /* Define pulsing animation */

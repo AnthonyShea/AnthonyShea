@@ -1,5 +1,5 @@
 <div class="row mt-2 g-2">
-    <div class="col-lg-7 col-md-6 col-sm-12">
+    <div class="col-md-6 col-sm-12">
         <div class="row">
             <div class="input-group mb-2 d-flex justify-content-between">
                 <span class="input-group-text text-bg-danger">Species</span>
@@ -59,6 +59,25 @@
             </div>
         </div>
         <div class="row">
+            <div class="input-group mb-2 d-flex justify-content-between">
+                <span class="input-group-text text-bg-danger" id="basic-addon1">File Type</span>
+                <input type="checkbox" class="btn-check" id="degResults" autocomplete="off" value="degResult"
+                    [(ngModel)]="this.degResults_selected">
+                <label class="btn btn-outline-secondary"
+                    style="width: 100%; flex: 1; border-color: var(--bs-border-color)" for="degResults">DEG
+                    Results</label>
+                <input type="checkbox" class="btn-check" id="expMatrix" autocomplete="off" value="expMatrix"
+                    [(ngModel)]="this.expMatrix_selected">
+                <label class="btn btn-outline-secondary"
+                    style="width: 100%; flex: 1; border-color: var(--bs-border-color)" for="expMatrix">Exp
+                    Matrix</label>
+                <input type="checkbox" class="btn-check" id="goEnrich" autocomplete="off" value="goEnrich"
+                    [(ngModel)]="this.goEnrich_selected">
+                <label class="btn btn-outline-secondary"
+                    style="width: 100%; flex: 1; border-color: var(--bs-border-color)" for="goEnrich">Go Enrich</label>
+            </div>
+        </div>
+        <div class="row">
             <div class="d-flex justify-content-center">
                 <button (click)="samplesTest()" class="btn btn-danger" style="margin-right: .5rem;">Search</button>
                 <button id="downloadButton" [disabled]="!query_completed" class="btn btn-secondary" icon="download"
@@ -67,7 +86,7 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-5 col-md-6 col-sm-12">
+    <div class="col-md-6 col-sm-12">
         <div class="card" *ngIf="query_completed">
             <div class="card-header">
                 <div class="row">
@@ -108,14 +127,12 @@
             </div>
         </div>
     </div>
-    <div class="col-12">
+    <div class="col-12" *ngIf="query_completed">
         <h5>
             <span *ngIf="selectedRowKeys.length <= 1">{{selectedRowKeys.length}} Sample Totaling</span>
             <span *ngIf="selectedRowKeys.length > 1">{{selectedRowKeys.length}} Samples Totaling</span>
             <span>&nbsp;{{downloadSize == null ? '0.00 GB' : downloadSize}} Selected</span>
         </h5>
-    </div>
-    <div class="col-12" *ngIf="query_completed">
         <dx-data-grid class="sampletable" id="gridContainer" [dataSource]="display!" keyExpr="sample_id"
             [showBorders]="true" (onRowPrepared)="formatRow($event)" [selectedRowKeys]="selectedRowKeys"
             (onSelectionChanged)="onSelectionChanged($event)">
@@ -129,26 +146,7 @@
         </dx-data-grid>
     </div>
     <div class="col-lg-6 col-md-12">
-        <div class="input-group mb-2 d-flex justify-content-between">
-            <span class="input-group-text text-bg-danger" id="basic-addon1">File Type</span>
-            <input type="checkbox" class="btn-check" id="degResults" autocomplete="off" value="degResult"
-                [(ngModel)]="this.degResults_selected">
-            <label class="btn btn-outline-secondary" style="width: 100%; flex: 1; border-color: var(--bs-border-color)"
-                for="degResults">DEG Results</label>
-            <input type="checkbox" class="btn-check" id="expMatrix" autocomplete="off" value="expMatrix"
-                [(ngModel)]="this.expMatrix_selected">
-            <label class="btn btn-outline-secondary" style="width: 100%; flex: 1; border-color: var(--bs-border-color)"
-                for="expMatrix">Exp Matrix</label>
-            <input type="checkbox" class="btn-check" id="goEnrich" autocomplete="off" value="goEnrich"
-                [(ngModel)]="this.goEnrich_selected">
-            <label class="btn btn-outline-secondary" style="width: 100%; flex: 1; border-color: var(--bs-border-color)"
-                for="goEnrich">Go Enrich</label>
-        </div>
-        <div class="input-group mb-2">
-            <span class="input-group-text text-bg-danger" id="basic-addon1">PMID</span>
-            <input type="text" (value)="pmid" placeholder="Optional" class="form-control"
-                aria-describedby="basic-addon1">
-        </div>
+
     </div>
     <div class="col-lg-6 col-md-12">
         <table class="table table-striped" *ngIf="query_completed">
