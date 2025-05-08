@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import bootstrap from 'src/js/bootstrap.js'
+import bootstrap from 'src/js/bootstrap.min.js'
 
 @Component({
   selector: 'app-footer',
@@ -9,10 +9,13 @@ import bootstrap from 'src/js/bootstrap.js'
 export class FooterComponent implements OnInit {
 
 
-  constructor() { }
+  constructor() { 
+
+  }
 
   ngOnInit(): void {
-    document.getElementById("shadow")!.style.display = "none";
+    document.getElementById("shadow-bg")!.style.display = "none";
+    // bootstrap.Toast.getOrCreateInstance(changelogToast).show();
   }
   
   CiteClick(): void {
@@ -20,13 +23,18 @@ export class FooterComponent implements OnInit {
   }
 
   showChangelog(): void {
+    // Don't use the default method of bootstrap here. I don't know why but
+    // if you try to use it, probably any else collapse elements won't
+    // function normally.
     const changelogToast = document.getElementById("changelogToast");
-    bootstrap.Toast.getOrCreateInstance(changelogToast).show();
-    document.getElementById("shadow")!.style.display = "block";
+    document.getElementById("shadow-bg")!.style.display = "block";
+    changelogToast!.style.display = "block";
   }
 
   hideChangelog(): void {
-    document.getElementById("shadow")!.style.display = "none";
+    const changelogToast = document.getElementById("changelogToast");
+    document.getElementById("shadow-bg")!.style.display = "none";
+    changelogToast!.style.display = "none";
   }
 
   readChangelog(): void {
