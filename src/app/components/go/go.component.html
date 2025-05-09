@@ -1,17 +1,60 @@
-<!--This part works only on lg+ devices!!-->
 <div *ngIf="loading" class="loading-overlay" id="loadingOverlay">
   <!--<div class="loading-message">Loading...</div>-->
   <div class="spinner-blurred">
     <div class="spinner-border" style="width: 5rem; height: 5rem;" role="status"></div>
   </div>
 </div>
-<div class="row d-none d-lg-flex mt-2">
+<div class="row mt-2">
+  <div class="col-md-3 col-sm-12 scroll-lg">
+    <h4>Comparison Type</h4>
+      <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedComparisonType">
+        <option *ngFor="let item of comparisonTypes" [value]="item.value">{{item.text}}</option>
+      </select>
+      <hr />
+      <h4>Tissues</h4>
+      <dx-tag-box [items]="tissue_types" [searchEnabled]="true" [hideSelectedItems]="true" placeholder="Select Tissues"
+        [showMultiTagOnly]="false" [maxDisplayedTags]="4" [showClearButton]="true" style="width: 100%; flex: 1;"
+        [showSelectionControls]="true" [(value)]='selected_tissues'></dx-tag-box>
+      <hr />
+      <!--CELL TYPE SELECT BOX-->
+      <h4>Cell Types</h4>
+      <dx-tag-box [items]="cell_types" [searchEnabled]="true" [hideSelectedItems]="true" placeholder="Select Cell Types"
+        [showMultiTagOnly]="false" [maxDisplayedTags]="4" [showClearButton]="true" style="width: 100%; flex: 1;"
+        [showSelectionControls]="true" [(value)]='selected_cell_types'></dx-tag-box>
+      <hr />
+      <h4>Pathways</h4>
+      <dx-autocomplete [dataSource]="pathways" [(value)]="selected_pathway" [minSearchLength]="1" searchEnabled="true"
+        [searchMode]="selected_search_mode" [maxItemCount]="200" [showDropDownButton]="true"></dx-autocomplete>
+      <h6 class="mt-2">Search mode</h6>
+      <select class="form-select" aria-label="Default select example" [(ngModel)]="selected_search_mode">
+        <option *ngFor="let item of search_modes" [value]="item.value">{{item.text}}</option>
+      </select>
+      <hr />
+      <button (click)="getNewData()" class="btn btn-danger w-100">
+        Select GO Results
+      </button>
+  </div>
+  <div class="col-md-6 col-sm-12 scroll-lg">
+    <apx-chart [series]="go_chart_options.series!" [chart]="go_chart_options.chart!" [xaxis]="go_chart_options.xaxis!"
+      [yaxis]="go_chart_options.yaxis!" [markers]="go_chart_options.markers!"
+      [annotations]="go_chart_options.annotations!" [tooltip]="go_chart_options.tooltip!"
+      style="margin-bottom: 1000px;">
+    </apx-chart>
+    <apx-chart [series]="hist_chart_options.series!" [chart]="hist_chart_options.chart!"
+      [stroke]="hist_chart_options.stroke!" [yaxis]="hist_chart_options.yaxis!" [xaxis]="hist_chart_options.xaxis!"
+      [dataLabels]="hist_chart_options.dataLabels!" [tooltip]="hist_chart_options.tooltip!"
+      [annotations]="hist_chart_options.annotations!" [colors]="hist_chart_options.colors!"
+      style="margin-top: 10px;"></apx-chart>
+    <div *ngIf="pathway_info" class="pathway-info">
+      <span class='pathway-name'>{{pathway_info.name}}</span>
+      <span class='pathway-description'>{{pathway_info.definition.text}}</span>
+    </div>
+  </div>
 
-  <div class="col-3">
+  <div class="col-md-3 col-sm-12 scroll-lg">
     <div *ngIf="!term_selected&&!loading">
       <h3 class="text-center">Select Cluster To See Details</h3>
     </div>
-
     <div class="row g-2" *ngIf="term_selected">
       <div class="col-12">
         <div class="card">
@@ -30,7 +73,7 @@
           <div class="card-header text-center">
             <h4 class="mb-0">Genes Enriched in Cluster</h4>
           </div>
-          <div class="list-group list-group-flush" style="height: 400px; overflow-y: auto;">
+          <div class="list-group list-group-flush" style="height: 300px; overflow-y: auto;">
             <button type="button" class="list-group-item list-group-item-action"
               *ngFor="let item of selected_core_enrichment" (click)="geneRerout(item)">
               {{item}}
@@ -40,104 +83,14 @@
           </dx-list>-->
         </div>
       </div>
-    </div>
-  </div>
-  <div class="col-6">
-    <apx-chart [series]="go_chart_options.series!" [chart]="go_chart_options.chart!" [xaxis]="go_chart_options.xaxis!"
-      [yaxis]="go_chart_options.yaxis!" [markers]="go_chart_options.markers!"
-      [annotations]="go_chart_options.annotations!" [tooltip]="go_chart_options.tooltip!"
-      style="margin-bottom: 1000px;">
-    </apx-chart>
-    <apx-chart [series]="hist_chart_options.series!" [chart]="hist_chart_options.chart!"
-      [stroke]="hist_chart_options.stroke!" [yaxis]="hist_chart_options.yaxis!" [xaxis]="hist_chart_options.xaxis!"
-      [dataLabels]="hist_chart_options.dataLabels!" [tooltip]="hist_chart_options.tooltip!"
-      [annotations]="hist_chart_options.annotations!" [colors]="hist_chart_options.colors!"
-      style="margin-top: 10px;"></apx-chart>
-    <div *ngIf="pathway_info" class="pathway-info">
-      <span class='pathway-name'>{{pathway_info.name}}</span>
-      <span class='pathway-description'>{{pathway_info.definition.text}}</span>
-    </div>
-    <div class="row">
-      <div class="input-group mb-3">
-        <span class="input-group-text text-bg-danger" id="basic-addon1">Comparison Type</span>
-        <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedComparisonType">
-          <option *ngFor="let item of comparisonTypes" [value]="item.value">{{item.text}}</option>
-        </select>
-      </div>
-    </div>
-    <!-- Comparison Type Dropdown -->
-    <!--<div class="dx-field">
-      <div class="dx-field-label">Comparison Type</div>
-      <div class="dx-field-value">
-        <dx-select-box [items]="comparisonTypes" displayExpr="text" valueExpr="value" [(value)]="selectedComparisonType"
-          placeholder="Select Comparison Type" class="comparison-type-select-box">
-        </dx-select-box>
-      </div>
-    </div>-->
-    <!--TISSUE SELECT BOX-->
-    <div class="row">
-      <div class="input-group mb-3 d-flex justify-content-between">
-        <span class="input-group-text text-bg-danger">Tissues</span>
-        <dx-tag-box [items]="tissue_types" [searchEnabled]="true" [hideSelectedItems]="true"
-          placeholder="Select Tissues" [showMultiTagOnly]="false" [maxDisplayedTags]="4" [showClearButton]="true"
-          style="width: 100%; flex: 1;" [showSelectionControls]="true" [(value)]='selected_tissues'></dx-tag-box>
-      </div>
-    </div>
-    <!--CELL TYPE SELECT BOX-->
-    <div class="row">
-      <div class="input-group mb-3">
-        <span class="input-group-text text-bg-danger" id="basic-addon1">Cell Types</span>
-        <dx-tag-box [items]="cell_types" [searchEnabled]="true" [hideSelectedItems]="true"
-          placeholder="Select Cell Types" [showMultiTagOnly]="false" [maxDisplayedTags]="4" [showClearButton]="true"
-          style="width: 100%; flex: 1;" [showSelectionControls]="true" [(value)]='selected_cell_types'></dx-tag-box>
-      </div>
-    </div>
-    <!--PATHWAY SELECT BOX-->
-    <div class="row">
-      <div class="input-group mb-3">
-        <span class="input-group-text text-bg-danger" id="basic-addon1">Pathways</span>
-        <!--<select class="form-select" aria-label="Default select example" [(ngModel)]="selected_pathway">
-          <option *ngFor="let item of pathways"
-            [value]="item">{{item}}</option>
-        </select>-->
-        <dx-autocomplete [dataSource]="pathways" [(value)]="selected_pathway" [minSearchLength]="1" searchEnabled="true"
-          [searchMode]="selected_search_mode" [maxItemCount]="200" [showDropDownButton]="true"></dx-autocomplete>
-        <span class="input-group-text text-bg-danger" id="basic-addon1">Mode</span>
-        <select class="form-select" aria-label="Default select example" [(ngModel)]="selected_search_mode">
-          <option *ngFor="let item of search_modes" [value]="item.value">{{item.text}}</option>
-        </select>
-      </div>
-    </div>
-    <!--<div class="field-container">
-      <div class="dx-field">
-        <div class="dx-field-label">Pathways</div>
-        <div class="dx-field-value">
-          
-        </div>
-      </div>
-      <dx-select-box [items]="search_modes" displayExpr="text" valueExpr="value" [(value)]="selected_search_mode"
-        [dropDownOptions]="{ width: 200 }" placeholder="Select Search Mode" class="search-mode-select-box">
-      </dx-select-box>
-      Your chart and other content
-    </div>-->
-    <div class="row">
-      <div class="d-flex justify-content-center">
-        <button (click)="getNewData()" class="btn btn-danger">
-          Select GO Results
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-3" *ngIf="!loading">
-    <div class="row g-2">
       <div class="col-12">
         <div class="card">
           <div class="card-header text-center">
             <h4 class="mb-0">Upregulated</h4>
           </div>
           <ul class="list-group list-group-flush" style="height: 300px; overflow-y: auto;">
-            <li *ngFor="let item of upreg_gene_counts" class="list-group-item gene-regulated d-flex justify-content-between"
+            <li *ngFor="let item of upreg_gene_counts"
+              class="list-group-item gene-regulated d-flex justify-content-between"
               [ngStyle]="getColorStyle(item, 'DOWN')">
               <span>{{ item.gene }}</span>
               <span>{{ item.count }}</span>
@@ -152,168 +105,9 @@
           <div class="card-header text-center">
             <h4 class="mb-0">Downregulated</h4>
           </div>
-          <ul class="list-group list-group-flush"
-            style="height: 300px; overflow-y: auto;">
-            <li *ngFor="let item of downreg_gene_counts" class="list-group-item gene-regulated d-flex justify-content-between"
-              [ngStyle]="getColorStyle(item, 'DOWN')">
-              <span>{{ item.gene }}</span>
-              <span>{{ item.count }}</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!--This part works only on small devices-->
-<div class="row d-lg-none mt-2">
-  <div class="col-12">
-    <apx-chart [series]="go_chart_options.series!" [chart]="go_chart_options.chart!" [xaxis]="go_chart_options.xaxis!"
-      [yaxis]="go_chart_options.yaxis!" [markers]="go_chart_options.markers!"
-      [annotations]="go_chart_options.annotations!" [tooltip]="go_chart_options.tooltip!"
-      style="margin-bottom: 1000px;">
-    </apx-chart>
-    <apx-chart [series]="hist_chart_options.series!" [chart]="hist_chart_options.chart!"
-      [stroke]="hist_chart_options.stroke!" [yaxis]="hist_chart_options.yaxis!" [xaxis]="hist_chart_options.xaxis!"
-      [dataLabels]="hist_chart_options.dataLabels!" [tooltip]="hist_chart_options.tooltip!"
-      [annotations]="hist_chart_options.annotations!" [colors]="hist_chart_options.colors!"
-      style="margin-top: 10px;"></apx-chart>
-    <div *ngIf="pathway_info" class="pathway-info">
-      <span class='pathway-name'>{{pathway_info.name}}</span>
-      <span class='pathway-description'>{{pathway_info.definition.text}}</span>
-    </div>
-    <div class="row">
-      <div class="input-group mb-3">
-        <span class="input-group-text text-bg-danger" id="basic-addon1">Comparison Type</span>
-        <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedComparisonType">
-          <option *ngFor="let item of comparisonTypes" [value]="item.value">{{item.text}}</option>
-        </select>
-      </div>
-    </div>
-    <!-- Comparison Type Dropdown -->
-    <!--<div class="dx-field">
-      <div class="dx-field-label">Comparison Type</div>
-      <div class="dx-field-value">
-        <dx-select-box [items]="comparisonTypes" displayExpr="text" valueExpr="value" [(value)]="selectedComparisonType"
-          placeholder="Select Comparison Type" class="comparison-type-select-box">
-        </dx-select-box>
-      </div>
-    </div>-->
-    <!--TISSUE SELECT BOX-->
-    <div class="row">
-      <div class="input-group mb-3 d-flex justify-content-between">
-        <span class="input-group-text text-bg-danger">Tissues</span>
-        <dx-tag-box [items]="tissue_types" [searchEnabled]="true" [hideSelectedItems]="true"
-          placeholder="Select Tissues" [showMultiTagOnly]="false" [maxDisplayedTags]="4" [showClearButton]="true"
-          style="width: 100%; flex: 1;" [showSelectionControls]="true" [(value)]='selected_tissues'></dx-tag-box>
-      </div>
-    </div>
-    <!--CELL TYPE SELECT BOX-->
-    <div class="row">
-      <div class="input-group mb-3">
-        <span class="input-group-text text-bg-danger" id="basic-addon1">Cell Types</span>
-        <dx-tag-box [items]="cell_types" [searchEnabled]="true" [hideSelectedItems]="true"
-          placeholder="Select Cell Types" [showMultiTagOnly]="false" [maxDisplayedTags]="4" [showClearButton]="true"
-          style="width: 100%; flex: 1;" [showSelectionControls]="true" [(value)]='selected_cell_types'></dx-tag-box>
-      </div>
-    </div>
-    <!--PATHWAY SELECT BOX-->
-    <div class="row">
-      <div class="input-group mb-3">
-        <span class="input-group-text text-bg-danger" id="basic-addon1">Pathways</span>
-        <!--<select class="form-select" aria-label="Default select example" [(ngModel)]="selected_pathway">
-          <option *ngFor="let item of pathways"
-            [value]="item">{{item}}</option>
-        </select>-->
-        <dx-autocomplete [dataSource]="pathways" [(value)]="selected_pathway" [minSearchLength]="1" searchEnabled="true"
-          [searchMode]="selected_search_mode" [maxItemCount]="200" [showDropDownButton]="true"></dx-autocomplete>
-        <span class="input-group-text text-bg-danger" id="basic-addon1">Mode</span>
-        <select class="form-select" aria-label="Default select example" [(ngModel)]="selected_search_mode">
-          <option *ngFor="let item of search_modes" [value]="item.value">{{item.text}}</option>
-        </select>
-      </div>
-    </div>
-    <!--<div class="field-container">
-      <div class="dx-field">
-        <div class="dx-field-label">Pathways</div>
-        <div class="dx-field-value">
-          
-        </div>
-      </div>
-      <dx-select-box [items]="search_modes" displayExpr="text" valueExpr="value" [(value)]="selected_search_mode"
-        [dropDownOptions]="{ width: 200 }" placeholder="Select Search Mode" class="search-mode-select-box">
-      </dx-select-box>
-      Your chart and other content
-    </div>-->
-    <div class="row">
-      <div class="d-flex justify-content-center">
-        <button (click)="getNewData()" class="btn btn-danger">
-          Select GO Results
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="col-12 mt-2">
-    <div *ngIf="!term_selected&&!loading">
-      <h3 class="text-center">Select Cluster To See Details</h3>
-    </div>
-
-    <div class="row g-2" *ngIf="term_selected">
-      <div class="col-12">
-        <div class="card">
-          <div class="card-header text-center">
-            <h4 class="mb-0">Selected Cluster</h4>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Cluster: <b>{{selected_term.cell_type}}</b></li>
-            <li class="list-group-item">Tissue: <b>{{selected_term.tissue}}</b></li>
-            <li class="list-group-item">PMID: <b>{{selected_term.pmid}}</b></li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-12">
-        <div class="card">
-          <div class="card-header text-center">
-            <h4 class="mb-0">Genes Enriched in Cluster</h4>
-          </div>
-          <div class="list-group list-group-flush" style="height: 400px; overflow-y: auto;">
-            <button type="button" class="list-group-item list-group-item-action"
-              *ngFor="let item of selected_core_enrichment" (click)="geneRerout(item)">
-              {{item}}
-            </button>
-          </div>
-          <!--<dx-list [dataSource]="selected_core_enrichment" (onItemClick)="geneRerout($event)" class="gene-list">
-          </dx-list>-->
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-12 mt-2" *ngIf="!loading">
-    <div class="row g-2">
-      <div class="col-6">
-        <div class="card">
-          <div class="card-header text-center">
-            <h4 class="mb-0">Upregulated</h4>
-          </div>
           <ul class="list-group list-group-flush" style="height: 300px; overflow-y: auto;">
-            <li *ngFor="let item of upreg_gene_counts" class="list-group-item gene-regulated d-flex justify-content-between"
-              [ngStyle]="getColorStyle(item, 'DOWN')">
-              <span>{{ item.gene }}</span>
-              <span>{{ item.count }}</span>
-            </li>
-          </ul>
-          <!--<dx-list [dataSource]="selected_core_enrichment" (onItemClick)="geneRerout($event)" class="gene-list">
-          </dx-list>-->
-        </div>
-      </div>
-      <div class="col-6">
-        <div class="card">
-          <div class="card-header text-center">
-            <h4 class="mb-0">Downregulated</h4>
-          </div>
-          <ul class="list-group list-group-flush"
-            style="height: 300px; overflow-y: auto;">
-            <li *ngFor="let item of downreg_gene_counts" class="list-group-item gene-regulated d-flex justify-content-between"
+            <li *ngFor="let item of downreg_gene_counts"
+              class="list-group-item gene-regulated d-flex justify-content-between"
               [ngStyle]="getColorStyle(item, 'DOWN')">
               <span>{{ item.gene }}</span>
               <span>{{ item.count }}</span>

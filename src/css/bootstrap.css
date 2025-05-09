@@ -14019,3 +14019,6 @@ canvas,
 img {
   filter: var(--bs-canvas-filter) !important;
 }
+.dx-tag {
+  height: auto !important
+}

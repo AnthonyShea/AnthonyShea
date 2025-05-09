@@ -117,7 +117,7 @@ export class GoComponent implements OnInit {
         data: [],
       }],
       chart: {
-        height: 300,
+        height: 400,
         parentHeightOffset: 0,
         type: "scatter",
         events: {
@@ -189,7 +189,7 @@ export class GoComponent implements OnInit {
         data: []
       }],
       chart: {
-        height: 300,
+        height: 400,
         parentHeightOffset: 0,
         type: "area",
         zoom: {
