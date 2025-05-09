@@ -13923,7 +13923,8 @@ fieldset:disabled .btn {
   font-family: var(--bs-body-font-family) !important;
 }
 
-.dx-popup-wrapper>.dx-overlay-content, .apexcharts-menu {
+
+.dx-popup-wrapper>.dx-overlay-content, .apexcharts-menu, .dx-context-menu {
   background-color: rgba(var(--bs-body-bg-rgb), .1) !important;
   color: var(--bs-body-color) !important;
   backdrop-filter: blur(100px) !important;
@@ -13933,12 +13934,20 @@ fieldset:disabled .btn {
   box-shadow: var(--bs-box-shadow) !important;
 }
 
+.dx-context-menu .dx-submenu, .dx-context-menu * {
+  background-color: transparent !important;
+  border: none !important;
+  font-family: var(--bs-body-font-family);
+  font-size: var(--bs-body-font-size);
+  box-shadow: none !important;
+}
+
 .apexcharts-menu {
   padding: 0.5rem 0 !important;
   min-width: 10rem !important;
 }
 
-.apexcharts-menu > .apexcharts-menu-item {
+.apexcharts-menu > .apexcharts-menu-item, .dx-context-menu .dx-item {
   padding: .25rem 1rem !important;
   background: transparent !important;
   color: var(--bs-body-color) !important;
@@ -13946,11 +13955,19 @@ fieldset:disabled .btn {
   font-size: var(--bs-tooltip-font-size) !important;
 }
 
-.apexcharts-menu > .apexcharts-menu-item:hover {
+.dx-menu-items-container, .dx-context-menu .dx-item * {
+  padding: 0px !important;
+}
+
+.dx-context-menu .dx-item .dx-menu-item-text {
+  padding-left: 23px !important;
+}
+
+.apexcharts-menu > .apexcharts-menu-item:hover,  .dx-context-menu .dx-item:hover {
   background-color: rgba(var(--bs-body-color-rgb), .1) !important;
 }
 
-.apexcharts-menu > .apexcharts-menu-item:focus, .apexcharts-menu > .apexcharts-menu-item:active {
+.apexcharts-menu > .apexcharts-menu-item:focus, .apexcharts-menu > .apexcharts-menu-item:active,  .dx-context-menu .dx-item:focus,  .dx-context-menu .dx-item:active {
   background-color: rgba(var(--bs-body-color-rgb), .2) !important;
 }
 
@@ -14021,4 +14038,21 @@ img {
 }
 .dx-tag {
   height: auto !important
+}
+
+
+.dx-dropdowneditor-icon {
+  color: var(--bs-body-color) !important;
+}
+
+.dx-dropdowneditor.dx-state-hover .dx-dropdowneditor-icon {
+  background-color: rgba(var(--bs-body-color), .1) !important;
+}
+
+.dx-dropdowneditor.dx-dropdowneditor-active .dx-dropdowneditor-icon {
+  background-color: rgba(var(--bs-body-color), .2) !important;
+}
+
+.dx-datagrid, .dx-datagrid td {
+  font-family: var(--bs-body-font-family) !important;
 }
