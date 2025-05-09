@@ -2,7 +2,7 @@
 
 The latest version is **0.2502.24.0**, compiled on 8 May 2025.
 
-## 0.2502.35.0 - 09 May 2025
+## 0.2505.35.0 - 09 May 2025
 
 ### New features
 
@@ -10,7 +10,7 @@ The latest version is **0.2502.24.0**, compiled on 8 May 2025.
 
 - **Refreshed Go Enrichment page**: The GO enrichment page now has a new design which fits both desktop and mobile devices.
 
-## 0.2502.24.0 - 08 May 2025
+## 0.2505.24.0 - 08 May 2025
 
 ### Fixed issues
 
@@ -20,7 +20,7 @@ The latest version is **0.2502.24.0**, compiled on 8 May 2025.
 
 - Colors in IGV were changed to adapt color themes.
 
-## 0.2502.2.0 - 07 May 2025
+## 0.2505.2.0 - 07 May 2025
 
 ### New features
 

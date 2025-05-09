@@ -20,9 +20,7 @@
   }
 
   .login-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    min-width: 400px;
+      width: 100%;
+      padding: 15% 0;
+      max-width: 500px;
   }
