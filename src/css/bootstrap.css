@@ -13924,7 +13924,9 @@ fieldset:disabled .btn {
 }
 
 
-.dx-popup-wrapper>.dx-overlay-content, .apexcharts-menu, .dx-context-menu {
+.dx-popup-wrapper>.dx-overlay-content,
+.apexcharts-menu,
+.dx-context-menu {
   background-color: rgba(var(--bs-body-bg-rgb), .1) !important;
   color: var(--bs-body-color) !important;
   backdrop-filter: blur(100px) !important;
@@ -13934,7 +13936,8 @@ fieldset:disabled .btn {
   box-shadow: var(--bs-box-shadow) !important;
 }
 
-.dx-context-menu .dx-submenu, .dx-context-menu * {
+.dx-context-menu .dx-submenu,
+.dx-context-menu * {
   background-color: transparent !important;
   border: none !important;
   font-family: var(--bs-body-font-family);
@@ -13947,7 +13950,8 @@ fieldset:disabled .btn {
   min-width: 10rem !important;
 }
 
-.apexcharts-menu > .apexcharts-menu-item, .dx-context-menu .dx-item {
+.apexcharts-menu>.apexcharts-menu-item,
+.dx-context-menu .dx-item {
   padding: .25rem 1rem !important;
   background: transparent !important;
   color: var(--bs-body-color) !important;
@@ -13955,7 +13959,8 @@ fieldset:disabled .btn {
   font-size: var(--bs-tooltip-font-size) !important;
 }
 
-.dx-menu-items-container, .dx-context-menu .dx-item * {
+.dx-menu-items-container,
+.dx-context-menu .dx-item * {
   padding: 0px !important;
 }
 
@@ -13963,11 +13968,15 @@ fieldset:disabled .btn {
   padding-left: 23px !important;
 }
 
-.apexcharts-menu > .apexcharts-menu-item:hover,  .dx-context-menu .dx-item:hover {
+.apexcharts-menu>.apexcharts-menu-item:hover,
+.dx-context-menu .dx-item:hover {
   background-color: rgba(var(--bs-body-color-rgb), .1) !important;
 }
 
-.apexcharts-menu > .apexcharts-menu-item:focus, .apexcharts-menu > .apexcharts-menu-item:active,  .dx-context-menu .dx-item:focus,  .dx-context-menu .dx-item:active {
+.apexcharts-menu>.apexcharts-menu-item:focus,
+.apexcharts-menu>.apexcharts-menu-item:active,
+.dx-context-menu .dx-item:focus,
+.dx-context-menu .dx-item:active {
   background-color: rgba(var(--bs-body-color-rgb), .2) !important;
 }
 
@@ -14001,7 +14010,7 @@ fieldset:disabled .btn {
   height: 100%;
 }
 
-.dx-tag > .dx-tag-content {
+.dx-tag>.dx-tag-content {
   margin: 5px
 }
 
@@ -14036,6 +14045,7 @@ canvas,
 img {
   filter: var(--bs-canvas-filter) !important;
 }
+
 .dx-tag {
   height: auto !important
 }
@@ -14053,6 +14063,39 @@ img {
   background-color: rgba(var(--bs-body-color), .2) !important;
 }
 
-.dx-datagrid, .dx-datagrid td {
+.dx-datagrid,
+.dx-datagrid td {
   font-family: var(--bs-body-font-family) !important;
+}
+
+.dx-datagrid-rowsview .dx-row:nth-of-type(odd) {
+  background-color: rgba(var(--bs-body-color-rgb), 0.05) !important;
+  color: var(--bs-body-color) !important;
+}
+
+.dx-datagrid-rowsview .dx-row:nth-of-type(even) {
+  background-color: rgba(var(--bs-body-bg-rgb), 1) !important;
+  color: var(--bs-body-color) !important;
+}
+
+.sampletable, .sampletable * {
+  background-color: transparent !important;
+  color: var(--bs-body-color) !important;
+}
+
+.dx-datagrid .dx-column-lines > td {
+  border-bottom: var(--bs-border-width) solid var(--bs-border-color) !important;
+  padding: .5rem !important;
+  border-left: none !important;
+  border-right: none !important;
+  font-size: var(--bs-body-font-size);
+}
+
+.dx-datagrid-rowsview, .dx-datagrid-headers {
+  border: none !important
+}
+
+.dx-context-menu.dx-has-context-menu.dx-widget.dx-visibility-change-handler.dx-collection {
+  background-color: transparent !important;
+  border: none !important
 }
