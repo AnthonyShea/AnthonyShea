@@ -334,17 +334,6 @@
     line-height: 1.5;
 }
 
-.dx-dropdowneditor-icon {
-    color: var(--bs-body-color) !important;
-}
-
-.dx-dropdowneditor.dx-state-hover .dx-dropdowneditor-icon {
-    background-color: var(--bs-body-color, .1);
-}
-
-.dx-dropdowneditor.dx-dropdowneditor-active .dx-dropdowneditor-icon {
-    background-color: var(--bs-body-color, .2);
-}
 
 @media (min-width: 992px) {
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { saveAs } from 'file-saver';
 import { DatabaseService } from 'src/app/services/database.service';
 import { DatabaseConstsService } from '../../services/database-consts.service'
@@ -119,7 +120,6 @@ export class SearchComponent implements OnInit {
 
     this.download_options = [{ name: 'Download Standardized Data' }, { name: 'Download Unformatted Data' }]
     this.selected_download_method = this.download_options[0].name
-
   }
 
   ngOnInit(): void {

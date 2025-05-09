@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ImageService } from 'src/app/services/image.service';
 import { DatabaseService } from 'src/app/services/database.service';
 import { ApexNonAxisChartSeries, ApexResponsive, ApexChart, ApexLegend, ApexDataLabels, ApexPlotOptions, ApexTheme, ApexStroke} from "ng-apexcharts";
+import { Title } from '@angular/platform-browser';
 
 export type ChartOptions = {
   series: ApexNonAxisChartSeries;
@@ -46,7 +47,7 @@ export class HomeComponent implements OnInit {
     }
   ]
   
-  constructor(private imageService: ImageService, private databaseService: DatabaseService) {
+  constructor(private imageService: ImageService, private databaseService: DatabaseService, private title: Title) {
     this.is_https = window.location.protocol === 'https:'? true : false;
     this.databaseService.getSampleInfoForHomepage().subscribe({
       next: (data) => {
@@ -62,6 +63,7 @@ export class HomeComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.title.setTitle("Home - MCareDB");
   }
 
   test(age_group: any){

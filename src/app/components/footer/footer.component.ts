@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import bootstrap from 'src/js/bootstrap.min.js'
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-footer',
@@ -8,14 +9,16 @@ import bootstrap from 'src/js/bootstrap.min.js'
 })
 export class FooterComponent implements OnInit {
 
-
+  Version: string = "";
+  CompileDate: string = "";
   constructor() { 
 
   }
 
   ngOnInit(): void {
     document.getElementById("shadow-bg")!.style.display = "none";
-    // bootstrap.Toast.getOrCreateInstance(changelogToast).show();
+    this.Version = AppComponent.Version;
+    this.CompileDate = AppComponent.CompileDate;
   }
   
   CiteClick(): void {
