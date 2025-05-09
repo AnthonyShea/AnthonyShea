@@ -5,7 +5,7 @@
     <div class="spinner-border" style="width: 5rem; height: 5rem;" role="status"></div>
   </div>
 </div>
-<div class="row g-2">
+<div class="row mt-2 g-2">
 
   <!-- Content area -->
   <div #igvdiv class="igv" part="igv"></div>
@@ -17,29 +17,25 @@
 
   <div class="row g-2">
 
-    <div class="col-10">
-      <div class="row g-2">
-        <div class="col-md-6 col-sm-12">
-          <div class="input-group">
-            <span *ngIf="this.genes.length > 0" class="input-group-text text-bg-danger">Selected Tissues</span>
-            <dx-tag-box *ngIf="this.genes.length > 0" style="width: 100%; flex: 1;" [items]="tissue_types" [width]="100"
-              [searchEnabled]="true" [hideSelectedItems]="true" placeholder="Select Tissue(s)"
-              (onValueChanged)="onTissuesChanged($event)" [showClearButton]="true" [showSelectionControls]="true"
-              [multiline]="false" [maxDisplayedTags]="5" [value]='tissue_types'></dx-tag-box>
-          </div>
-        </div>
-        <div class="col-md-6 col-sm-12">
-          <div class="input-group">
-            <span *ngIf="this.genes.length > 0" class="input-group-text text-bg-danger">Selected Cell Types</span>
-            <dx-tag-box *ngIf="this.genes.length > 0" style="width: 100%; flex: 1;" [items]="cell_types" [width]="100"
-              [searchEnabled]="true" [hideSelectedItems]="true" placeholder="Select Cell Type(s)"
-              (onValueChanged)="onCellChanged($event)" [showClearButton]="true" [showSelectionControls]="true"
-              [multiline]="false" [maxDisplayedTags]="5" [value]='cell_types' paginate='true'></dx-tag-box>
-          </div>
-        </div>
+    <div class="col-md-5 col-sm-12">
+      <div class="input-group">
+        <span *ngIf="this.genes.length > 0" class="input-group-text text-bg-danger">Selected Tissues</span>
+        <dx-tag-box *ngIf="this.genes.length > 0" style="width: 100%; flex: 1;" [items]="tissue_types" [width]="100"
+          [searchEnabled]="true" [hideSelectedItems]="true" placeholder="Select Tissue(s)"
+          (onValueChanged)="onTissuesChanged($event)" [showClearButton]="true" [showSelectionControls]="true"
+          [multiline]="false" [maxDisplayedTags]="5" [value]='tissue_types'></dx-tag-box>
       </div>
     </div>
-    <div class="col-2">
+    <div class="col-md-5 col-sm-12">
+      <div class="input-group">
+        <span *ngIf="this.genes.length > 0" class="input-group-text text-bg-danger">Selected Cell Types</span>
+        <dx-tag-box *ngIf="this.genes.length > 0" style="width: 100%; flex: 1;" [items]="cell_types" [width]="100"
+          [searchEnabled]="true" [hideSelectedItems]="true" placeholder="Select Cell Type(s)"
+          (onValueChanged)="onCellChanged($event)" [showClearButton]="true" [showSelectionControls]="true"
+          [multiline]="false" [maxDisplayedTags]="5" [value]='cell_types' paginate='true'></dx-tag-box>
+      </div>
+    </div>
+    <div class="col-md-2 col-sm-12">
       <div class="d-flex align-items-center h-100">
         <button class="btn btn-danger w-100 " (click)="subsetCorrectCellAndTissueTypes()"
           *ngIf="this.genes.length > 0">Apply</button>
