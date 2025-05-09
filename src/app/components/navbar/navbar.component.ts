@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd, Event } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { Title } from '@angular/platform-browser';
+import { title } from 'process';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +16,7 @@ export class NavbarComponent implements OnInit {
 
   @ViewChild('customTabTemplate', { static: true }) customTabTemplate: TemplateRef<any>;
 
-  constructor(private router: Router, private route: ActivatedRoute) {
+  constructor(private router: Router, private route: ActivatedRoute, private title: Title) {
     this.tabs = [
       {
         id: 0,
@@ -69,6 +72,7 @@ export class NavbarComponent implements OnInit {
 
   selectTab(index: number) {
     const selectedTab = this.tabs[index];
+    this.title.setTitle(selectedTab.text + " - MCareDB"); 
     this.router.navigate([selectedTab.path]);
   }
 
