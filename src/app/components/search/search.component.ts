@@ -182,11 +182,11 @@ export class SearchComponent implements OnInit {
           this.display = data;
           this, this.cleanDisplay()
           this.makeDictionaries()
-          this.tissue_chart_options = this.makeDonutChart(this.tissue_dict)
-          this.sex_chart_options = this.makeDonutChart(this.sex_dict)
+          // this.tissue_chart_options = this.makeDonutChart(this.tissue_dict)
+          // this.sex_chart_options = this.makeDonutChart(this.sex_dict)
           // this.age_chart_options = this.makeBarChart(this.age_dict)
-          this.age_chart_options = this.makeBarChart(this.age_dict_new);
-          this.health_chart_options = this.makeDonutChart(this.health_dict)
+          // this.age_chart_options = this.makeBarChart(this.age_dict_new);
+          // this.health_chart_options = this.makeDonutChart(this.health_dict)
           this.query_completed = true;
 
           data.forEach(element => {
@@ -274,6 +274,7 @@ export class SearchComponent implements OnInit {
   onSelectionChanged(event: any) {
     this.selectedRowKeys = event.selectedRowKeys;
     this.selectedRowData = event.selectedRowsData;
+    console.log(this.selectedRowData);
     let selected_ids = this.selectedRowData.map(row => row.sample_id);
     this.databaseService.getTarSize(selected_ids).subscribe({
       next: (data) => {

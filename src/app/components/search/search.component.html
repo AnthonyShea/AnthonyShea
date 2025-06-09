@@ -72,15 +72,10 @@
         </div>
         <hr />
         <div class="row g-1">
-            <div class="col-lg-4 col-md-12">
+            <div class="col-12">
 
                 <button (click)="samplesTest()" class="btn btn-danger w-100 h-100"
                     style="margin-right: .5rem;">Search</button>
-            </div>
-            <div class="col-lg-8 col-md-12">
-                <button id="downloadButton" [disabled]="!query_completed" class="btn btn-secondary w-100 h-100"
-                    icon="download" (click)="downloadWrapper()">Download
-                    Standardized Data</button>
             </div>
         </div>
     </div>
@@ -105,85 +100,15 @@
                     <dxi-column dataField="tissue" width="20%"></dxi-column>
                     <dxi-column dataField="age" width="10%"></dxi-column>
                     <dxi-column dataField="disease_status" width="10%"></dxi-column>
-                    <dxi-column dataField="cell_types"></dxi-column>
+                    <dxi-column dataField="comparison_type"></dxi-column>
                 </dx-data-grid>
-                <table class="table table-striped" *ngIf="query_completed">
-                    <thead>
-                        <tr>
-                            <th scope="col">　</th>
-                            <th scope="col">PMID</th>
-                            <th scope="col">Type</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Size</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <ng-container *ngIf="degResults_selected">
-                            <tr *ngFor="let item of display;">
-                                <td><input class="form-check-input" type="checkbox" id="{{item.study_id}}"></td>
-                                <td>{{item.study_id}}</td>
-                            </tr>
-                        </ng-container>
-                        <ng-container *ngIf="expMatrix_selected">
-                            <tr></tr>
-                            <tr *ngFor="let item of display;">
-                                <td><input class="form-check-input" type="checkbox" id="{{item.study_id}}"></td>
-                                <td>{{item.study_id}}</td>
-                            </tr>
-                        </ng-container>
-                        <ng-container *ngIf="goEnrich_selected">
-                            <tr *ngFor="let item of display;">
-                                <td><input class="form-check-input" type="checkbox" id="{{item.study_id}}"></td>
-                                <td>{{item.study_id}}</td>
-                            </tr>
-                        </ng-container>
-                        <tr *ngIf="!(degResults_selected || expMatrix_selected || goEnrich_selected)">
-                            <td class="text-center" colspan="5">Please select at least one criteria</td>
-                        </tr>
-                    </tbody>
-                </table>
+
+                <div class="mt-2 d-flex justify-content-center">
+                    <button id="downloadButton" [disabled]="selectedRowData.length == 0" class="btn btn-danger"
+                    icon="download" (click)="downloadWrapper()">Download
+                    Standardized Data</button>
+                </div>
             </ng-container>
-        </div>
-    </div>
-    <div class="col-md-6 col-sm-12">
-        <div class="card d-none" *ngIf="query_completed">
-            <div class="card-header">
-                <div class="row">
-                    <div class="d-flex justify-content-center">
-                        <dx-button-group [items]="maps" [selectedItemKeys]="['Tissue']"
-                            (onItemClick)="onItemSelected($event)" class="large-button-group"></dx-button-group>
-                    </div>
-                </div>
-            </div>
-            <div class="card-body">
-                <div id="tissue_chart" *ngIf="displayed_map=='Tissue' && query_completed" class="tissue_chart">
-                    <apx-chart [series]="tissue_chart_options.series!" [chart]="tissue_chart_options.chart!"
-                        [labels]="tissue_chart_options.labels!" [legend]="tissue_chart_options.legend!"
-                        [responsive]="tissue_chart_options.responsive!" [dataLabels]="tissue_chart_options.data_labels!"
-                        [plotOptions]="tissue_chart_options.options!" [theme]="tissue_chart_options.theme!"
-                        [stroke]="tissue_chart_options.stroke!"></apx-chart>
-                </div>
-                <div id="sex_chart" *ngIf="displayed_map=='Sex' && query_completed" class="tissue_chart">
-                    <apx-chart [series]="sex_chart_options.series!" [chart]="sex_chart_options.chart!"
-                        [labels]="sex_chart_options.labels!" [legend]="sex_chart_options.legend!"
-                        [responsive]="sex_chart_options.responsive!" [dataLabels]="sex_chart_options.data_labels!"
-                        [plotOptions]="sex_chart_options.options!" [theme]="sex_chart_options.theme!"
-                        [stroke]="sex_chart_options.stroke!"></apx-chart>
-                </div>
-                <div id="age_chart" *ngIf="displayed_map=='Age' && query_completed" class="age_chart">
-                    <apx-chart [series]="age_chart_options.series!" [chart]="age_chart_options.chart!"
-                        [legend]="age_chart_options.legend!" [dataLabels]="age_chart_options.data_labels!"
-                        [plotOptions]="age_chart_options.options!" [colors]="age_chart_options.colors!"
-                        [xaxis]="age_chart_options.xaxis!" [yaxis]="age_chart_options.yaxis!"></apx-chart>
-                </div>
-                <div id="health_chart" *ngIf="displayed_map=='Health' && query_completed" class="health_chart">
-                    <apx-chart [series]="health_chart_options.series!" [chart]="health_chart_options.chart!"
-                        [labels]="health_chart_options.labels!" [legend]="health_chart_options.legend!"
-                        [responsive]="health_chart_options.responsive!" [dataLabels]="health_chart_options.data_labels!"
-                        [plotOptions]="health_chart_options.options!" [theme]="health_chart_options.theme!"
-                        [stroke]="health_chart_options.stroke!"></apx-chart>
-                </div>
-            </div>
         </div>
     </div>
 </div>
