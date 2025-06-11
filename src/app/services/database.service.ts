@@ -134,16 +134,16 @@ export class DatabaseService {
     return this.http.get<any[]>(`${giniURL}`);
   }
 
-  staticDownload(sample_ids: number[]): void {
+  staticDownload(sample_ids: string[]): void {
     const urls = sample_ids.map(id => `http://tests.autos:3305/downloads/${id}`);
     const fileRequests = urls.map(url => this.http.get(url, { responseType: 'blob' }).toPromise());
 
     // Create a promise for the metadata request
     console.log(sampleUrl);
-    const metadataRequest = this.http.get<any[]>(`${sampleUrl}/downloadedMetadata/${sample_ids}`).toPromise();
+    // const metadataRequest = this.http.get<any[]>(`${sampleUrl}/downloadedMetadata/${sample_ids}`).toPromise();
 
     // Combine the file requests and the metadata request into a single promise array
-    const allRequests = [...fileRequests, metadataRequest];
+    const allRequests = [...fileRequests];
 
     Promise.all(allRequests)
       .then((responses: (Blob | undefined | any[])[]) => {  // Explicit type annotation

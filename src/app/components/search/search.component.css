@@ -148,3 +148,27 @@
         overflow-y: auto;
     }
 }
+
+::ng-deep .dx-widget {
+    font-family: var(--bs-body-font-family) !important;
+}
+
+::ng-deep .dx-datagrid {
+    background-color: transparent !important;
+}
+
+::ng-deep .dx-page {
+    border-radius: var(--bs-border-radius) !important;
+    border: var(--bs-border-width) solid transparent !important;
+    transition: .1s ease-in-out;
+}
+
+::ng-deep .dx-page:hover, ::ng-deep .dx-page.dx-selection {
+    background-color: rgba(var(--bs-body-color-rgb), .1) !important;
+    border: var(--bs-border-width) solid var(--bs-border-color-translucent) !important;
+}
+
+::ng-deep .dx-page:focus, ::ng-deep .dx-page:active {
+    background-color: rgba(var(--bs-body-color-rgb), .2) !important;
+    border: var(--bs-border-width) solid var(--bs-border-color-translucent) !important;
+}

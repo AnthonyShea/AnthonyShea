@@ -130,13 +130,13 @@ export class SearchComponent implements OnInit {
     //this.species = databaseConstService.getSpecies();
     //this.cell_types = databaseConstService.getCellTypes();
     this.health = ['All', 'Cancer', 'Healthy'];
-    this.species = ["matrix", "barcodes", "tsne", "info", "features", "diffExp"];
+    this.species = ["matrix", "barcodes", "tsne", "info", "features", "diffExp", "Go Enrich", "DEG Results"];
     this.cell_types = ['All Cells', 'B Cells', 'Dendritic Cells', 'Endothelial Cells', 'Fibroblasts', 'Macrophages', 'Neurons', 'T Cells'];
     this.age_type = ['neonatal', 'postnatal'];
 
     this.selected_tissues = this.tissue_types;
     this.selected_cells = ['All Cells'];
-    this.selected_species = ["matrix", "barcodes", "tsne", "info", "features", "diffExp"];
+    this.selected_species = ["matrix", "barcodes", "tsne", "info", "features", "diffExp", "Go Enrich", "DEG Results"];
     this.selected_age = [0, 110];
     this.selected_age_type = ['neonatal', 'postnatal'];
     this.selected_health = ['All'];
@@ -226,6 +226,7 @@ export class SearchComponent implements OnInit {
           this.query_completed = true;
 
           data.forEach(element => {
+            console.log(element.age);
             element.age = element.age == "-1" ? "Others" : Number.parseInt(String(element.age)) <= 58 ? "Neonatal" : "Postnatal";
           });
         },
@@ -403,7 +404,7 @@ export class SearchComponent implements OnInit {
     document.getElementById("downloadButton")?.setAttribute("disabled", "true");
     alert('Download Started');
     this.selected_download_method = 'Download Standardized Data';
-    let selected_ids = this.selectedRowData.map(row => row.cell_types)
+    let selected_ids = this.selectedRowData.map(row => row.study_id + '/' + row.cell_types)
     if (this.selected_download_method == 'Download Standardized Data' && selected_ids.length > 0) {
       this.downloadStandaradizedData(selected_ids)
     }
@@ -424,7 +425,7 @@ export class SearchComponent implements OnInit {
     });
   }
 
-  downloadStandaradizedData(file_names: number[]) {
+  downloadStandaradizedData(file_names: string[]) {
     this.databaseService.staticDownload(file_names)
   }
 
