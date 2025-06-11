@@ -13919,7 +13919,7 @@ fieldset:disabled .btn {
 
 .dx-texteditor-container,
 .dx-scrollable-wrapper,
-.dx-scrollable-wrapper * {
+.dx-scrollable-wrapper *:not(.dx-checkbox-icon) {
   font-family: var(--bs-body-font-family) !important;
 }
 
