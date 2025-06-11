@@ -21,12 +21,7 @@ export class AuthService {
   }
 
   login(username: string, password: string) {
-    /* return this.http.post<any>('http://160.94.104.178:3305/api/auth/login', { name: username, password })
-      .pipe(tap(user => {
-        localStorage.setItem('currentUser', JSON.stringify(user));
-        this.currentUserSubject.next(user);
-      })); */
-    return this.http.post<any>('http://localhost:3305/api/auth/login', { name: username, password })
+    return this.http.post<any>('http://160.94.104.178:3305/api/auth/login', { name: username, password })
       .pipe(tap(user => {
         localStorage.setItem('currentUser', JSON.stringify(user));
         this.currentUserSubject.next(user);

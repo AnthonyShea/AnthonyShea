@@ -130,13 +130,13 @@ export class SearchComponent implements OnInit {
     //this.species = databaseConstService.getSpecies();
     //this.cell_types = databaseConstService.getCellTypes();
     this.health = ['All', 'Cancer', 'Healthy'];
-    this.species = ["matrix", "barcodes", "tsne", "info", "features", "diffExp", "Go Enrich", "DEG Results"];
+    this.species = ["matrix", "barcodes", "tsne", "umap", "info", "features", "diffExp", "Go Enrich", "DEG Results"];
     this.cell_types = ['All Cells', 'B Cells', 'Dendritic Cells', 'Endothelial Cells', 'Fibroblasts', 'Macrophages', 'Neurons', 'T Cells'];
     this.age_type = ['neonatal', 'postnatal'];
 
     this.selected_tissues = this.tissue_types;
     this.selected_cells = ['All Cells'];
-    this.selected_species = ["matrix", "barcodes", "tsne", "info", "features", "diffExp", "Go Enrich", "DEG Results"];
+    this.selected_species = ["matrix", "barcodes", "tsne", "umap", "info", "features", "diffExp", "Go Enrich", "DEG Results"];
     this.selected_age = [0, 110];
     this.selected_age_type = ['neonatal', 'postnatal'];
     this.selected_health = ['All'];

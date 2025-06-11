@@ -1,9 +1,10 @@
 <div class="row mt-2 g-2">
-    <div class="col-md-3 col-sm-12 scroll-lg">
+    <div class="col-md-3 col-sm-12">
         <h4>File type</h4>
         <div class="input-group mb-2 d-flex justify-content-between">
             <dx-tag-box class='dx-tag-box' [items]="species" [searchEnabled]="true" [hideSelectedItems]="true"
-                [hideSelectedItems]="true" [maxDisplayedTags]="4" style="width: 100%; flex: 1;" [showClearButton]="true"
+                [hideSelectedItems]="false" [maxDisplayedTags]="4" style="width: 100%; flex: 1;" [showClearButton]="true"
+                [showSelectionControls]="true"
                 (onValueChanged)="onSpeciesChanged($event)" placeholder="Select species"
                 [value]='selected_species'></dx-tag-box>
         </div>
@@ -21,34 +22,41 @@
             [showSelectionControls]="false"></dx-tag-box>
         <hr />-->
         <h4>PMID</h4>
-        <input type="text" placeholder="Optional" class="form-control" aria-describedby="basic-addon1" (input)="onInputChange($event)">
+        <input type="text" placeholder="Optional" class="form-control" aria-describedby="basic-addon1"
+            (input)="onInputChange($event)">
         <hr />
         <h4>Category</h4>
         <div class="row g-1">
             <div class="col-12">
-                <input type="checkbox" class="btn-check" (change)="criteriaChanged();" id="btncheck1" autocomplete="off" value="neonetal"
-                    [(ngModel)]="this.neonatal_selected">
+                <input type="checkbox" class="btn-check" (change)="criteriaChanged();" id="btncheck1" autocomplete="off"
+                    value="neonetal" [(ngModel)]="this.neonatal_selected">
                 <label class="btn btn-outline-danger h-100 text-start" style="width: 100%; flex: 1;" for="btncheck1">
                     <h6>Neonatal (P1 -P6)</h6>
                     <small>Complete cardiac regeneration capacity</small>
                 </label>
             </div>
             <div class="col-12">
-                <input type="checkbox" class="btn-check" (change)="criteriaChanged();" id="btncheck2" autocomplete="off" value="postnatal"
-                    [(ngModel)]="this.postnatal_selected">
+                <input type="checkbox" class="btn-check" (change)="criteriaChanged();" id="btncheck2" autocomplete="off"
+                    value="postnatal" [(ngModel)]="this.postnatal_selected">
                 <label class="btn btn-outline-danger h-100 text-start" style="width: 100%; flex: 1;" for="btncheck2">
                     <h6>Postnatal (P7+)</h6>
                     <small>Regenerative potential significantly reduced</small>
                 </label>
             </div>
             <div class="col-12">
-                <input type="checkbox" class="btn-check" (change)="criteriaChanged();" id="btncheck3" autocomplete="off" value="others"
-                    [(ngModel)]="this.others_selected">
+                <input type="checkbox" class="btn-check" (change)="criteriaChanged();" id="btncheck3" autocomplete="off"
+                    value="others" [(ngModel)]="this.others_selected">
                 <label class="btn btn-outline-danger h-100 text-start" style="width: 100%; flex: 1;" for="btncheck3">
                     <h6>Others (NA)</h6>
                     <small>General information about this experiment</small>
                 </label>
             </div>
+        </div>
+        <hr />
+        <div class="row g-1">
+            <button id="downloadButton" [disabled]="selectedRowData.length == 0" class="col-12 btn btn-secondary" icon="download"
+                (click)="downloadWrapper()">Download
+                Standardized Data</button>
         </div>
         <!--<hr />
         <h4>File type</h4>
@@ -72,7 +80,7 @@
             </div>
         </div>-->
     </div>
-    <div class="col-md-9 col-sm-12 scroll-lg">
+    <div class="col-md-9 col-sm-12">
         <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true"
             class="scrollspy-example-2" tabindex="0">
             <ng-container *ngIf="!query_completed">
@@ -91,17 +99,11 @@
                     <dxo-selection selectAllMode="allPages" [showCheckBoxesMode]="checkBoxesMode"
                         mode="multiple"></dxo-selection>
                     <dxi-column dataField="study_id" caption="PMID"></dxi-column>
-                    <dxi-column dataField="disease_status" caption="Age"></dxi-column>
+                    <dxi-column dataField="disease_status" caption="Group"></dxi-column>
                     <dxi-column dataField="notes" caption="Comparison"></dxi-column>
                     <dxi-column dataField="age" caption="Category"></dxi-column>
                     <dxi-column dataField="species" caption="File type"></dxi-column>
                 </dx-data-grid>
-
-                <div class="mt-2 d-flex justify-content-center">
-                    <button id="downloadButton" [disabled]="selectedRowData.length == 0" class="btn btn-danger"
-                    icon="download" (click)="downloadWrapper()">Download
-                    Standardized Data</button>
-                </div>
             </ng-container>
         </div>
     </div>

@@ -14,7 +14,7 @@ import JSZip from 'jszip';
 //const baseUrl = 'http://localhost:80/api/';
 
 //Prod Base URL
-const baseUrl = 'http://localhost:3305/api/';
+const baseUrl = 'http://160.94.104.178:3305/api/';
 
 //query paths
 const metaUrl = baseUrl.concat('metadata'.toString());
