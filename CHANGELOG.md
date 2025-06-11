@@ -2,6 +2,16 @@
 
 The latest version is **0.2502.24.0**, compiled on 8 May 2025.
 
+## 0.2506.7.0 - 11 June 2025
+
+### New features
+
+- **Download all data**: Now you can download all available data from the search & download page. Please notice that sorting cell types is not possible at this time.
+
+### Known issues
+
+- You may experience temporary stuck when downloading large files or multiple files.
+
 ## 0.2505.35.0 - 09 May 2025
 
 ### New features
