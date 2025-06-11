@@ -14,7 +14,7 @@ import JSZip from 'jszip';
 //const baseUrl = 'http://localhost:80/api/';
 
 //Prod Base URL
-const baseUrl = 'http://160.94.104.178:3305/api/';
+const baseUrl = 'http://localhost:3305/api/';
 
 //query paths
 const metaUrl = baseUrl.concat('metadata'.toString());
@@ -135,7 +135,7 @@ export class DatabaseService {
   }
 
   staticDownload(sample_ids: number[]): void {
-    const urls = sample_ids.map(id => `http://160.94.104.178:3305/static/Sample_${id}.tar.gz`);
+    const urls = sample_ids.map(id => `http://tests.autos:3305/downloads/${id}`);
     const fileRequests = urls.map(url => this.http.get(url, { responseType: 'blob' }).toPromise());
 
     // Create a promise for the metadata request
@@ -148,11 +148,10 @@ export class DatabaseService {
     Promise.all(allRequests)
       .then((responses: (Blob | undefined | any[])[]) => {  // Explicit type annotation
         const zip = new JSZip();
-        console.log('jhe')
         // Handle the file responses
         responses.slice(0, sample_ids.length).forEach((response, index) => {
           if (response instanceof Blob) {
-            const fileName = `Sample_${sample_ids[index]}.tar.gz`;
+            const fileName = `${sample_ids[index]}`;
             zip.file(fileName, response);
           } else {
             console.error(`Failed to download file at index ${index}`);

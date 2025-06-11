@@ -52,7 +52,7 @@ export class DatabaseConstsService {
   ];
   
   species: string[] =[
-    "Human", "Mouse"
+    "matrix", "barcodes", "tsne", "info", "features", "diffExp"
   ]
 
   DiffExpPMIDTissueDict: { [key: string]: number[] } = {
