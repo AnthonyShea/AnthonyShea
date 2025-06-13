@@ -121,15 +121,30 @@
 
 ::ng-deep .dx-buttongroup-item {
   background-color: transparent !important;
-  border: var(--bs-border-width) solid var(--bs-border-color-translucent) !important;
+  border: 0px !important;
 }
 
-::ng-deep .dx-buttongroup-item.dx-item-selected {
-  background-color: var(--bs-pink) !important;
+::ng-deep .dx-button-content{
+  position: relative !important;
+}
+
+::ng-deep .dx-button-content {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+::ng-deep .dx-buttongroup-item.dx-item-selected .dx-button-content::after {
+  content: ' ';
+  position: absolute;
+  bottom: 0;
+  width: 1rem;
+  height: .25rem;
+  background-color: var(--bs-pink);
+  border-radius: .125rem;
 }
 
 ::ng-deep .dx-item-selected .dx-button-text {
-  color: white;
+  color: var(--bs-body-color) !important;
 }
 
 

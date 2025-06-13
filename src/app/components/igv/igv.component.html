@@ -19,12 +19,12 @@
   <div class="col-md-3 col-sm-12 scroll-lg mt-3" *ngIf="this.genes.length > 0">
     <h4>Tissues</h4>
     <dx-tag-box style="width: 100% !important; flex: 1;" [items]="tissue_types"
-      [searchEnabled]="true" [hideSelectedItems]="true" placeholder="Select Tissue(s)"
+      [searchEnabled]="true" placeholder="Select Tissue(s)"
       (onValueChanged)="onTissuesChanged($event)" [showClearButton]="true" [showSelectionControls]="true"
       [multiline]="false" [maxDisplayedTags]="5" [value]='tissue_types'></dx-tag-box>
     <hr />
     <h4>Cell Types</h4>
-    <dx-tag-box style="width: 100%; flex: 1;" [items]="cell_types" [searchEnabled]="true" [hideSelectedItems]="true"
+    <dx-tag-box style="width: 100%; flex: 1;" [items]="cell_types" [searchEnabled]="true"
       placeholder="Select Cell Type(s)" (onValueChanged)="onCellChanged($event)" [showClearButton]="true"
       [showSelectionControls]="true" [multiline]="false" [maxDisplayedTags]="5" [value]='cell_types'
       paginate='true'></dx-tag-box>
