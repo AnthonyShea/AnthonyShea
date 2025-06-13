@@ -1,7 +1,7 @@
 // pathway-info.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { from, Observable, switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +13,9 @@ export class PathwayinfoService {
   constructor(private http: HttpClient) { }
 
   getPathwayInfo(goid: string): Observable<any> {
-    return this.http.get<any[]>(`${this.apiUrl}/${goid}`);
+    /* return from(fetch(`/proxy?id=${goid}`)).pipe(
+      switchMap(response => response.json())
+    ); */
+    return this.http.get<any>(`${this.apiUrl}${goid}`);
   }
 }

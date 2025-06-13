@@ -137,8 +137,7 @@ export class GoComponent implements OnInit {
         intersect: true,  // Tooltip appears only on exact hover
         custom: function ({ series, seriesIndex, dataPointIndex, w }) {
           const dataPoint = w.config.series[seriesIndex].data[dataPointIndex];
-          console.log(dataPoint)
-          return `<div style="font-style:'Roboto'; font-size: 14px;">${dataPoint.label}</div>`;
+          return `<div style="font-size: 14px;">${dataPoint.label}</div>`;
         }
       },
       markers: {
@@ -246,7 +245,7 @@ export class GoComponent implements OnInit {
       },
       colors: ['#708090'], // Set the fill color here
     };
-    console.log(this.term_selected)
+    console.log(this.term_selected);
   }
 
   createDisplayData() {
@@ -439,9 +438,7 @@ export class GoComponent implements OnInit {
       next: (data) => {
         this.pathway_info = data.results[0]
         this.pathway_info.name = this.pathway_info.name.replace(/\b\w/g, (char: string) => char.toUpperCase());
-      },
-      error: (e) => {
-        console.error(e);
+        console.log(this.pathway_info);
       },
       complete: () => { }
     })
@@ -486,7 +483,6 @@ export class GoComponent implements OnInit {
       .subscribe({
         next: (data) => {
           this.go_terms = data;
-          console.log(this.go_terms)
           this.createDisplayData();
           this.getPathDisplayData();
           this.loading = false;
@@ -501,7 +497,6 @@ export class GoComponent implements OnInit {
   makeGiniPlot() {
     const numBins = 100;
     const binCounts: number[] = Array(numBins).fill(0);
-    // Count occurrences in bins
     for (const gini_score of this.gini_scores) {
       if (gini_score.UpGini != -1) {
         const upBin = Math.min(Math.floor(gini_score.UpGini! * numBins), numBins - 1);

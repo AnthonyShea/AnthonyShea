@@ -18,7 +18,7 @@ export class AuthInterceptor implements HttpInterceptor {
     const authToken = this.authService.currentUserValue?.token;
 
     // Clone the request and add the authorization header
-    if (authToken) {
+    if (authToken && !(request.url.startsWith("https://www.ebi.ac.uk"))) {
       const authReq = request.clone({
         setHeaders: {
           Authorization: `Bearer ${authToken}`
