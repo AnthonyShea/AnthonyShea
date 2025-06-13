@@ -10,7 +10,7 @@ export class AppComponent {
   constructor() {
 
   }
-  static Version = "0.2506.7.0";
-  static CompileDate = "11 June 2025";
-  title = 'Chewie';
+  static Version = "0.2506.19.0";
+  static CompileDate = "13 June 2025";
+  title = 'Mouse Cardiac Regeneration Database';
 }

@@ -1,6 +1,26 @@
 # Version history
 
-The latest version is **0.2502.24.0**, compiled on 8 May 2025.
+The latest version is **0.2506.18.0**, compiled on 13 June 2025.
+
+## 0.2506.19.0 - 13 June 2025
+
+### New Features
+
+- **Redesigned Genome Browser**: The IGV and genome browser page was redesigned to fit large devices
+
+- **Redesigned navigation bar**: The navbar was redesigned to fit the modern design.
+
+### Fixed Issues
+
+- Now in the Go term enrichment page, you can view descriptions of the selected pathway.
+
+- Deprecated Gini index graph was removed from the Go term enrichment page.
+
+### Known Issues
+
+- Sometimes the IGV will return empty sets of gene cards, even if you have selected multiple genes.
+
+- Downloading large or multiple files may cause temporary slow down or crash of your browser.
 
 ## 0.2506.7.0 - 11 June 2025
 
