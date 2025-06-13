@@ -105,11 +105,11 @@
             </ng-container>
             <ng-container *ngIf="query_completed">
                 <h5>
-                    <span *ngIf="selectedRowKeys.length <= 1">{{selectedRowKeys.length}} Sample Totaling</span>
-                    <span *ngIf="selectedRowKeys.length > 1">{{selectedRowKeys.length}} Samples Totaling</span>
+                    <span *ngIf="selectedRowKeys.length <= 1">{{selectedRowKeys.length}} File Totaling</span>
+                    <span *ngIf="selectedRowKeys.length > 1">{{selectedRowKeys.length}} Files Totaling</span>
                     <span>&nbsp;{{downloadSize == null ? "0 Bytes" : downloadSize}} Selected</span>
                 </h5>
-
+                <p><small class="text-muted">Downloading multiple or large files requires zipping in the backend side which may cause temporary slow down.</small></p>
                 <dx-data-grid class="sampletable" id="gridContainer" [dataSource]="display!" keyExpr="sample_id"
                     [showBorders]="true" (onRowPrepared)="formatRow($event)" [selectedRowKeys]="selectedRowKeys"
                     (onSelectionChanged)="onSelectionChanged($event)">

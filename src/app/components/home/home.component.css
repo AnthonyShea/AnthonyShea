@@ -43,8 +43,9 @@
 }
 
 .help-image {
-  border: 1px solid #ddd;
+  border: var(--bs-border-width) solid var(--bs-border-color-translucent);
   border-radius: 5px;
+  filter: none !important;
 }
 
 .card-header h3 {
