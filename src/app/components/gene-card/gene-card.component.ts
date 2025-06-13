@@ -289,7 +289,8 @@ export class GeneCardComponent implements OnInit {
         }
       },
       title: {
-        text: this.gene_list[0].gene!.toString(),
+        // text: this.gene_list[0].gene!.toString(),
+        text: 'Sham - P1vsP8 - PSD1',
         align: "center",
         style: {
           color: "#000"
@@ -409,7 +410,7 @@ export class GeneCardComponent implements OnInit {
         }
       },
       title: {
-        text: this.gene_list[0].gene!.toString(),
+        text: 'MI - P1vsP8 - PSD1',
         align: "center",
         style: {
           color: "#000"
@@ -619,7 +620,7 @@ export class GeneCardComponent implements OnInit {
         }
       },
       title: {
-        text: this.gene_list[0].gene!.toString(),
+        text: 'Sham - P1vsP8 - PSD3',
         align: "center",
         style: {
           color: "#000"
@@ -708,7 +709,7 @@ export class GeneCardComponent implements OnInit {
         }
       },
       title: {
-        text: this.gene_list[0].gene!.toString(),
+        text: 'MI - P1vsP8 - PSD3',
         align: "center",
         style: {
           color: "#000"
@@ -927,7 +928,7 @@ export class GeneCardComponent implements OnInit {
         }
       },
       title: {
-        text: this.gene_list[0].gene!.toString(),
+        text: 'P1 - ShamvsMI - PSD1',
         align: "center",
         style: {
           color: "#000"
@@ -1025,7 +1026,7 @@ export class GeneCardComponent implements OnInit {
         }
       },
       title: {
-        text: this.gene_list[0].gene!.toString(),
+        text: 'P1 - ShamvsMI - PSD3',
         align: "center",
         style: {
           color: "#000"
@@ -1235,7 +1236,7 @@ export class GeneCardComponent implements OnInit {
         }
       },
       title: {
-        text: this.gene_list[0].gene!.toString(),
+        text: 'P8 - ShamvsMI - PSD1',
         align: "center",
         style: {
           color: "#000"
@@ -1324,7 +1325,7 @@ export class GeneCardComponent implements OnInit {
         }
       },
       title: {
-        text: this.gene_list[0].gene!.toString(),
+        text: 'P8 - ShamvsMI - PSD3',
         align: "center",
         style: {
           color: "#000"
@@ -1473,13 +1474,14 @@ export class GeneCardComponent implements OnInit {
 
       meta_series_info1_Sham = this.updateMetaSeriesInfo(meta_series_info1_Sham, lfc, p_value);
 
-      let fill_color = this.getFillColor(p_value, lfc);
-      let formatted_data = { x: lfc, y: p_value, fillColor: fill_color };
-      model_data1_Sham.push(formatted_data);
-
       if (lfc < min_lfc1_Sham) min_lfc1_Sham = lfc;
       if (lfc > max_lfc1_Sham) max_lfc1_Sham = lfc;
       if (p_value > max_p_val1_Sham) max_p_val1_Sham = p_value;
+
+      let fill_color = this.getFillColor(p_value, lfc);
+      if (p_value == 0) continue;
+      let formatted_data = { x: lfc, y: p_value, fillColor: fill_color };
+      model_data1_Sham.push(formatted_data);
     }
 
     for (let i = 0; i < cluster_number3_Sham; i++) {
@@ -1491,13 +1493,17 @@ export class GeneCardComponent implements OnInit {
 
       meta_series_info3_Sham = this.updateMetaSeriesInfo(meta_series_info3_Sham, lfc, p_value);
 
-      let fill_color = this.getFillColor(p_value, lfc);
-      let formatted_data = { x: lfc, y: p_value, fillColor: fill_color };
-      model_data3_Sham.push(formatted_data);
 
       if (lfc < min_lfc3_Sham) min_lfc3_Sham = lfc;
       if (lfc > max_lfc3_Sham) max_lfc3_Sham = lfc;
       if (p_value > max_p_val3_Sham) max_p_val3_Sham = p_value;
+
+
+      let fill_color = this.getFillColor(p_value, lfc);
+
+      if (p_value == 0) continue;
+      let formatted_data = { x: lfc, y: p_value, fillColor: fill_color };
+      model_data3_Sham.push(formatted_data);
     }
 
 
@@ -1510,13 +1516,14 @@ export class GeneCardComponent implements OnInit {
 
       meta_series_info1_MI = this.updateMetaSeriesInfo(meta_series_info1_MI, lfc, p_value);
 
-      let fill_color = this.getFillColor(p_value, lfc);
-      let formatted_data = { x: lfc, y: p_value, fillColor: fill_color };
-      model_data1_MI.push(formatted_data);
-
       if (lfc < min_lfc1_MI) min_lfc1_MI = lfc;
       if (lfc > max_lfc1_MI) max_lfc1_MI = lfc;
       if (p_value > max_p_val1_MI) max_p_val1_MI = p_value;
+
+      let fill_color = this.getFillColor(p_value, lfc);
+      if (p_value == 0) continue;
+      let formatted_data = { x: lfc, y: p_value, fillColor: fill_color };
+      model_data1_MI.push(formatted_data);
     }
 
     // Process PSD 3 group
@@ -1529,13 +1536,14 @@ export class GeneCardComponent implements OnInit {
 
       meta_series_info3_MI = this.updateMetaSeriesInfo(meta_series_info3_MI, lfc, p_value);
 
-      let fill_color = this.getFillColor(p_value, lfc);
-      let formatted_data = { x: lfc, y: p_value, fillColor: fill_color };
-      model_data3_MI.push(formatted_data);
-
       if (lfc < min_lfc3_MI) min_lfc3_MI = lfc;
       if (lfc > max_lfc3_MI) max_lfc3_MI = lfc;
       if (p_value > max_p_val3_MI) max_p_val3_MI = p_value;
+
+      let fill_color = this.getFillColor(p_value, lfc);
+      if (p_value == 0) continue;
+      let formatted_data = { x: lfc, y: p_value, fillColor: fill_color };
+      model_data3_MI.push(formatted_data);
     }
 
     for (let i = 0; i < cluster_numberP1_1; i++) {
@@ -1547,13 +1555,15 @@ export class GeneCardComponent implements OnInit {
 
       meta_series_infoP1_1 = this.updateMetaSeriesInfo(meta_series_infoP1_1, lfc, p_value);
 
-      let fill_color = this.getFillColor(p_value, lfc);
-      let formatted_data = { x: lfc, y: p_value, fillColor: fill_color };
-      model_dataP1_1.push(formatted_data);
-
       if (lfc < min_lfcP1_1) min_lfcP1_1 = lfc;
       if (lfc > max_lfcP1_1) max_lfcP1_1 = lfc;
       if (p_value > max_p_valP1_1) max_p_valP1_1 = p_value;
+
+      let fill_color = this.getFillColor(p_value, lfc);
+
+      if (p_value == 0) continue;
+      let formatted_data = { x: lfc, y: p_value, fillColor: fill_color };
+      model_dataP1_1.push(formatted_data);
     }
 
     for (let i = 0; i < cluster_numberP8_1; i++) {
@@ -1565,13 +1575,15 @@ export class GeneCardComponent implements OnInit {
 
       meta_series_infoP8_1 = this.updateMetaSeriesInfo(meta_series_infoP8_1, lfc, p_value);
 
-      let fill_color = this.getFillColor(p_value, lfc);
-      let formatted_data = { x: lfc, y: p_value, fillColor: fill_color };
-      model_dataP8_1.push(formatted_data);
-
       if (lfc < min_lfcP8_1) min_lfcP8_1 = lfc;
       if (lfc > max_lfcP8_1) max_lfcP8_1 = lfc;
       if (p_value > max_p_valP8_1) max_p_valP8_1 = p_value;
+
+      let fill_color = this.getFillColor(p_value, lfc);
+      if (p_value == 0) continue;
+
+      let formatted_data = { x: lfc, y: p_value, fillColor: fill_color };
+      model_dataP8_1.push(formatted_data);
     }
 
 
@@ -1584,13 +1596,14 @@ export class GeneCardComponent implements OnInit {
 
       meta_series_infoP1_3 = this.updateMetaSeriesInfo(meta_series_infoP1_3, lfc, p_value);
 
-      let fill_color = this.getFillColor(p_value, lfc);
-      let formatted_data = { x: lfc, y: p_value, fillColor: fill_color };
-      model_dataP1_3.push(formatted_data);
-
       if (lfc < min_lfcP1_3) min_lfcP1_3 = lfc;
       if (lfc > max_lfcP1_3) max_lfcP1_3 = lfc;
       if (p_value > max_p_valP1_3) max_p_valP1_3 = p_value;
+
+      let fill_color = this.getFillColor(p_value, lfc);
+      if (p_value == 0) continue;
+      let formatted_data = { x: lfc, y: p_value, fillColor: fill_color };
+      model_dataP1_3.push(formatted_data);
     }
 
     // Process PSD 3 group
@@ -1603,13 +1616,14 @@ export class GeneCardComponent implements OnInit {
 
       meta_series_infoP8_3 = this.updateMetaSeriesInfo(meta_series_infoP8_3, lfc, p_value);
 
-      let fill_color = this.getFillColor(p_value, lfc);
-      let formatted_data = { x: lfc, y: p_value, fillColor: fill_color };
-      model_dataP8_3.push(formatted_data);
-
       if (lfc < min_lfcP8_3) min_lfcP8_3 = lfc;
       if (lfc > max_lfcP8_3) max_lfcP8_3 = lfc;
       if (p_value > max_p_valP8_3) max_p_valP8_3 = p_value;
+
+      let fill_color = this.getFillColor(p_value, lfc);
+      if (p_value == 0) continue;
+      let formatted_data = { x: lfc, y: p_value, fillColor: fill_color };
+      model_dataP8_3.push(formatted_data);
     }
 
 
@@ -1710,7 +1724,7 @@ export class GeneCardComponent implements OnInit {
           fontSize: '16px',
           color: "#000"
         }
-        
+
       },
       tooltip: {
         formatter: function (val, opts) {
