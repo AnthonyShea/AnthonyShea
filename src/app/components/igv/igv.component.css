@@ -161,3 +161,14 @@
   color: var(--bs-body-color);
   border-radius: var(--bs-border-radius);
 }
+
+@media (min-width: 992px) {
+
+    /* Bootstrap 的 lg 起点 */
+    .scroll-lg {
+        /* 给外层 row 加这个类 */
+        height: 100vh;
+        /* 或 100dvh / 100svh */
+        overflow-y: auto;
+    }
+}

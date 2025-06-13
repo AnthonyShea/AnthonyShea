@@ -6,65 +6,47 @@
   </div>
 </div>
 <div class="row mt-2 g-2">
-
   <!-- Content area -->
-  <div #igvdiv class="igv" part="igv"></div>
-
-  <div class="d-flex justify-content-center">
-    <button color="accent" (click)="getInRangeGenes()" class="d-flex btn btn-danger justify-content-center">Get
-      Differential Expression Data</button>
-  </div>
-
-  <div class="row g-2">
-
-    <div class="col-md-5 col-sm-12">
-      <div class="input-group">
-        <span *ngIf="this.genes.length > 0" class="input-group-text text-bg-danger">Selected Tissues</span>
-        <dx-tag-box *ngIf="this.genes.length > 0" style="width: 100%; flex: 1;" [items]="tissue_types" [width]="100"
-          [searchEnabled]="true" [hideSelectedItems]="true" placeholder="Select Tissue(s)"
-          (onValueChanged)="onTissuesChanged($event)" [showClearButton]="true" [showSelectionControls]="true"
-          [multiline]="false" [maxDisplayedTags]="5" [value]='tissue_types'></dx-tag-box>
-      </div>
-    </div>
-    <div class="col-md-5 col-sm-12">
-      <div class="input-group">
-        <span *ngIf="this.genes.length > 0" class="input-group-text text-bg-danger">Selected Cell Types</span>
-        <dx-tag-box *ngIf="this.genes.length > 0" style="width: 100%; flex: 1;" [items]="cell_types" [width]="100"
-          [searchEnabled]="true" [hideSelectedItems]="true" placeholder="Select Cell Type(s)"
-          (onValueChanged)="onCellChanged($event)" [showClearButton]="true" [showSelectionControls]="true"
-          [multiline]="false" [maxDisplayedTags]="5" [value]='cell_types' paginate='true'></dx-tag-box>
-      </div>
-    </div>
-    <div class="col-md-2 col-sm-12">
-      <div class="d-flex align-items-center h-100">
-        <button class="btn btn-danger w-100 " (click)="subsetCorrectCellAndTissueTypes()"
-          *ngIf="this.genes.length > 0">Apply</button>
-      </div>
-    </div>
-
-    <div class="col-12">
-      <div class="card" *ngIf="this.genes.length > 0">
-        <div class="card-header">
-          <h5 class="card-title">Gene LFC Legend:</h5>
-        </div>
-        <div class="card-body">
-          <div class="row">
-            <h6 class="col" style="color:#9C27B0;">Significantly Downregulated</h6>
-            <h6 class="col" style="color: #00BCD4;">Slightly Downregulated</h6>
-            <h6 class="col" style="color: #4CAF50;">No Change</h6>
-            <h6 class="col" style="color: #FFC300;">Slightly Upregulated</h6>
-            <h6 class="col" style="color: #FF5733;">Significantly Upregulated</h6>
-          </div>
-        </div>
-        <div class="card-footer">
-          <h6>Black represents clusters whose linear model does not have a significant fit</h6>
-        </div>
-      </div>
+  <div class="col-12">
+    <div #igvdiv class="igv" part="igv"></div>
+    <div class="d-flex justify-content-center mt-3">
+      <button color="accent" (click)="getInRangeGenes()" class="btn btn-mcaredb">
+        <i class="fa fa-magnifying-glass"></i>
+        Get Differential Expression Data
+      </button>
     </div>
   </div>
+  <div class="col-md-3 col-sm-12 scroll-lg mt-3" *ngIf="this.genes.length > 0">
+    <h4>Tissues</h4>
+    <dx-tag-box style="width: 100% !important; flex: 1;" [items]="tissue_types"
+      [searchEnabled]="true" [hideSelectedItems]="true" placeholder="Select Tissue(s)"
+      (onValueChanged)="onTissuesChanged($event)" [showClearButton]="true" [showSelectionControls]="true"
+      [multiline]="false" [maxDisplayedTags]="5" [value]='tissue_types'></dx-tag-box>
+    <hr />
+    <h4>Cell Types</h4>
+    <dx-tag-box style="width: 100%; flex: 1;" [items]="cell_types" [searchEnabled]="true" [hideSelectedItems]="true"
+      placeholder="Select Cell Type(s)" (onValueChanged)="onCellChanged($event)" [showClearButton]="true"
+      [showSelectionControls]="true" [multiline]="false" [maxDisplayedTags]="5" [value]='cell_types'
+      paginate='true'></dx-tag-box>
+    <hr />
+    <button class="btn btn-mcaredb w-100" (click)="subsetCorrectCellAndTissueTypes()">
+      <i class="fa fa-arrows-rotate"></i> Apply
+    </button>
+    <hr />
+    <h4>Legends</h4>
+    <h6 class="col" style="color:#9C27B0;">Significantly Downregulated</h6>
+    <h6 class="col" style="color: #00BCD4;">Slightly Downregulated</h6>
+    <h6 class="col" style="color: #4CAF50;">No Change</h6>
+    <h6 class="col" style="color: #FFC300;">Slightly Upregulated</h6>
+    <h6 class="col" style="color: #FF5733;">Significantly Upregulated</h6>
+    <h6>Black represents clusters whose linear model does not have a significant fit</h6>
+    <hr />
+    <h4>Notes</h4>
+    <p><small class="text-muted">All p-values higher than 0.05 were hidden in the scatter plots.</small></p>
+  </div>
 
-  <div class="row g-2" [class.searching]="loading">
-    <div *ngFor="let gene_list of this.grouped_genes">
+  <div class="col-md-9 col-sm-12 scroll-lg mt-2" [class.searching]="loading" *ngIf="this.genes.length > 0">
+    <div *ngFor="let gene_list of this.grouped_genes" class="mt-1 mb-1">
       <app-gene-card [gene_list]="gene_list" [indices]="selected_indices"></app-gene-card>
     </div>
   </div>
