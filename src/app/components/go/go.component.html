@@ -7,32 +7,32 @@
 <div class="row mt-2 g-2">
   <div class="col-md-3 col-sm-12 scroll-lg">
     <h4>Comparison Type</h4>
-      <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedComparisonType">
-        <option *ngFor="let item of comparisonTypes" [value]="item.value">{{item.text}}</option>
-      </select>
-      <hr />
-      <h4>Tissues</h4>
-      <dx-tag-box [items]="tissue_types" [searchEnabled]="true" [hideSelectedItems]="true" placeholder="Select Tissues"
-        [showMultiTagOnly]="false" [maxDisplayedTags]="4" [showClearButton]="true" style="width: 100%; flex: 1;"
-        [showSelectionControls]="true" [(value)]='selected_tissues'></dx-tag-box>
-      <hr />
-      <!--CELL TYPE SELECT BOX-->
-      <h4>Cell Types</h4>
-      <dx-tag-box [items]="cell_types" [searchEnabled]="true" [hideSelectedItems]="true" placeholder="Select Cell Types"
-        [showMultiTagOnly]="false" [maxDisplayedTags]="4" [showClearButton]="true" style="width: 100%; flex: 1;"
-        [showSelectionControls]="true" [(value)]='selected_cell_types'></dx-tag-box>
-      <hr />
-      <h4>Pathways</h4>
-      <dx-autocomplete [dataSource]="pathways" [(value)]="selected_pathway" [minSearchLength]="1" searchEnabled="true"
-        [searchMode]="selected_search_mode" [maxItemCount]="200" [showDropDownButton]="true"></dx-autocomplete>
-      <h6 class="mt-2">Search mode</h6>
-      <select class="form-select" aria-label="Default select example" [(ngModel)]="selected_search_mode">
-        <option *ngFor="let item of search_modes" [value]="item.value">{{item.text}}</option>
-      </select>
-      <hr />
-      <button (click)="getNewData()" class="btn btn-danger w-100">
-        Select GO Results
-      </button>
+    <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedComparisonType">
+      <option *ngFor="let item of comparisonTypes" [value]="item.value">{{item.text}}</option>
+    </select>
+    <!--<hr />
+    <h4>Tissues</h4>
+    <dx-tag-box [items]="tissue_types" [searchEnabled]="true" [hideSelectedItems]="true" placeholder="Select Tissues"
+      [showMultiTagOnly]="false" [maxDisplayedTags]="4" [showClearButton]="true" style="width: 100%; flex: 1;"
+      [showSelectionControls]="true" [(value)]='selected_tissues'></dx-tag-box>-->
+    <hr />
+    <!--CELL TYPE SELECT BOX-->
+    <h4>Cell Types</h4>
+    <dx-tag-box [items]="cell_types" [searchEnabled]="true" [hideSelectedItems]="true" placeholder="Select Cell Types"
+      [showMultiTagOnly]="false" [maxDisplayedTags]="4" [showClearButton]="true" style="width: 100%; flex: 1;"
+      [showSelectionControls]="true" [(value)]='selected_cell_types'></dx-tag-box>
+    <hr />
+    <h4>Pathways</h4>
+    <dx-autocomplete [dataSource]="pathways" [(value)]="selected_pathway" [minSearchLength]="1" searchEnabled="true"
+      [searchMode]="selected_search_mode" [maxItemCount]="200" [showDropDownButton]="true"></dx-autocomplete>
+    <h6 class="mt-2">Search mode</h6>
+    <select class="form-select" aria-label="Default select example" [(ngModel)]="selected_search_mode">
+      <option *ngFor="let item of search_modes" [value]="item.value">{{item.text}}</option>
+    </select>
+    <hr />
+    <button (click)="getNewData()" class="btn btn-mcaredb w-100">
+      <i class="fa fa-magnifying-glass"></i> GO Results
+    </button>
   </div>
   <div class="col-md-6 col-sm-12 scroll-lg">
     <apx-chart [series]="go_chart_options.series!" [chart]="go_chart_options.chart!" [xaxis]="go_chart_options.xaxis!"
@@ -40,14 +40,18 @@
       [annotations]="go_chart_options.annotations!" [tooltip]="go_chart_options.tooltip!"
       style="margin-bottom: 1000px;">
     </apx-chart>
-    <apx-chart [series]="hist_chart_options.series!" [chart]="hist_chart_options.chart!"
+    <!--<apx-chart [series]="hist_chart_options.series!" [chart]="hist_chart_options.chart!"
       [stroke]="hist_chart_options.stroke!" [yaxis]="hist_chart_options.yaxis!" [xaxis]="hist_chart_options.xaxis!"
       [dataLabels]="hist_chart_options.dataLabels!" [tooltip]="hist_chart_options.tooltip!"
       [annotations]="hist_chart_options.annotations!" [colors]="hist_chart_options.colors!"
-      style="margin-top: 10px;"></apx-chart>
-    <div *ngIf="pathway_info" class="pathway-info">
-      <span class='pathway-name'>{{pathway_info.name}}</span>
-      <span class='pathway-description'>{{pathway_info.definition.text}}</span>
+      style="margin-top: 10px;"></apx-chart>-->
+    <div *ngIf="pathway_info != '' && pathway_info != null" class="card mt-3">
+      <div class="card-header">
+        <h5 class="text-center">{{pathway_info.name}}</h5>
+      </div>
+      <div class="card-body">
+        <p>{{pathway_info.definition.text}}</p>
+      </div>
     </div>
   </div>
 
@@ -118,3 +122,7 @@
     </div>
   </div>
 </div>
+<script>
+  const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+  const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+</script>

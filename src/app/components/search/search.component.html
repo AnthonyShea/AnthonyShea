@@ -3,10 +3,9 @@
         <h4>File type</h4>
         <div class="input-group mb-2 d-flex justify-content-between">
             <dx-tag-box class='dx-tag-box' [items]="species" [searchEnabled]="true" [hideSelectedItems]="true"
-                [hideSelectedItems]="false" [maxDisplayedTags]="4" style="width: 100%; flex: 1;" [showClearButton]="true"
-                [showSelectionControls]="true"
-                (onValueChanged)="onSpeciesChanged($event)" placeholder="Select species"
-                [value]='selected_species'></dx-tag-box>
+                [hideSelectedItems]="false" [maxDisplayedTags]="4" style="width: 100%; flex: 1;"
+                [showClearButton]="true" [showSelectionControls]="true" (onValueChanged)="onSpeciesChanged($event)"
+                placeholder="Select species" [value]='selected_species'></dx-tag-box>
         </div>
         <hr />
         <!--<h4>Tissue</h4>
@@ -27,36 +26,54 @@
         <hr />
         <h4>Category</h4>
         <div class="row g-1">
+            <p class="col-12 text-muted"><small>Highlight these boxes to select categories.</small></p>
             <div class="col-12">
                 <input type="checkbox" class="btn-check" (change)="criteriaChanged();" id="btncheck1" autocomplete="off"
                     value="neonetal" [(ngModel)]="this.neonatal_selected">
-                <label class="btn btn-outline-danger h-100 text-start" style="width: 100%; flex: 1;" for="btncheck1">
-                    <h6>Neonatal (P1 -P6)</h6>
-                    <small>Complete cardiac regeneration capacity</small>
+                <label class="btn btn-outline-mcaredb h-100 text-start" style="width: 100%; flex: 1;" for="btncheck1">
+                    <div class="d-flex align-items-center justify-content-left">
+                        <i class="fa fa-flask"></i>
+                        <div class="category-checkbox">
+                            <h6>Neonatal (P1 -P6)</h6>
+                            <small>Complete cardiac regeneration capacity</small>
+                        </div>
+                    </div>
                 </label>
             </div>
             <div class="col-12">
                 <input type="checkbox" class="btn-check" (change)="criteriaChanged();" id="btncheck2" autocomplete="off"
                     value="postnatal" [(ngModel)]="this.postnatal_selected">
-                <label class="btn btn-outline-danger h-100 text-start" style="width: 100%; flex: 1;" for="btncheck2">
-                    <h6>Postnatal (P7+)</h6>
-                    <small>Regenerative potential significantly reduced</small>
+                <label class="btn btn-outline-mcaredb h-100 text-start" style="width: 100%; flex: 1;" for="btncheck2">
+                    <div class="d-flex align-items-center justify-content-left">
+                        <i class="fa fa-flask"></i>
+                        <div class="category-checkbox">
+                            <h6>Postnatal (P7+)</h6>
+                            <small>Regenerative potential significantly reduced</small>
+                        </div>
+                    </div>
                 </label>
             </div>
             <div class="col-12">
                 <input type="checkbox" class="btn-check" (change)="criteriaChanged();" id="btncheck3" autocomplete="off"
                     value="others" [(ngModel)]="this.others_selected">
-                <label class="btn btn-outline-danger h-100 text-start" style="width: 100%; flex: 1;" for="btncheck3">
-                    <h6>Others (NA)</h6>
-                    <small>General information about this experiment</small>
+                <label class="btn btn-outline-mcaredb h-100 text-start" style="width: 100%; flex: 1;" for="btncheck3">
+                    <div class="d-flex align-items-center justify-content-left">
+                        <i class="fa fa-info-circle"></i>
+                        <div class="category-checkbox">
+                            <h6>Others (NA)</h6>
+                            <small>General information about this experiment</small>
+                        </div>
+                    </div>
                 </label>
             </div>
         </div>
         <hr />
         <div class="row g-1">
-            <button id="downloadButton" [disabled]="selectedRowData.length == 0" class="col-12 btn btn-secondary" icon="download"
-                (click)="downloadWrapper()">Download
-                Standardized Data</button>
+            <button id="downloadButton" [disabled]="selectedRowData.length == 0" class="col-12 btn btn-mcaredb"
+                icon="download" (click)="downloadWrapper()">
+                <i class="fa fa-download"></i>
+                Download Standardized Data
+            </button>
         </div>
         <!--<hr />
         <h4>File type</h4>
@@ -64,18 +81,18 @@
             <div class="col-lg-4 col-md-12">
                 <input type="checkbox" class="btn-check" id="degResults" autocomplete="off" value="degResult"
                     [(ngModel)]="this.degResults_selected">
-                <label class="btn btn-outline-danger h-100" style="width: 100%; flex: 1;" for="degResults">Deg Results</label>
+                <label class="btn btn-outline-mcaredb h-100" style="width: 100%; flex: 1;" for="degResults">Deg Results</label>
             </div>
             <div class="col-lg-4 col-md-12">
                 <input type="checkbox" class="btn-check" id="expMatrix" autocomplete="off" value="expMatrix"
                     [(ngModel)]="this.expMatrix_selected" (change)="criteriaChanged();">
-                <label class="btn btn-outline-danger h-100" style="width: 100%; flex: 1;" for="expMatrix">Exp
+                <label class="btn btn-outline-mcaredb h-100" style="width: 100%; flex: 1;" for="expMatrix">Exp
                     Matrix</label>
             </div>
             <div class="col-lg-4 col-md-12">
                 <input type="checkbox" class="btn-check" id="goEnrich" autocomplete="off" value="goEnrich"
                     [(ngModel)]="this.goEnrich_selected">
-                <label class="btn btn-outline-danger h-100" style="width: 100%; flex: 1;" for="goEnrich">Go
+                <label class="btn btn-outline-mcaredb h-100" style="width: 100%; flex: 1;" for="goEnrich">Go
                     Enrich</label>
             </div>
         </div>-->

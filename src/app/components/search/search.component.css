@@ -70,12 +70,18 @@
     color: white;
 }
 
-::ng-deep .dx-button-mode-contained.dx-buttongroup-first-item.dx-button, .dx-button-mode-contained.dx-buttongroup-first-item.dx-state-hover .dx-button-content, .dx-button-mode-outlined.dx-buttongroup-first-item.dx-button, .dx-button-mode-outlined.dx-buttongroup-first-item.dx-state-hover .dx-button-content {
+::ng-deep .dx-button-mode-contained.dx-buttongroup-first-item.dx-button,
+.dx-button-mode-contained.dx-buttongroup-first-item.dx-state-hover .dx-button-content,
+.dx-button-mode-outlined.dx-buttongroup-first-item.dx-button,
+.dx-button-mode-outlined.dx-buttongroup-first-item.dx-state-hover .dx-button-content {
     border-top-left-radius: .375rem;
     border-bottom-left-radius: .375rem;
 }
 
-::ng-deep .dx-button-mode-contained.dx-buttongroup-last-item.dx-button, .dx-button-mode-contained.dx-buttongroup-last-item.dx-state-hover .dx-button-content, .dx-button-mode-outlined.dx-buttongroup-last-item.dx-button, .dx-button-mode-outlined.dx-buttongroup-last-item.dx-state-hover .dx-button-content {
+::ng-deep .dx-button-mode-contained.dx-buttongroup-last-item.dx-button,
+.dx-button-mode-contained.dx-buttongroup-last-item.dx-state-hover .dx-button-content,
+.dx-button-mode-outlined.dx-buttongroup-last-item.dx-button,
+.dx-button-mode-outlined.dx-buttongroup-last-item.dx-state-hover .dx-button-content {
     border-top-right-radius: .375rem;
     border-bottom-right-radius: .375rem;
 }
@@ -163,12 +169,22 @@
     transition: .1s ease-in-out;
 }
 
-::ng-deep .dx-page:hover, ::ng-deep .dx-page.dx-selection {
+::ng-deep .dx-page:hover,
+::ng-deep .dx-page.dx-selection {
     background-color: rgba(var(--bs-body-color-rgb), .1) !important;
     border: var(--bs-border-width) solid var(--bs-border-color-translucent) !important;
 }
 
-::ng-deep .dx-page:focus, ::ng-deep .dx-page:active {
+::ng-deep .dx-page:focus,
+::ng-deep .dx-page:active {
     background-color: rgba(var(--bs-body-color-rgb), .2) !important;
     border: var(--bs-border-width) solid var(--bs-border-color-translucent) !important;
+}
+
+::ng-deep .category-checkbox * {
+    margin-bottom: 0px !important;
+}
+
+::ng-deep .category-checkbox {
+    padding-left: 1rem !important;
 }

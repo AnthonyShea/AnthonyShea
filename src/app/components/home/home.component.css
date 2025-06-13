@@ -5,8 +5,8 @@
 }
 
 .research-focus {
-  background: rgba(255, 99, 99, .2);
-  border-left: 4px solid #c62828;
+  background: rgba(var(--bs-pink-rgb), .2);
+  border-left: 4px solid #d63384;
   padding: 1.5rem;
   font-size: 1.1rem;
 }
@@ -45,7 +45,6 @@
 .help-image {
   border: 1px solid #ddd;
   border-radius: 5px;
-  padding: 5px;
 }
 
 .card-header h3 {
